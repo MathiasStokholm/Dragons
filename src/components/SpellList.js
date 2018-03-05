@@ -1,15 +1,15 @@
 import React from 'react'
 import PropTypes from 'prop-types';
-import {Link, withRouter} from 'react-router-dom';
+import {withRouter} from 'react-router-dom';
 import {
     Button,
-    Card, CardBody, CardLink, CardText, CardTitle, Form, Input, InputGroup, InputGroupAddon, ListGroup,
+    Form, Input, InputGroup, InputGroupAddon, ListGroup,
     ListGroupItem, Modal, ModalBody, ModalFooter, ModalHeader, Table
 } from "reactstrap";
 import getSpells from '../data/spells';
 
 function getUrlParameter(inputString, name) {
-    name = name.replace(/[\[]/, '\\[').replace(/[\]]/, '\\]');
+    name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
     let regex = new RegExp('[\\?&]' + name + '=([^&#]*)');
     let results = regex.exec(inputString);
     return results === null ? '' : decodeURIComponent(results[1].replace(/\+/g, ' '));
@@ -80,9 +80,12 @@ class SpellList extends React.Component {
                     </InputGroup>
                 </Form>
 
+                {renderedSpells.length > 0?
                 <ListGroup style={{width: "auto"}}>
                     {renderedSpells}
                 </ListGroup>
+                    : <h5 style={{textAlign: "center"}}>No spells matched search!</h5>
+                }
 
                 {selectedSpell && (
                     <Modal isOpen={this.state.modalOpen} toggle={this.closeModal}>
@@ -92,15 +95,15 @@ class SpellList extends React.Component {
                                 <tbody>
                                 <tr>
                                     <th>Level:</th>
-                                    <td>{selectedSpell.classes.join("/") + " " + selectedSpell.level}</td>
+                                    <td>{selectedSpell.classes.map(clazz => clazz.name).join("/") + " " + selectedSpell.level}</td>
                                 </tr>
                                 <tr>
                                     <th>Components:</th>
-                                    <td>{selectedSpell.components.raw}</td>
+                                    <td>{selectedSpell.components.join(", ")}</td>
                                 </tr>
                                 <tr>
                                     <th>School:</th>
-                                    <td>{selectedSpell.school}</td>
+                                    <td>{selectedSpell.school.name}</td>
                                 </tr>
                                 <tr>
                                     <th>Range:</th>
@@ -115,20 +118,30 @@ class SpellList extends React.Component {
                                     <td>{selectedSpell.duration}</td>
                                 </tr>
                                 <tr>
+                                    <th>Concentration:</th>
+                                    <td>{selectedSpell.concentration}</td>
+                                </tr>
+                                <tr>
                                     <th>Ritual:</th>
-                                    <td>{selectedSpell.ritual? "Yes": "No"}</td>
+                                    <td>{selectedSpell.ritual}</td>
+                                </tr>
+                                <tr>
+                                    <th>Page:</th>
+                                    <td>{selectedSpell.page}</td>
                                 </tr>
                                 </tbody>
                             </Table>
-                            <p>{selectedSpell.description}</p>
 
+                            {selectedSpell.desc.map(description =>
+                                <p>{description}</p>
+                            )}
 
-                            {selectedSpell.higher_levels &&
+                            {selectedSpell.higher_level > 0 &&
                             <Table style={{cellSpacing: 0}}>
                                 <tbody>
                                 <tr>
                                     <th>Higher levels:</th>
-                                    <td>{selectedSpell.higher_levels}</td>
+                                    <td>{selectedSpell.higher_level[0]}</td>
                                 </tr>
                                 </tbody>
                             </Table>
