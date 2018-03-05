@@ -6,7 +6,6 @@ import {
     Form, Input, InputGroup, InputGroupAddon, ListGroup,
     ListGroupItem, Modal, ModalBody, ModalFooter, ModalHeader, Table
 } from "reactstrap";
-import getSpells from '../data/spells';
 
 function getUrlParameter(inputString, name) {
     name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
@@ -56,8 +55,7 @@ class SpellList extends React.Component {
     }
 
     render() {
-        const spells = getSpells();
-        const filteredSpells = spells.filter(spell => spell.name.toLowerCase().includes(this.state.query.toLowerCase()));
+        const filteredSpells = this.props.spells.filter(spell => spell.name.toLowerCase().includes(this.state.query.toLowerCase()));
         const renderedSpells = filteredSpells.map(spell =>
             <ListGroupItem tag="a" href="#" onClick={() => this.spellDetails(spell)}>
                 {spell.name}
@@ -159,6 +157,7 @@ class SpellList extends React.Component {
 }
 
 SpellList.propTypes = {
+    spells: PropTypes.array.isRequired,
     match: PropTypes.object.isRequired
 };
 
