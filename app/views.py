@@ -25,6 +25,13 @@ class InitiativeNamespace(Namespace):
         emit('new_state', encounter.asdict(follow=dict(characters={})), broadcast=broadcast)
 
     @staticmethod
+    def on_name_check(data):
+        name = data['name']
+
+        character = db.session.query(Character).filter_by(name=name).first()
+        emit('name_validation', {'valid': character is None})
+
+    @staticmethod
     def on_new_character(data):
         name = data['name']
 
