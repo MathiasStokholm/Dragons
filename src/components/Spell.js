@@ -3,14 +3,10 @@ import {Table} from "reactstrap";
 
 class Spell extends React.Component {
     static renderData(data) {
-        if (data.type === 'table') {
-            return <p><b>TABLE RENDERING NOT SUPPORTED YET - REFER TO BOOK</b></p>
-        }
-
         if (data.type === 'entries') {
             return (
                 <div>
-                    <p>{data.name}</p>
+                    <p><b>{data.name}</b></p>
                     <ul>
                         {data.entries.map(entry =>
                             <li>{entry}</li>
@@ -18,9 +14,7 @@ class Spell extends React.Component {
                     </ul>
                 </div>
             )
-        }
-
-        if (data.type === 'list') {
+        } else if (data.type === 'list') {
             return (
                 <ul>
                     {data.items.map(entry =>
@@ -28,6 +22,8 @@ class Spell extends React.Component {
                     )}
                 </ul>
             )
+        } else {
+            return <p><b>RENDERING OF TYPE {data.type} NOT SUPPORTED YET - REFER TO BOOK</b></p>
         }
     }
 
