@@ -2,7 +2,7 @@ import React from 'react'
 import {withRouter} from 'react-router-dom';
 import io from 'socket.io-client';
 import {
-    Button, ButtonGroup, Col, Container, Form, FormGroup, Input, Label, ListGroup, Row
+    Button, ButtonGroup, Col, Container, Form, FormFeedback, FormGroup, Input, Label, ListGroup, Row
 } from "reactstrap";
 import Character from "./Character";
 import styled from 'styled-components';
@@ -23,7 +23,8 @@ class Initiative extends React.Component {
             encounter: null,
             name: "",
             initiative: 0,
-            secret_initiative: false
+            secret_initiative: false,
+            name_valid: null
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
@@ -32,6 +33,13 @@ class Initiative extends React.Component {
             console.log('Got new state:', encounter);
             this.setState({
                 encounter: encounter
+            });
+        });
+
+        socket.on('name_validation', data => {
+            const validity = data['valid'];
+            this.setState({
+                name_valid: validity
             });
         });
     }
@@ -69,6 +77,17 @@ class Initiative extends React.Component {
         this.setState({
             [id]: value
         });
+
+        // Handle name validation
+        if (id === 'name') {
+            if (value.length > 0) {
+                socket.emit('name_check', {'name': value});
+            } else {
+                this.setState({
+                    name_valid: null
+                });
+            }
+        }
     }
 
     render() {
@@ -79,10 +98,37 @@ class Initiative extends React.Component {
             running = encounter.running;
             characters = encounter.characters
                 .sort((a, b) => parseInt(b.initiative, 10) - parseInt(a.initiative, 10))
-                .map(character => <Character character={character}
-                                             hasTurn={encounter.running && (encounter.current_character_id === character.id)}
-                                             onDeleteClicked={() => this.onDelete(character.id)}
-                                             key={character.id} /> );
+                .map(character => {
+                    return <Character character={character}
+                                      hasTurn={encounter.running && (encounter.current_character_id === character.id)}
+                                      onDeleteClicked={() => this.onDelete(character.id)}
+                                      key={character.id} />
+                });
+        }
+
+        // Handle name row validity visualization
+        let nameRow;
+        if (this.state.name_valid == null) {
+            nameRow = <FormGroup row>
+                <Label for="name">Name</Label>
+                <Input type="search" name="search" id="name" placeholder="Character name"
+                       onChange={this.handleInputChange}/>
+            </FormGroup>
+        } else if (this.state.name_valid) {
+            nameRow = <FormGroup row>
+                <Label for="name">Name</Label>
+                <Input valid type="search" name="search" id="name" placeholder="Character name"
+                       onChange={this.handleInputChange}/>
+                <FormFeedback valid>Name is available</FormFeedback>
+            </FormGroup>
+        } else {
+            // Invalid
+            nameRow = <FormGroup row>
+                <Label for="name">Name</Label>
+                <Input invalid type="search" name="search" id="name" placeholder="Character name"
+                       onChange={this.handleInputChange}/>
+                <FormFeedback>Oh noes! that name is already taken</FormFeedback>
+            </FormGroup>
         }
 
         return (
@@ -91,11 +137,7 @@ class Initiative extends React.Component {
                     <Col/>
                     <Col xs="auto">
                         <Form onSubmit={this.onSubmit.bind(this)}>
-                            <FormGroup row>
-                                <Label for="name">Name</Label>
-                                <Input type="search" name="search" id="name" placeholder="Character name"
-                                       onChange={this.handleInputChange}/>
-                            </FormGroup>
+                            {nameRow}
                             <FormGroup row>
                                 <Label for="initiative">Initiative</Label>
                                 <Input type="number" name="number" id="initiative" placeholder="Initiative"
