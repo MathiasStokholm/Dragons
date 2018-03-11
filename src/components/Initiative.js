@@ -13,7 +13,7 @@ const AlignedText = styled.div`
   align-items: center;
 `;
 
-const socket = io('http://192.168.1.181:5000/initiative', {transports: ['websocket']});
+const socket = io('http://52.33.78.55:5000/initiative', {transports: ['websocket']});
 
 class Initiative extends React.Component {
     constructor(props) {
