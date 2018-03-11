@@ -10,6 +10,7 @@ import Page404 from "./components/Page404";
 import Header from "./components/Header";
 import SpellList from "./components/SpellList";
 import getSpells from "./data/spells";
+import Initiative from "./components/Initiative";
 
 const Main = styled.div`
   max-width: 1024px;
@@ -30,6 +31,7 @@ ReactDOM.render((
                     <Switch>
                         <Route exact path='/' component={LandingPage} />
                         <Route exact path='/spells' component={SpellListWithProps} />
+                        <Route exact path='/initiative' component={Initiative} />
                         <Route component={Page404} />
                     </Switch>
                 </Main>

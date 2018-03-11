@@ -37,6 +37,9 @@ class Header extends React.Component {
                         <NavItem>
                             <NavLink tag={Link} to="/spells">Spells</NavLink>
                         </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} to="/initiative">Initiative</NavLink>
+                        </NavItem>
                     </Nav>
                 </Collapse>
             </Navbar>
