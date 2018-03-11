@@ -13,8 +13,6 @@ const AlignedText = styled.div`
   align-items: center;
 `;
 
-const socket = io('http://52.33.78.55:5000/initiative', {transports: ['websocket']});
-
 class Initiative extends React.Component {
     constructor(props) {
         super(props);
@@ -28,15 +26,18 @@ class Initiative extends React.Component {
         };
 
         this.handleInputChange = this.handleInputChange.bind(this);
+    }
 
-        socket.on('new_state', encounter => {
+    componentDidMount() {
+        this.socket = io('http://52.33.78.55:5000/initiative', {transports: ['websocket']});
+        this.socket.on('new_state', encounter => {
             console.log('Got new state:', encounter);
             this.setState({
                 encounter: encounter
             });
         });
 
-        socket.on('name_validation', data => {
+        this.socket.on('name_validation', data => {
             const validity = data['valid'];
             this.setState({
                 name_valid: validity
@@ -44,9 +45,13 @@ class Initiative extends React.Component {
         });
     }
 
+    componentWillUnmount() {
+        this.socket.disconnect(true);
+    }
+
     onSubmit(event) {
         event.preventDefault();
-        socket.emit('new_character',
+        this.socket.emit('new_character',
             {'name': this.state.name,
                 'initiative': this.state.initiative,
                 'secret_initiative': this.state.secret_initiative})
@@ -55,18 +60,18 @@ class Initiative extends React.Component {
     onStatusChange(event) {
         event.preventDefault();
         if (this.state.encounter) {
-            socket.emit('set_status', {'running': !this.state.encounter.running})
+            this.socket.emit('set_status', {'running': !this.state.encounter.running})
         }
     }
 
     onNextTurn(event) {
         event.preventDefault();
-        socket.emit('next_turn')
+        this.socket.emit('next_turn')
     }
 
     onDelete(character_id) {
         console.log('Deleting character: ', character_id);
-        socket.emit('delete_character', {'id': character_id})
+        this.socket.emit('delete_character', {'id': character_id})
     }
 
     handleInputChange(event) {
@@ -81,7 +86,7 @@ class Initiative extends React.Component {
         // Handle name validation
         if (id === 'name') {
             if (value.length > 0) {
-                socket.emit('name_check', {'name': value});
+                this.socket.emit('name_check', {'name': value});
             } else {
                 this.setState({
                     name_valid: null
