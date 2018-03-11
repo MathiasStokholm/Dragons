@@ -4,8 +4,9 @@ import {withRouter} from 'react-router-dom';
 import {
     Button,
     Form, Input, InputGroup, InputGroupAddon, ListGroup,
-    ListGroupItem, Modal, ModalBody, ModalFooter, ModalHeader, Table
+    ListGroupItem, Modal, ModalBody, ModalFooter, ModalHeader
 } from "reactstrap";
+import Spell from "./Spell";
 
 function getUrlParameter(inputString, name) {
     name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
@@ -57,7 +58,7 @@ class SpellList extends React.Component {
     render() {
         const filteredSpells = this.props.spells.filter(spell => spell.name.toLowerCase().includes(this.state.query.toLowerCase()));
         const renderedSpells = filteredSpells.map(spell =>
-            <ListGroupItem tag="a" href="#" onClick={() => this.spellDetails(spell)}>
+            <ListGroupItem key={spell.name} tag="a" href="#" onClick={() => this.spellDetails(spell)}>
                 {spell.name}
             </ListGroupItem>
         );
@@ -89,62 +90,7 @@ class SpellList extends React.Component {
                     <Modal isOpen={this.state.modalOpen} toggle={this.closeModal}>
                         <ModalHeader toggle={this.toggle}>{selectedSpell.name}</ModalHeader>
                         <ModalBody>
-                            <Table style={{cellSpacing: 0}}>
-                                <tbody>
-                                <tr>
-                                    <th>Level:</th>
-                                    <td>{selectedSpell.classes.map(clazz => clazz.name).join("/") + " " + selectedSpell.level}</td>
-                                </tr>
-                                <tr>
-                                    <th>Components:</th>
-                                    <td>{selectedSpell.components.join(", ")}</td>
-                                </tr>
-                                <tr>
-                                    <th>School:</th>
-                                    <td>{selectedSpell.school.name}</td>
-                                </tr>
-                                <tr>
-                                    <th>Range:</th>
-                                    <td>{selectedSpell.range}</td>
-                                </tr>
-                                <tr>
-                                    <th>Casting time:</th>
-                                    <td>{selectedSpell.casting_time}</td>
-                                </tr>
-                                <tr>
-                                    <th>Duration:</th>
-                                    <td>{selectedSpell.duration}</td>
-                                </tr>
-                                <tr>
-                                    <th>Concentration:</th>
-                                    <td>{selectedSpell.concentration}</td>
-                                </tr>
-                                <tr>
-                                    <th>Ritual:</th>
-                                    <td>{selectedSpell.ritual}</td>
-                                </tr>
-                                <tr>
-                                    <th>Page:</th>
-                                    <td>{selectedSpell.page}</td>
-                                </tr>
-                                </tbody>
-                            </Table>
-
-                            {selectedSpell.desc.map(description =>
-                                <p>{description}</p>
-                            )}
-
-                            {selectedSpell.higher_level > 0 &&
-                            <Table style={{cellSpacing: 0}}>
-                                <tbody>
-                                <tr>
-                                    <th>Higher levels:</th>
-                                    <td>{selectedSpell.higher_level[0]}</td>
-                                </tr>
-                                </tbody>
-                            </Table>
-                            }
-
+                            <Spell spell={selectedSpell}/>
                         </ModalBody>
                         <ModalFooter>
                             <Button color="primary" onClick={this.closeModal}>Close</Button>{' '}

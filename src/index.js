@@ -9,7 +9,8 @@ import LandingPage from "./components/LandingPage";
 import Page404 from "./components/Page404";
 import Header from "./components/Header";
 import SpellList from "./components/SpellList";
-import getSpells from "./data/spells";
+import getPhbSpells from "./data/spells_phb";
+import getXanatharsSpells from "./data/spells_xge";
 import Initiative from "./components/Initiative";
 
 const Main = styled.div`
@@ -19,7 +20,7 @@ const Main = styled.div`
 
 const SpellListWithProps = (props) => {
     return (
-        <SpellList spells={getSpells()} {...props}/>
+        <SpellList spells={getPhbSpells().concat(getXanatharsSpells())} {...props}/>
     );
 };
 
