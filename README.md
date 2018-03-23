@@ -30,7 +30,7 @@ To run the frontend service, navigate to the `frontend` directory and install th
 npm install
 ```
 
-To start the frontend service is development mode (with hot realoading), run:
+To start the frontend service is development mode (with hot reloading), run:
 
 ```bash
 npm run start
@@ -41,7 +41,7 @@ To create a "production-ready" build, run:
 ```bash
 npm run build
 ```
-
+The output will be placed in the `build` directory.
 
 
 #### License
