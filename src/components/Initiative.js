@@ -29,7 +29,7 @@ class Initiative extends React.Component {
     }
 
     componentDidMount() {
-        this.socket = io('http://52.33.78.55:5000/initiative', {transports: ['websocket']});
+        this.socket = io('http://localhost:5000/initiative', {transports: ['websocket']});
         this.socket.on('new_state', encounter => {
             console.log('Got new state:', encounter);
             this.setState({
