@@ -28,6 +28,11 @@ class Header extends React.Component {
     }
 
     render() {
+        // Function to close the navigation bar if expanded (on mobile)
+        const closeIfNeeded = () => {
+            if (this.state.isOpen) this.toggle();
+        };
+
         return (
             <Navbar color="dark" className="navbar-dark" expand="md" style={{marginBottom: '5px'}}>
                 <NavbarBrand tag={Link} to="/">2770 Dungeons</NavbarBrand>
@@ -35,10 +40,13 @@ class Header extends React.Component {
                 <Collapse isOpen={this.state.isOpen} navbar>
                     <Nav className="ml-auto" navbar>
                         <NavItem>
-                            <NavLink tag={Link} to="/spells">Spells</NavLink>
+                            <NavLink tag={Link} to="/spells" onClick={closeIfNeeded}>Spells</NavLink>
                         </NavItem>
                         <NavItem>
-                            <NavLink tag={Link} to="/initiative">Initiative</NavLink>
+                            <NavLink tag={Link} to="/initiative" onClick={closeIfNeeded}>Initiative</NavLink>
+                        </NavItem>
+                        <NavItem>
+                            <NavLink tag={Link} to="/map" onClick={closeIfNeeded}>Map</NavLink>
                         </NavItem>
                     </Nav>
                 </Collapse>

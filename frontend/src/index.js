@@ -12,6 +12,7 @@ import SpellList from "./components/SpellList";
 import getPhbSpells from "./data/spells_phb";
 import getXanatharsSpells from "./data/spells_xge";
 import Initiative from "./components/Initiative";
+import WorldMap from "./components/WorldMap";
 
 const Main = styled.div`
   max-width: 1024px;
@@ -33,6 +34,7 @@ ReactDOM.render((
                         <Route exact path='/' component={LandingPage} />
                         <Route exact path='/spells' component={SpellListWithProps} />
                         <Route exact path='/initiative' component={Initiative} />
+                        <Route exact path='/map' component={WorldMap} />
                         <Route component={Page404} />
                     </Switch>
                 </Main>
