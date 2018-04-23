@@ -2,6 +2,17 @@ import React from 'react'
 import {Table} from "reactstrap";
 
 class Spell extends React.Component {
+    SCHOOLS = {
+        "C": "Conjuration",
+        "A": "Abjuration",
+        "T": "Transmutation",
+        "E": "Enchantment",
+        "N": "Necromancy",
+        "D": "Divination",
+        "V": "Evocation",
+        "I": "Illusion"
+    };
+
     static renderData(data) {
         if (data.type === 'entries') {
             return (
@@ -68,7 +79,7 @@ class Spell extends React.Component {
                     </tr>
                     <tr>
                         <th>School:</th>
-                        <td>{spell.school}</td>
+                        <td>{this.SCHOOLS[spell.school]}</td>
                     </tr>
                     <tr>
                         <th>Range:</th>

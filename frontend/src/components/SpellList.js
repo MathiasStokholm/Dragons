@@ -16,6 +16,21 @@ function getUrlParameter(inputString, name) {
 }
 
 class SpellList extends React.Component {
+    CLASSES = [
+        "sorcerer", "wizard", "cleric", "paladin", "artificer", "ranger", "bard", "druid", "warlock"
+    ];
+
+    SCHOOLS = {
+        "conjuration" : "C",
+        "abjuration" : "A",
+        "transmutation" : "T",
+        "enchantment" : "E",
+        "necromancy" : "N",
+        "divination" : "D",
+        "evocation" : "V",
+        "illusion" : "I"
+    };
+
     constructor(props) {
         super(props);
 
@@ -55,8 +70,46 @@ class SpellList extends React.Component {
         });
     }
 
+    filterSpells() {
+        // FlatMap doesn't exist on arrays by default
+        const flatMap = (arr, f) => [].concat.apply([], arr.map(f));
+
+        // Regular expression to match class/school/level, or any combination of these (in order)
+        const regexp = new RegExp(
+            "(" + this.CLASSES.join("|") + ")?" +
+            "\\s?(" + Object.keys(this.SCHOOLS).join("|") + ")?" +
+            "\\s?(\\d)?");
+        const query = this.state.query.toLowerCase();
+        const matches = query.match(regexp);
+
+        // No matches - regular search
+        if (matches[0] === "") {
+            return this.props.spells.filter(spell => spell.name.toLowerCase().includes(query));
+        }
+
+        // One or more matches, filter appropriately
+        let filteredSpells = this.props.spells;
+        if (matches[1] !== undefined) {
+            // Filter by class name
+            const className = this.CLASSES[this.CLASSES.indexOf(matches[1])];
+            filteredSpells = filteredSpells.filter(spell =>
+                flatMap(spell.classes.fromClassList, clazz => clazz.name.toLowerCase()).indexOf(className) > -1);
+        }
+        if (matches[2] !== undefined) {
+            // Filter by school name
+            const schoolShorthand = this.SCHOOLS[matches[2]];
+            filteredSpells = filteredSpells.filter(spell => spell.school === schoolShorthand);
+        }
+        if (matches[3] !== undefined) {
+            // Filter by spell level
+            const level = parseInt(matches[3]);
+            filteredSpells = filteredSpells.filter(spell => spell.level === level);
+        }
+        return filteredSpells;
+    }
+
     render() {
-        const filteredSpells = this.props.spells.filter(spell => spell.name.toLowerCase().includes(this.state.query.toLowerCase()));
+        const filteredSpells = this.filterSpells();
         const renderedSpells = filteredSpells.map(spell =>
             <ListGroupItem key={spell.name} tag="a" href="#" onClick={() => this.spellDetails(spell)}>
                 {spell.name}
@@ -80,9 +133,9 @@ class SpellList extends React.Component {
                 </Form>
 
                 {renderedSpells.length > 0?
-                <ListGroup style={{width: "auto"}}>
-                    {renderedSpells}
-                </ListGroup>
+                    <ListGroup style={{width: "auto"}}>
+                        {renderedSpells}
+                    </ListGroup>
                     : <h5 style={{textAlign: "center"}}>No spells matched search!</h5>
                 }
 
