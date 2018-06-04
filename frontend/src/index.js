@@ -11,6 +11,7 @@ import Header from "./components/Header";
 import SpellList from "./components/SpellList";
 import getPhbSpells from "./data/spells_phb";
 import getXanatharsSpells from "./data/spells_xge";
+import getScagSpells from "./data/spells_scag";
 import Initiative from "./components/Initiative";
 import WorldMap from "./components/WorldMap";
 
@@ -21,7 +22,7 @@ const Main = styled.div`
 
 const SpellListWithProps = (props) => {
     return (
-        <SpellList spells={getPhbSpells().concat(getXanatharsSpells())} {...props}/>
+        <SpellList spells={getPhbSpells().concat(getXanatharsSpells(), getScagSpells())} {...props}/>
     );
 };
 
