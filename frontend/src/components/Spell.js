@@ -1,7 +1,16 @@
 import React from 'react'
-import {Table} from "reactstrap";
+import {Table, Tooltip} from "reactstrap";
 
 class Spell extends React.Component {
+    constructor(props) {
+        super(props);
+
+        this.toggle = this.toggle.bind(this);
+        this.state = {
+            tooltipOpen: false
+        };
+    }
+
     SCHOOLS = {
         "C": "Conjuration",
         "A": "Abjuration",
@@ -42,6 +51,12 @@ class Spell extends React.Component {
         return typeof data === 'string' || data instanceof String;
     }
 
+    toggle() {
+        this.setState({
+            tooltipOpen: !this.state.tooltipOpen
+        });
+    }
+
     render() {
         const spell = this.props.spell;
 
@@ -71,7 +86,7 @@ class Spell extends React.Component {
 
         return (
             <div>
-                <Table style={{cellSpacing: 0}}>
+                <Table striped condensed>
                     <tbody>
                     <tr>
                         <th>Level:</th>
@@ -100,12 +115,35 @@ class Spell extends React.Component {
                             </td>
                         )}
                     </tr>
-                    {spell.duration[0].concentration &&
+                    <tr>
+                        <th>Components:</th>
+                        <Table condensed>
+                            <thead>
+                                <th>Verbal</th>
+                                <th>Somatic</th>
+                                <th>Material</th>
+                            </thead>
+                            <tbody>
+                                <td>{spell.components.v? "Yes": "No"}</td>
+                                <td>{spell.components.s? "Yes": "No"}</td>
+                                <td>{spell.components.m? (
+                                    <div>
+                                        <p><span style={{textDecoration: "underline", color:"blue"}} id="tooltip">Yes</span></p>
+                                        <Tooltip placement="bottom" isOpen={this.state.tooltipOpen} target="tooltip" toggle={this.toggle}>
+                                            {spell.components.m}
+                                        </Tooltip>
+                                    </div>
+                                ): (
+                                    <p>No</p>
+                                )}
+                                </td>
+                            </tbody>
+                        </Table>
+                    </tr>
                     <tr>
                         <th>Concentration:</th>
-                        <td>Yes</td>
+                        <td>{spell.duration[0].concentration? "Yes": "No"}</td>
                     </tr>
-                    }
                     {spell.ritual &&
                     <tr>
                         <th>Ritual:</th>
