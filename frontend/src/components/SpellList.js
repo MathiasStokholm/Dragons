@@ -111,7 +111,10 @@ class SpellList extends React.Component {
     render() {
         const filteredSpells = this.filterSpells();
         const renderedSpells = filteredSpells.map(spell =>
-            <ListGroupItem key={spell.name} tag="a" href="#" onClick={() => this.spellDetails(spell)}>
+            <ListGroupItem key={spell.name} tag="a" href="#" onClick={(e) => {
+                    e.preventDefault();
+                    this.spellDetails(spell);
+                }}>
                 {spell.name}
             </ListGroupItem>
         );
