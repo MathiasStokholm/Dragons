@@ -5,4 +5,4 @@ python_socketio==1.9.0
 dictalchemy==0.1.2.7
 flask-cors==3.0.3
 flask-socketio==2.9.4
-eventlet==0.22.1
+eventlet==0.31.0
