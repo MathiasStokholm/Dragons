@@ -1,5 +1,6 @@
 import React from 'react'
 import {Table, Tooltip} from "reactstrap";
+import getClasses from "../util/SpellUtils.js"
 
 class Spell extends React.Component {
     constructor(props) {
@@ -90,7 +91,7 @@ class Spell extends React.Component {
                     <tbody>
                     <tr>
                         <th>Level:</th>
-                        <td>{spell.classes.fromClassList.map(clazz => clazz.name).join("/") + " " + spell.level}</td>
+                        <td>{getClasses(spell).join("/") + " " + spell.level}</td>
                     </tr>
                     <tr>
                         <th>School:</th>

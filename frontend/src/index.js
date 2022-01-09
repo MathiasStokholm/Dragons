@@ -12,6 +12,7 @@ import SpellList from "./components/SpellList";
 import getPhbSpells from "./data/spells_phb";
 import getXanatharsSpells from "./data/spells_xge";
 import getScagSpells from "./data/spells_scag";
+import getTceSpells from "./data/spells_tce";
 import Initiative from "./components/Initiative";
 import WorldMap from "./components/WorldMap";
 
@@ -21,8 +22,12 @@ const Main = styled.div`
 `;
 
 const SpellListWithProps = (props) => {
+    // Some spells can be found in multiple books, remove these duplicates
+    let spells = getPhbSpells().concat(getXanatharsSpells(), getScagSpells(), getTceSpells());
+    let spellNames = spells.map(spell => spell.name);
+    let uniqueSpells = spells.filter((spell, pos) => spellNames.indexOf(spell.name) === pos);
     return (
-        <SpellList spells={getPhbSpells().concat(getXanatharsSpells(), getScagSpells())} {...props}/>
+        <SpellList spells={uniqueSpells} {...props}/>
     );
 };
 

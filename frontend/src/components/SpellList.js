@@ -7,6 +7,7 @@ import {
     ListGroupItem, Modal, ModalBody, ModalFooter, ModalHeader
 } from "reactstrap";
 import Spell from "./Spell";
+import getClasses from "../util/SpellUtils.js"
 
 function getUrlParameter(inputString, name) {
     name = name.replace(/[[]/, '\\[').replace(/[\]]/, '\\]');
@@ -93,7 +94,7 @@ class SpellList extends React.Component {
             // Filter by class name
             const className = this.CLASSES[this.CLASSES.indexOf(matches[1])];
             filteredSpells = filteredSpells.filter(spell =>
-                flatMap(spell.classes.fromClassList, clazz => clazz.name.toLowerCase()).indexOf(className) > -1);
+                flatMap(getClasses(spell), className => className.toLowerCase()).indexOf(className) > -1);
         }
         if (matches[2] !== undefined) {
             // Filter by school name
