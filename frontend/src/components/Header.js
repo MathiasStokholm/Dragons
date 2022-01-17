@@ -43,6 +43,9 @@ class Header extends React.Component {
                             <NavLink tag={Link} to="/spells" onClick={closeIfNeeded}>Spells</NavLink>
                         </NavItem>
                         <NavItem>
+                            <NavLink tag={Link} to="/feats" onClick={closeIfNeeded}>Feats</NavLink>
+                        </NavItem>
+                        <NavItem>
                             <NavLink tag={Link} to="/initiative" onClick={closeIfNeeded}>Initiative</NavLink>
                         </NavItem>
                         <NavItem>

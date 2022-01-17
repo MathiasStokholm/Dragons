@@ -13,8 +13,10 @@ import getPhbSpells from "./data/spells_phb";
 import getXanatharsSpells from "./data/spells_xge";
 import getScagSpells from "./data/spells_scag";
 import getTceSpells from "./data/spells_tce";
+import getFeats from "./data/feats";
 import Initiative from "./components/Initiative";
 import WorldMap from "./components/WorldMap";
+import FeatList from "./components/FeatList";
 
 const Main = styled.div`
   max-width: 1024px;
@@ -31,6 +33,15 @@ const SpellListWithProps = (props) => {
     );
 };
 
+const FeatListWithProps = (props) => {
+    const valid_sources = ["PHB", "XGE", "TCE"];
+    let feats = getFeats();
+    let filteredFeats = feats.filter(feat => valid_sources.includes(feat.source));
+    return (
+        <FeatList feats={filteredFeats} {...props}/>
+    );
+};
+
 ReactDOM.render((
         <BrowserRouter>
             <div>
@@ -39,6 +50,7 @@ ReactDOM.render((
                     <Switch>
                         <Route exact path='/' component={LandingPage} />
                         <Route exact path='/spells' component={SpellListWithProps} />
+                        <Route exact path='/feats' component={FeatListWithProps} />
                         <Route exact path='/initiative' component={Initiative} />
                         <Route exact path='/map' component={WorldMap} />
                         <Route component={Page404} />
