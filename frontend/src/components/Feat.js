@@ -62,6 +62,35 @@ class Feat extends React.Component {
             </div>
         );
 
+        function getPrerequisite() {
+            return feat.prerequisite.map(obj => Object.entries(obj).map(([key, value]) => {
+                if (key === "proficiency") {
+                    // Weapon or armor proficiencies required
+                    return <td>{
+                        value.map(obj => Object.entries(obj).map(([type, what]) => `${type}: ${what}`))
+                            .join(" or ")
+                    }</td>;
+                } else if (key === "race") {
+                    // Certain race or subrace required
+                    return <td>{
+                        "Race: " + value.map(obj => {
+                            return obj["name"] + ("subrace" in obj ? ` (${obj["subrace"]})` : "")
+                        }).join(" or ")
+                    }</td>;
+                } else if (key === "ability") {
+                    // Ability of certain level required
+                    return <td>{
+                        value.map(obj => Object.entries(obj).map(([type, what]) => `${type}: ${what}`))
+                            .join(" or ")
+                    }</td>;
+                } else if (key === "spellcasting" || key === "spellcasting2020") {
+                    // Spellcasting ability required
+                    return <td>{"Spellcaster"}</td>;
+                }
+                return <td>{`+${value} ${key}`}</td>;
+            }));
+        }
+
         function getAbilityScore() {
             return feat.ability.map(obj => Object.entries(obj).map(([key, value]) => {
                 if (key === "choose") {
@@ -77,6 +106,12 @@ class Feat extends React.Component {
             <div>
                 <Table striped condensed>
                     <tbody>
+                    {feat.prerequisite &&
+                        <tr>
+                            <th>Prerequisite(s):</th>
+                            {getPrerequisite()}
+                        </tr>
+                    }
                     {feat.ability &&
                         <tr>
                             <th>Ability Score Improvement(s):</th>
