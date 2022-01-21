@@ -13,6 +13,27 @@ class Feat extends React.Component {
         };
     }
 
+    static renderText(text) {
+        const reg = new RegExp(/({@\w+ \d?d\d*})/, 'gi');
+        const parts = text.split(reg);
+        return parts.map(str => {
+            if (reg.test(str)) {
+                const valReg = new RegExp(/{@(\w+) (\d?d\d*)}/, 'i');
+                const matches = str.match(valReg);
+                if (matches[0] !== str) {
+                    return str
+                }
+                const type = matches[1]
+                const count = matches[2]
+                const color = type === "damage" ? "red" : "blue";
+                return <span style={{color: color}}>{count}</span>;
+            }
+            return str;
+        });
+        //console.log("hello _there_".replace(/_(.*?)_/g, "<div>\$1</div>"));
+        //return <div>{text.replace(/{@damage (\d?d\d*)}/g, <span style={{color: "red"}}>\$1</span>)}</div>;
+    }
+
     static renderData(data) {
         if (data.type === 'entries') {
             return (
@@ -20,7 +41,7 @@ class Feat extends React.Component {
                     <p><b>{data.name}</b></p>
                     <ul>
                         {data.entries.map(entry =>
-                            <li>{entry}</li>
+                            <li>{Feat.renderText(entry)}</li>
                         )}
                     </ul>
                 </div>
@@ -29,7 +50,7 @@ class Feat extends React.Component {
             return (
                 <ul>
                     {data.items.map(entry =>
-                        <li>{entry}</li>
+                        <li>{Feat.renderText(entry)}</li>
                     )}
                 </ul>
             )
