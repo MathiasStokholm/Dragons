@@ -1,7 +1,6 @@
 import React from 'react'
 import {Table, Tooltip} from "reactstrap";
-import getClasses from "../util/SpellUtils.js"
-import spell from "./Spell";
+import processSymbols from "../util/TextUtils";
 
 class Feat extends React.Component {
     constructor(props) {
@@ -14,24 +13,7 @@ class Feat extends React.Component {
     }
 
     static renderText(text) {
-        const reg = new RegExp(/({@\w+ \d?d\d*})/, 'gi');
-        const parts = text.split(reg);
-        return parts.map(str => {
-            if (reg.test(str)) {
-                const valReg = new RegExp(/{@(\w+) (\d?d\d*)}/, 'i');
-                const matches = str.match(valReg);
-                if (matches[0] !== str) {
-                    return str
-                }
-                const type = matches[1]
-                const count = matches[2]
-                const color = type === "damage" ? "red" : "blue";
-                return <span style={{color: color}}>{count}</span>;
-            }
-            return str;
-        });
-        //console.log("hello _there_".replace(/_(.*?)_/g, "<div>\$1</div>"));
-        //return <div>{text.replace(/{@damage (\d?d\d*)}/g, <span style={{color: "red"}}>\$1</span>)}</div>;
+        return processSymbols(text, (type, value) => <span style={{color: "blue"}}>{value}</span>);
     }
 
     static renderData(data) {
@@ -76,7 +58,7 @@ class Feat extends React.Component {
         const entries = feat.entries.map((description, index) =>
             <div key={index}>
                 {Feat.isString(description) ? (
-                    <p>{description}</p>
+                    <p>{Feat.renderText(description)}</p>
                 ) : (
                     Feat.renderData(description)
                 )}
