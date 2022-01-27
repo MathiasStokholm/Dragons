@@ -1,6 +1,7 @@
 import React from 'react'
 import {Table, Tooltip} from "reactstrap";
 import getClasses from "../util/SpellUtils.js"
+import processSymbols from "../util/TextUtils";
 
 class Spell extends React.Component {
     constructor(props) {
@@ -23,6 +24,10 @@ class Spell extends React.Component {
         "I": "Illusion"
     };
 
+    static renderText(text) {
+        return processSymbols(text, (type, value) => <span style={{color: "blue"}}>{value}</span>);
+    }
+
     static renderData(data) {
         if (data.type === 'entries') {
             return (
@@ -30,7 +35,7 @@ class Spell extends React.Component {
                     <p><b>{data.name}</b></p>
                     <ul>
                         {data.entries.map(entry =>
-                            <li>{entry}</li>
+                            <li>{Spell.renderText(entry)}</li>
                         )}
                     </ul>
                 </div>
@@ -39,7 +44,7 @@ class Spell extends React.Component {
             return (
                 <ul>
                     {data.items.map(entry =>
-                        <li>{entry}</li>
+                        <li>{Spell.renderText(entry)}</li>
                     )}
                 </ul>
             )
@@ -65,7 +70,7 @@ class Spell extends React.Component {
         const entries = spell.entries.map((description, index) =>
             <div key={index}>
                 {Spell.isString(description)? (
-                    <p>{description}</p>
+                    <p>{Spell.renderText(description)}</p>
                 ) : (
                     Spell.renderData(description)
                 )}
@@ -77,7 +82,7 @@ class Spell extends React.Component {
             entriesHigherLevel = spell.entriesHigherLevel.map((description, index) =>
                 <div key={index}>
                     {Spell.isString(description)? (
-                        <p>{description}</p>
+                        <p>{Spell.renderText(description)}</p>
                     ) : (
                         Spell.renderData(description)
                     )}

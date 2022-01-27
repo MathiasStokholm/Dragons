@@ -1,7 +1,6 @@
 import React from 'react'
 import {Table, Tooltip} from "reactstrap";
-import getClasses from "../util/SpellUtils.js"
-import spell from "./Spell";
+import processSymbols from "../util/TextUtils";
 
 class Feat extends React.Component {
     constructor(props) {
@@ -13,6 +12,10 @@ class Feat extends React.Component {
         };
     }
 
+    static renderText(text) {
+        return processSymbols(text, (type, value) => <span style={{color: "blue"}}>{value}</span>);
+    }
+
     static renderData(data) {
         if (data.type === 'entries') {
             return (
@@ -20,7 +23,7 @@ class Feat extends React.Component {
                     <p><b>{data.name}</b></p>
                     <ul>
                         {data.entries.map(entry =>
-                            <li>{entry}</li>
+                            <li>{Feat.renderText(entry)}</li>
                         )}
                     </ul>
                 </div>
@@ -29,7 +32,7 @@ class Feat extends React.Component {
             return (
                 <ul>
                     {data.items.map(entry =>
-                        <li>{entry}</li>
+                        <li>{Feat.renderText(entry)}</li>
                     )}
                 </ul>
             )
@@ -55,7 +58,7 @@ class Feat extends React.Component {
         const entries = feat.entries.map((description, index) =>
             <div key={index}>
                 {Feat.isString(description) ? (
-                    <p>{description}</p>
+                    <p>{Feat.renderText(description)}</p>
                 ) : (
                     Feat.renderData(description)
                 )}
