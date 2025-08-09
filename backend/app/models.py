@@ -2,14 +2,13 @@
 """
 Models
 """
-from __future__ import division, print_function, unicode_literals
-
+import dataclasses
 from sqlalchemy import Column, Integer, String, Text, ForeignKey, Float, Enum, DateTime, Boolean
 from sqlalchemy.orm import relationship
+from .database import Base
 
-from database import Base
 
-
+@dataclasses.dataclass
 class Character(Base):
     __tablename__ = 'character'
     id = Column(Integer, primary_key=True)
@@ -20,6 +19,7 @@ class Character(Base):
     encounter = relationship('Encounter', back_populates='characters')
 
 
+@dataclasses.dataclass
 class Encounter(Base):
     __tablename__ = 'encounter'
     id = Column(Integer, primary_key=True)

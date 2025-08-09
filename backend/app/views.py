@@ -1,11 +1,8 @@
 # coding=utf-8
-"""
-#TODO
-"""
-from __future__ import division, print_function, unicode_literals
-from app import app, socketio
-from app.models import Character, Encounter
-from database import db
+import dataclasses
+from . import app, socketio
+from .models import Character, Encounter
+from .database import db
 from flask_socketio import Namespace, emit
 
 
@@ -22,7 +19,7 @@ class InitiativeNamespace(Namespace):
     @staticmethod
     def emit_new_state(broadcast=True):
         encounter = db.session.query(Encounter).first()
-        emit('new_state', encounter.asdict(follow=dict(characters={})), broadcast=broadcast)
+        emit('new_state', dataclasses.asdict(encounter), broadcast=broadcast)
 
     @staticmethod
     def on_name_check(data):

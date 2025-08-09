@@ -8,16 +8,16 @@ Note: The backend only needs to be running when using the "Initiative" service.
 
 ## Backend
 
-To run the backend service, navigate to the `backend` directory and install the needed requirements (assuming you already have Python and pip):
-
+1. Ensure that you have `uv` installed (see https://docs.astral.sh/uv/getting-started/installation/):
+2. Install requirements:
 ```bash
-sudo pip install -r requirements.txt
+uv sync
 ```
 
 Then start the backend server by calling:
 
 ```bash
-python run.py
+uv run run.py
 ```
 
 

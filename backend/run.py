@@ -2,7 +2,6 @@
 """
 Main application entry point
 """
-from __future__ import division, print_function, unicode_literals
 from app import app, socketio
 from app.database import init_db
 
