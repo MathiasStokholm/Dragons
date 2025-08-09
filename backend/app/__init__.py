@@ -2,8 +2,6 @@
 """
 Application initialization code
 """
-from __future__ import division, print_function, unicode_literals
-
 from flask import Flask
 from flask_cors import CORS
 from flask_socketio import SocketIO
@@ -13,10 +11,10 @@ app = Flask(__name__)
 
 # FIXME: Configurable CORS more appropriately
 CORS(app)
-socketio = SocketIO(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Instantiate DB and GraphQL schema
-from database import db
+from .database import db
 
 # Instantiate views
-from app.views import *
+from .views import *
