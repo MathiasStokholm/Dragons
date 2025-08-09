@@ -19,7 +19,9 @@ class InitiativeNamespace(Namespace):
     @staticmethod
     def emit_new_state(broadcast=True):
         encounter = db.session.query(Encounter).first()
-        emit('new_state', dataclasses.asdict(encounter), broadcast=broadcast)
+        result = dataclasses.asdict(encounter)
+        print(result)
+        emit('new_state', result, broadcast=broadcast)
 
     @staticmethod
     def on_name_check(data):
