@@ -11,7 +11,7 @@ app = Flask(__name__)
 
 # FIXME: Configurable CORS more appropriately
 CORS(app)
-socketio = SocketIO(app)
+socketio = SocketIO(app, cors_allowed_origins="*")
 
 # Instantiate DB and GraphQL schema
 from .database import db
