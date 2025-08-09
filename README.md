@@ -33,12 +33,14 @@ npm install
 To start the frontend service is development mode (with hot reloading), run:
 
 ```bash
+export NODE_OPTIONS=--openssl-legacy-provider
 npm run start
 ```
 
 To create a "production-ready" build, run:
 
 ```bash
+export NODE_OPTIONS=--openssl-legacy-provider
 npm run build
 ```
 The output will be placed in the `build` directory.
