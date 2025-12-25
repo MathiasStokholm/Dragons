@@ -29,13 +29,13 @@ class Spell extends React.Component {
     }
 
     static renderData(data) {
-        if (data.type === 'entries') {
+        if (data.type === 'entries' || data.type === 'item') {
             return (
                 <div>
                     <p><b>{data.name}</b></p>
                     <ul>
                         {data.entries.map(entry =>
-                            <li>{Spell.renderText(entry)}</li>
+                            <li>{Spell.isString(entry)? (<p>{Spell.renderText(entry)}</p>) : (Spell.renderData(entry))}</li>
                         )}
                     </ul>
                 </div>
@@ -44,7 +44,7 @@ class Spell extends React.Component {
             return (
                 <ul>
                     {data.items.map(entry =>
-                        <li>{Spell.renderText(entry)}</li>
+                        <li>{Spell.isString(entry)? (<p>{Spell.renderText(entry)}</p>) : (Spell.renderData(entry))}</li>
                     )}
                 </ul>
             )
@@ -95,8 +95,8 @@ class Spell extends React.Component {
                 <Table striped condensed>
                     <tbody>
                     <tr>
-                        <th>Level:</th>
-                        <td>{getClasses(spell).join("/") + " " + spell.level}</td>
+                        <th>Level: </th>
+                        <td>{spell.level}</td>
                     </tr>
                     <tr>
                         <th>School:</th>

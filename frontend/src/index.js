@@ -9,10 +9,7 @@ import LandingPage from "./components/LandingPage";
 import Page404 from "./components/Page404";
 import Header from "./components/Header";
 import SpellList from "./components/SpellList";
-import getPhbSpells from "./data/spells_phb";
-import getXanatharsSpells from "./data/spells_xge";
-import getScagSpells from "./data/spells_scag";
-import getTceSpells from "./data/spells_tce";
+import getPlayersHandbook2024Spells from "./data/spells_xphb";
 import getFeats from "./data/feats";
 import Initiative from "./components/Initiative";
 import WorldMap from "./components/WorldMap";
@@ -25,7 +22,7 @@ const Main = styled.div`
 
 const SpellListWithProps = (props) => {
     // Some spells can be found in multiple books, remove these duplicates
-    let spells = getPhbSpells().concat(getXanatharsSpells(), getScagSpells(), getTceSpells());
+    let spells = getPlayersHandbook2024Spells();
     let spellNames = spells.map(spell => spell.name);
     let uniqueSpells = spells.filter((spell, pos) => spellNames.indexOf(spell.name) === pos);
     return (
