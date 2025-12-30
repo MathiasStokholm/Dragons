@@ -3,13 +3,73 @@ export default function getFeats() {
         [
             {
                 "name": "Aberrant Dragonmark",
+                "source": "EFA",
+                "page": 39,
+                "category": "D",
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Eberron"
+                        ],
+                        "exclusiveFeatCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": "con",
+                        "prepared": {
+                            "_": {
+                                "rest": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=Sorcerer"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Sorcerer"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Aberrant Fortitude",
+                        "entries": [
+                            "When you fail a Constitution saving throw, you can take a {@variantrule Reaction|XPHB} to roll {@dice 1d4} and add the number rolled to the save, potentially turning the failure into a success. Once you've used this benefit, you can't use it again until you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Aberrant Magic",
+                        "entries": [
+                            "You know one cantrip of your choice from the Sorcerer spell list. Also, choose a level 1 spell from that spell list. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}. You can also cast this spell using any spell slots you have. Constitution is your spellcasting ability for this spell."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Aberrant Surge",
+                        "entries": [
+                            "When you cast the level 1 spell from this feat, you can expend one of your {@variantrule Hit Point Dice|XPHB} and roll it. If you roll an even number, you gain a number of {@variantrule Temporary Hit Points|XPHB} equal to the number rolled. If you roll an odd number, one creature within 30 feet of you (not including you) takes Force damage equal to the number rolled. If no other creatures are in range, you take the damage."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Aberrant Dragonmark",
                 "source": "ERLW",
                 "page": 52,
-                "otherSources": [
-                    {
-                        "source": "UAWGE",
-                        "page": 112
-                    }
+                "reprintedAs": [
+                    "Aberrant Dragonmark|EFA"
                 ],
                 "prerequisite": [
                     {
@@ -26,11 +86,6 @@ export default function getFeats() {
                         "ability": "con",
                         "innate": {
                             "_": {
-                                "_": [
-                                    {
-                                        "choose": "level=0|class=Sorcerer"
-                                    }
-                                ],
                                 "rest": {
                                     "1": [
                                         {
@@ -39,6 +94,13 @@ export default function getFeats() {
                                     ]
                                 }
                             }
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Sorcerer"
+                                }
+                            ]
                         }
                     }
                 ],
@@ -108,7 +170,7 @@ export default function getFeats() {
                                         "type": "entries",
                                         "name": "Option: Greater Aberrant Powers",
                                         "entries": [
-                                            "At the DM's option, a character who has the Aberrant Dragonmark feat has a chance of manifesting greater power. Upon reaching 10th level, such a character has a 10 percent chance of gaining an {@filter epic boon|rewards|type=boon} from among the options in chapter 7 of the {@book Dungeon Master's Guide|DMG}. If the character fails to gain a boon, they have a 10 percent chance the next time they gain a level.",
+                                            "At the DM's option, a character who has the Aberrant Dragonmark feat has a chance of manifesting greater power. Upon reaching 10th level, such a character has a {@chance 10} chance of gaining an {@filter epic boon|rewards|type=boon} from among the options in chapter 7 of the {@book Dungeon Master's Guide|DMG}. If the character fails to gain a boon, they have a {@chance 10} chance the next time they gain a level.",
                                             "If the character gains a boon, the DM chooses it or determines it randomly. The character also permanently loses one of their Hit Dice, and their hit point maximum is reduced by an amount equal to a roll of that die plus their Constitution modifier (minimum reduction of 1). This reduction can't be reversed by any means."
                                         ]
                                     }
@@ -119,26 +181,56 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Acrobat",
-                "source": "UAFeatsForSkills",
-                "page": 1,
-                "ability": [
+                "name": "Ability Score Improvement",
+                "source": "XPHB",
+                "page": 202,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "G",
+                "prerequisite": [
                     {
-                        "dex": 1
+                        "level": 4
                     }
                 ],
-                "skillProficiencies": [
+                "repeatable": true,
+                "repeatableHidden": true,
+                "ability": [
                     {
-                        "acrobatics": true
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ],
+                            "amount": 2
+                        },
+                        "hidden": true
+                    },
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ],
+                            "count": 2
+                        },
+                        "hidden": true
                     }
                 ],
                 "entries": [
-                    "You become more nimble, gaining the following benefits:",
+                    "Increase one ability score of your choice by 2, or increase two ability scores of your choice by 1. This feat can't increase an ability score above 20.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Acrobatics} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "As a bonus action, you can make a DC 15 Dexterity ({@skill Acrobatics}) check. If you succeed, difficult terrain doesn't cost you extra movement until the end of the current turn."
+                        "type": "entries",
+                        "name": "Repeatable",
+                        "entries": [
+                            "You can take this feat more than once."
                         ]
                     }
                 ]
@@ -147,6 +239,9 @@ export default function getFeats() {
                 "name": "Actor",
                 "source": "PHB",
                 "page": 165,
+                "reprintedAs": [
+                    "Actor|XPHB"
+                ],
                 "ability": [
                     {
                         "cha": 1
@@ -164,27 +259,260 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Alchemist",
-                "source": "UAFeats",
-                "page": 4,
-                "ability": [
+                "name": "Actor",
+                "source": "XPHB",
+                "page": 202,
+                "category": "G",
+                "prerequisite": [
                     {
-                        "int": 1
+                        "level": 4,
+                        "ability": [
+                            {
+                                "cha": 13
+                            }
+                        ]
                     }
                 ],
-                "toolProficiencies": [
+                "ability": [
                     {
-                        "alchemist's supplies": true
+                        "cha": 1
                     }
                 ],
                 "entries": [
-                    "You have studied the secrets of alchemy and are an expert in its practice, gaining the following benefits:",
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Impersonation",
+                        "entries": [
+                            "While you're disguised as a real or fictional person, you have {@variantrule Advantage|XPHB} on Charisma ({@skill Deception|XPHB} or {@skill Performance|XPHB}) checks to convince others that you are that person."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Mimicry",
+                        "entries": [
+                            "You can mimic the sounds of other creatures, including speech. A creature that hears the mimicry must succeed on a Wisdom ({@skill Insight|XPHB}) check to determine the effect is faked ({@dc 8} plus your Charisma modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus})."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Adept of the Black Robes",
+                "source": "DSotDQ",
+                "page": 31,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "initiate of high sorcery|dsotdq|initiate of high sorcery (nuitari)"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1e": [
+                                        {
+                                            "choose": "level=2|school=E;N"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "entries": [
+                    "You chose the moon Nuitari to influence your magic, and your ambition and loyalty to the Order of the Black Robes have been recognized, granting you these benefits:",
                     {
                         "type": "list",
+                        "style": "list-hang-notitle",
                         "items": [
-                            "You gain proficiency with {@item alchemist's supplies|phb}. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.",
-                            "As an action, you can identify one potion within 5 feet of you, as if you had tasted it. You must see the liquid for this benefit to work.",
-                            "Over the course of any short rest, you can temporarily improve the potency of one potion of healing of any rarity. To use this benefit, you must have {@item alchemist's supplies|phb} with you, and the potion must be within reach. If the potion is drunk no more than 1 hour after the short rest ends, the creature drinking the potion can forgo the potion's die roll and regains the maximum number of hit points that the potion can restore."
+                            {
+                                "type": "item",
+                                "name": "Ambitious Magic",
+                                "entries": [
+                                    "You learn one 2nd-level spell of your choice. The {@filter 2nd-level spell|spells|level=2|school=E;N} must be from the enchantment or necromancy school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the {@feat Initiate of High Sorcery|DSotDQ} feat."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Life Channel",
+                                "entries": [
+                                    "You can channel your life force into the power of your magic. When a creature you can see within 60 feet of you fails a saving throw against a spell that deals damage that you cast, you can expend a number of Hit Dice equal to the level of the spell. Roll the expended Hit Dice and add them together. The damage that the creature takes increases by an amount equal to that total."
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Adept of the Red Robes",
+                "source": "DSotDQ",
+                "page": 32,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "initiate of high sorcery|dsotdq|initiate of high sorcery (lunitari)"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1e": [
+                                        {
+                                            "choose": "level=2|school=I;T"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "entries": [
+                    "You chose the moon Lunitari to influence your magic, and your dedication to maintaining the balance between all things has been recognized by the Order of the Red Robes, granting you these benefits:",
+                    {
+                        "type": "list",
+                        "style": "list-hang-notitle",
+                        "items": [
+                            {
+                                "type": "item",
+                                "name": "Insightful Magic",
+                                "entries": [
+                                    "You learn one 2nd-level spell of your choice. The {@filter 2nd-level spell|spells|level=2|school=I;T} must be from the illusion or transmutation school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the {@feat Initiate of High Sorcery|DSotDQ} feat."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Magical Balance",
+                                "entries": [
+                                    "When you make an attack roll or an ability check and roll a 9 or lower on the {@dice d20}, you can balance fate and treat the roll as a 10. You can balance fate in this way a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Adept of the White Robes",
+                "source": "DSotDQ",
+                "page": 32,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "initiate of high sorcery|dsotdq|initiate of high sorcery (solinari)"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1e": [
+                                        {
+                                            "choose": "level=2|school=A;D"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "entries": [
+                    "You chose the moon Solinari to influence your magic, and your oath to use magic to make the world a better place has been recognized by the Order of the White Robes, granting you these benefits:",
+                    {
+                        "type": "list",
+                        "style": "list-hang-notitle",
+                        "items": [
+                            {
+                                "type": "item",
+                                "name": "Protective Magic",
+                                "entries": [
+                                    "You learn one 2nd-level spell of your choice. The {@filter 2nd-level spell|spells|level=2|school=A;D} must be from the abjuration or divination school of magic. You can cast this feat's 2nd-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using spell slots you have of the appropriate level. The spell's spellcasting ability is the one chosen when you gained the {@feat Initiate of High Sorcery|DSotDQ} feat."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Protective Ward",
+                                "entries": [
+                                    "When you or a creature you can see within 30 feet of you takes damage, you can use your reaction to expend a spell slot and weave protective magic around the target. Roll a number of d6s equal to the level of the spell slot expended and reduce the damage the target takes by the total rolled on those dice + your spellcasting ability modifier."
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Agent of Order",
+                "source": "SatO",
+                "page": 10,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "scion of the outer planes|sato|scion of the outer planes (lawful outer plane)"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ],
+                            "amount": 1
+                        }
+                    }
+                ],
+                "entries": [
+                    "You can channel cosmic forces of order to gain these benefits:",
+                    {
+                        "type": "list",
+                        "style": "list-hang-notitle",
+                        "items": [
+                            {
+                                "type": "item",
+                                "name": "Stasis Strike",
+                                "entries": [
+                                    "Once per turn, when you damage a creature you can see within 60 feet of yourself, you can deal an extra {@damage 1d8} force damage to the target, and it must make a Wisdom saving throw (DC equal to 8 + your proficiency bonus + the modifier of the spellcasting ability you chose for the Scion of the Outer Planes feat) as spectral bindings try to ensnare it. On a successful save, the target escapes. On a failed save, the target has the restrained condition until the start of your next turn. These bindings manifest as chains or some other symbol of stasis. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
                         ]
                     }
                 ]
@@ -193,82 +521,62 @@ export default function getFeats() {
                 "name": "Alert",
                 "source": "PHB",
                 "page": 165,
+                "reprintedAs": [
+                    "Alert|XPHB"
+                ],
                 "entries": [
                     "Always on the lookout for danger, you gain the following benefits:",
                     {
                         "type": "list",
                         "items": [
                             "You gain a +5 bonus to initiative.",
-                            "You can't be surprised while you are conscious.",
+                            "You can't be {@status surprised} while you are conscious.",
                             "Other creatures don't gain advantage on attack rolls against you as a result of being unseen by you."
                         ]
                     }
                 ]
             },
             {
-                "name": "Animal Handler",
-                "source": "UAFeatsForSkills",
-                "page": 1,
-                "ability": [
-                    {
-                        "wis": 1
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "animal handling": true
-                    }
-                ],
+                "name": "Alert",
+                "source": "XPHB",
+                "page": 200,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "O",
                 "entries": [
-                    "You master the techniques needed to train and handle animals. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Animal Handling} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "You can use a bonus action on your turn to command one friendly beast within 60 feet of you that can hear you and that isn't currently following the command of someone else. You decide now what action the beast will take and where it will move during its next turn, or you issue a general command that lasts for 1 minute, such as to guard a particular area."
+                        "type": "entries",
+                        "name": "Initiative Proficiency",
+                        "entries": [
+                            "When you roll {@variantrule Initiative|XPHB}, you can add your {@variantrule Proficiency|XPHB|Proficiency Bonus} to the roll."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Initiative Swap",
+                        "entries": [
+                            "Immediately after you roll {@variantrule Initiative|XPHB}, you can swap your {@variantrule Initiative|XPHB} with the {@variantrule Initiative|XPHB} of one willing ally in the same combat. You can't make this swap if you or the ally has the {@condition Incapacitated|XPHB} condition."
                         ]
                     }
                 ]
             },
             {
-                "name": "Arcanist",
-                "source": "UAFeatsForSkills",
-                "page": 1,
-                "ability": [
+                "name": "Archery",
+                "source": "XPHB",
+                "page": 209,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "FS",
+                "prerequisite": [
                     {
-                        "int": 1
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "arcana": true
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "_": {
-                                "_": [
-                                    "prestidigitation"
-                                ],
-                                "daily": {
-                                    "1": [
-                                        "detect magic"
-                                    ]
-                                }
-                            }
-                        }
+                        "feature": [
+                            "Fighting Style"
+                        ]
                     }
                 ],
                 "entries": [
-                    "You study the arcane arts, gaining the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Arcana} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "You learn the {@spell prestidigitation} and {@spell detect magic} spells. You can cast detect magic once without expending a spell slot, and you regain the ability to do so when you finish a long rest."
-                        ]
-                    }
+                    "You gain a +2 bonus to attack rolls you make with Ranged weapons."
                 ]
             },
             {
@@ -277,7 +585,7 @@ export default function getFeats() {
                 "page": 79,
                 "toolProficiencies": [
                     {
-                        "artisan's tools": true
+                        "anyArtisansTool": 1
                     }
                 ],
                 "additionalSpells": [
@@ -285,11 +593,6 @@ export default function getFeats() {
                         "ability": "int",
                         "innate": {
                             "_": {
-                                "_": [
-                                    {
-                                        "choose": "level=0|class=Artificer"
-                                    }
-                                ],
                                 "daily": {
                                     "1": [
                                         {
@@ -298,6 +601,13 @@ export default function getFeats() {
                                     ]
                                 }
                             }
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Artificer"
+                                }
+                            ]
                         }
                     }
                 ],
@@ -314,51 +624,12 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Artificer Initiate",
-                "source": "UA2020Feats",
-                "page": 1,
-                "toolProficiencies": [
-                    {
-                        "artisan's tools": true
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "ability": "int",
-                        "innate": {
-                            "_": {
-                                "_": [
-                                    {
-                                        "choose": "level=0|class=Artificer"
-                                    }
-                                ],
-                                "daily": {
-                                    "1": [
-                                        {
-                                            "choose": "level=1|class=Artificer"
-                                        }
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                ],
-                "entries": [
-                    "You've learned some of an artificer's inventiveness, granting you the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You learn one cantrip of your choice from the {@filter artificer spell list|spells|level=0;1|class=artificer}, and you learn one 1st-level spell of your choice from {@filter that list|spells|level=0;1|class=artificer}. Intelligence is your spellcasting ability for these spells. Whenever you gain a level, you can replace one of these spells with another spell of the same level from the artificer spell list.",
-                            "You can cast this feat's 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.",
-                            "You gain proficiency with one type of {@filter artisan's tools|items|type=artisan's tools} of your choice, and you can use that type of tool as a spellcasting focus for any spell you cast that uses Intelligence as its spellcasting ability"
-                        ]
-                    }
-                ]
-            },
-            {
                 "name": "Athlete",
                 "source": "PHB",
                 "page": 165,
+                "reprintedAs": [
+                    "Athlete|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -383,14 +654,24 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Barbed Hide",
-                "source": "UAFeatsForRaces",
-                "page": 1,
+                "name": "Athlete",
+                "source": "XPHB",
+                "page": 202,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
+                        "level": 4,
+                        "ability": [
                             {
-                                "name": "tiefling"
+                                "str": 13
+                            }
+                        ]
+                    },
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "dex": 13
                             }
                         ]
                     }
@@ -399,11 +680,1546 @@ export default function getFeats() {
                     {
                         "choose": {
                             "from": [
+                                "str",
+                                "dex"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Climb Speed",
+                        "entries": [
+                            "You gain a {@variantrule Climb Speed|XPHB} equal to your {@variantrule Speed|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Hop Up",
+                        "entries": [
+                            "When you have the {@condition Prone|XPHB} condition, you can right yourself with only 5 feet of movement."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Jumping",
+                        "entries": [
+                            "You can make a running Long or {@variantrule High Jump|XPHB} after moving only 5 feet."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Baleful Scion",
+                "source": "SatO",
+                "page": 10,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "scion of the outer planes|sato|scion of the outer planes (evil outer plane)"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
                                 "con",
+                                "int",
+                                "wis",
                                 "cha"
                             ],
                             "amount": 1
                         }
+                    }
+                ],
+                "entries": [
+                    "You can channel cosmic forces of evil to gain these benefits:",
+                    {
+                        "type": "list",
+                        "style": "list-hang-notitle",
+                        "items": [
+                            {
+                                "type": "item",
+                                "name": "Grasp of Avarice",
+                                "entries": [
+                                    "Once per turn, when you damage a creature you can see within 60 feet of yourself, you can also deal necrotic damage to it. The necrotic damage equals {@damage 1d6} + your proficiency bonus, and you regain a number of hit points equal to this necrotic damage dealt. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Blessed Warrior",
+                "source": "XPHB",
+                "page": 110,
+                "category": "FS:P",
+                "prerequisite": [
+                    {
+                        "otherSummary": {
+                            "entry": "When Gaining the Level 2 Paladin \"Fighting Style\" Feature",
+                            "entrySummary": "Special"
+                        }
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": "cha",
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=cleric",
+                                    "count": 2
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You learn two {@filter Cleric cantrips|spells|level=0|class=Cleric} of your choice. {@spell Guidance|XPHB} and {@spell Sacred Flame|XPHB} are recommended. The chosen cantrips count as Paladin spells for you, and Charisma is your spellcasting ability for them. Whenever you gain a Paladin level, you can replace one of these cantrips with another Cleric cantrip."
+                ]
+            },
+            {
+                "name": "Blind Fighting",
+                "source": "XPHB",
+                "page": 209,
+                "category": "FS",
+                "prerequisite": [
+                    {
+                        "feature": [
+                            "Fighting Style"
+                        ]
+                    }
+                ],
+                "senses": [
+                    {
+                        "blindsight": 10
+                    }
+                ],
+                "entries": [
+                    "You have {@sense Blindsight|XPHB} with a range of 10 feet."
+                ]
+            },
+            {
+                "name": "Bloodlust",
+                "source": "ABH",
+                "page": 9,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Powerful Recovery",
+                        "entries": [
+                            "When you roll a {@variantrule Hit Point Dice|XPHB|Hit Point Die} to regain {@variantrule Hit Points|XPHB}, you can treat any roll of 1 or 2 as a 3."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Sanguine Feast",
+                        "entries": [
+                            "Once per turn when you hit a {@status Bloodied|XPHB} creature that isn't a Construct or Undead with an attack roll, you can expend a {@variantrule Hit Point Dice|XPHB|Hit Point Die}, roll it, and regain a number of {@variantrule Hit Points|XPHB} equal to the number rolled plus your Constitution modifier.",
+                            "You can use this feature a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Bomber",
+                "source": "ABH",
+                "page": 9,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "dex": 1
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Far Lobber",
+                        "entries": [
+                            "When you use the {@action Attack|XPHB} action to throw a vial or flask, you can target an object or creature you can see within 40 feet of yourself."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Long Shots",
+                        "entries": [
+                            "Attacking at long range doesn't impose {@variantrule Disadvantage|XPHB} on your attack rolls with {@itemProperty T|XPHB|Thrown} weapons."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Blazing Dawn",
+                "source": "ABH",
+                "page": 11,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "immune": [
+                    "radiant"
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Beloved of the Sun",
+                        "entries": [
+                            "You have {@variantrule Immunity|XPHB} to Radiant damage."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Blazing Strike",
+                        "entries": [
+                            "When you hit a creature with a weapon attack, the damage can be Radiant or the weapon's normal damage type (your choice)."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Burst of Sunlight",
+                        "entries": [
+                            "Once per turn when you hit a creature with an attack that deals Radiant damage, you can emit {@variantrule Bright Light|XPHB} in a 30-foot radius from yourself and {@variantrule Dim Light|XPHB} for an additional 30 feet until the start of your next turn. This light is sunlight."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Bloodshed",
+                "source": "FRHoF",
+                "page": 42,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Killer's Fortune",
+                        "entries": [
+                            "When an enemy you can see is reduced to 0 {@variantrule Hit Points|XPHB}, you gain {@variantrule Advantage|XPHB} on the next attack roll you make before the end of your next turn."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Power from Pain",
+                        "entries": [
+                            "Once per turn, when you make an attack roll while {@status Bloodied|XPHB}, you can deal extra damage to the target equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}. The extra damage's type is the same as the attack's type."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Bountiful Health",
+                "source": "FRHoF",
+                "page": 42,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Augmented Health",
+                        "entries": [
+                            "When you gain {@variantrule Temporary Hit Points|XPHB}, increase the number of {@variantrule Temporary Hit Points|XPHB} you gain by 5."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Superior Recuperation",
+                        "entries": [
+                            "When you spend one or more {@variantrule Hit Point Dice|XPHB} to regain {@variantrule Hit Points|XPHB}, you can instead use the highest number possible for each die."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Combat Prowess",
+                "source": "XPHB",
+                "page": 210,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Peerless Aim",
+                        "entries": [
+                            "When you miss with an attack roll, you can hit instead. Once you use this benefit, you can't use it again until the start of your next turn."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Communication",
+                "source": "FRHoF",
+                "page": 42,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Cunning Speaker",
+                        "entries": [
+                            "You don't have {@variantrule Disadvantage|XPHB} on ability checks to influence {@variantrule Hostile [Attitude]|XPHB|Hostile} creatures."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Gifted Interpreter",
+                        "entries": [
+                            "You understand the literal meaning of any language you hear or see signed, and you can understand the literal meaning of any written language you see."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Mental Communication",
+                        "entries": [
+                            "You gain telepathy with a range of 120 feet."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Desperate Resilience",
+                "source": "FRHoF",
+                "page": 42,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "con"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Defense of Body and Mind",
+                        "entries": [
+                            "While you are {@status Bloodied|XPHB}, you have {@variantrule Resistance|XPHB} to every damage type except Force."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Dimensional Travel",
+                "source": "XPHB",
+                "page": 210,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Blink Steps",
+                        "entries": [
+                            "Immediately after you take the {@action Attack|XPHB} action or the {@action Magic|XPHB} action, you can teleport up to 30 feet to an unoccupied space you can see."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Energy Resistance",
+                "source": "XPHB",
+                "page": 210,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "resist": [
+                    {
+                        "choose": {
+                            "from": [
+                                "acid",
+                                "cold",
+                                "fire",
+                                "lightning",
+                                "necrotic",
+                                "poison",
+                                "psychic",
+                                "radiant",
+                                "thunder"
+                            ],
+                            "count": 2
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Energy Resistances",
+                        "entries": [
+                            "You gain {@variantrule Resistance|XPHB} to two of the following damage types of your choice: Acid, Cold, Fire, Lightning, Necrotic, Poison, Psychic, Radiant, or Thunder. Whenever you finish a {@variantrule Long Rest|XPHB}, you can change your choices."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Energy Redirection",
+                        "entries": [
+                            "When you take damage of one of the types chosen for the Energy Resistances benefit, you can take a {@variantrule Reaction|XPHB} to direct damage of the same type toward another creature you can see within 60 feet of yourself that isn't behind {@variantrule Cover|XPHB|Total Cover}. If you do so, that creature must succeed on a Dexterity saving throw ({@dc 8} plus your Constitution modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}) or take damage equal to {@dice 2d12} plus your Constitution modifier."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Exquisite Radiance",
+                "source": "FRHoF",
+                "page": 42,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Eternal Rest",
+                        "entries": [
+                            "Creatures you reduce to 0 {@variantrule Hit Points|XPHB} can't become Undead."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Powerful Radiance",
+                        "entries": [
+                            "When you make a damage roll that deals Radiant damage, you can instead use the highest number possible for each damage die. Once you use this benefit, you can't do so again until you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Fate",
+                "source": "XPHB",
+                "page": 210,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improve Fate",
+                        "entries": [
+                            "When you or another creature within 60 feet of you succeeds on or fails a {@variantrule D20 Test|XPHB}, you can roll {@dice 2d4} and apply the total rolled as a bonus or penalty to the {@dice d20} roll. Once you use this benefit, you can't use it again until you roll {@variantrule Initiative|XPHB} or finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Boon of Fluid Forms",
+                "source": "FRHoF",
+                "page": 42,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Shapechanger",
+                        "entries": [
+                            "You can take a {@action Magic|XPHB} action to shape-shift into a Beast, Humanoid, or Monstrosity with a {@variantrule Challenge Rating|XPHB} no higher than 10. When you shape-shift, you gain a number of {@variantrule Temporary Hit Points|XPHB} equal to the {@variantrule Hit Points|XPHB} of the form. The shape-shifting effect lasts for 1 hour, and it ends early if you have no {@variantrule Temporary Hit Points|XPHB} left or if you take a {@action Magic|XPHB} action to return to your true form.",
+                            "Your game statistics are replaced by the stat block of the chosen form, but you retain your creature type; alignment; personality; Intelligence, Wisdom, and Charisma scores; {@variantrule Hit Points|XPHB}; {@variantrule Hit Point Dice|XPHB}; proficiencies; and ability to communicate. If you have the Spellcasting or Pact Magic feature, you retain it too. Upon shape-shifting, you determine whether your equipment drops to the ground or changes in size and shape to fit the new form while you're in it.",
+                            "Once you use this benefit, you can't do so again until you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Hardy Transformation",
+                        "entries": [
+                            "When you gain {@variantrule Temporary Hit Points|XPHB} when you shape-shift, increase that number of {@variantrule Temporary Hit Points|XPHB} by 20."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Fortitude",
+                "source": "XPHB",
+                "page": 210,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Fortified Health",
+                        "entries": [
+                            "Your {@variantrule Hit Points|XPHB|Hit Point} maximum increases by 40. In addition, whenever you regain {@variantrule Hit Points|XPHB}, you can regain additional {@variantrule Hit Points|XPHB} equal to your Constitution modifier. Once you've regained these additional {@variantrule Hit Points|XPHB}, you can't do so again until the start of your next turn."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Fortune's Favor",
+                "source": "FRHoF",
+                "page": 43,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Saving Throw Reroll",
+                        "entries": [
+                            "When you fail a saving throw, you can reroll it and must use the new roll. Once you use this benefit, you can't do so again until the start of your next turn."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Irresistible Offense",
+                "source": "XPHB",
+                "page": 211,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Overcome Defenses",
+                        "entries": [
+                            "The Bludgeoning, Piercing, and Slashing damage you deal always ignores {@variantrule Resistance|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Overwhelming Strike",
+                        "entries": [
+                            "When you roll a 20 on the {@dice d20} for an attack roll, you can deal extra damage to the target equal to the ability score increased by this feat. The extra damage's type is the same as the attack's type."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Looming Shadows",
+                "source": "ABH",
+                "page": 11,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Shadowy Stretch",
+                        "entries": [
+                            "When you take the {@action Attack|XPHB} action, your reach for your Melee weapon attacks increases by 10 feet until the end of your turn."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Dancing Silhouette",
+                        "entries": [
+                            "You can take the {@action Dodge|XPHB} action as a {@variantrule Bonus Action|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Misty Escape",
+                "source": "ABH",
+                "page": 11,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1e": [
+                                        "gaseous form|xphb"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Gaseous Form",
+                        "entries": [
+                            "If you drop to 0 {@variantrule Hit Points|XPHB} but aren't killed outright, you can instead drop to 1 {@variantrule Hit Points|XPHB|Hit Point} and cast {@spell Gaseous Form|XPHB} without expending a spell slot (no action required). When you cast this spell this way, you can target only yourself, your {@variantrule Fly Speed|XPHB} is 20 feet, and you regain 10 {@variantrule Hit Points|XPHB} at the start of each of your turns for the spell's duration. The spell's spellcasting ability is the ability increased by this feat.",
+                            "Once you use this benefit, you can't do so again until you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Poison Mastery",
+                "source": "FRHoF",
+                "page": 43,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "immune": [
+                    "poison"
+                ],
+                "conditionImmune": [
+                    "poisoned"
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Antitoxic",
+                        "entries": [
+                            "You have {@variantrule Immunity|XPHB} to Poison damage and the {@condition Poisoned|XPHB} condition."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Perfect Poisoner",
+                        "entries": [
+                            "Once per turn, when you roll dice to determine Poison damage a creature takes from your attack, spell, or feature, you can instead use the highest number possible for each die."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Recovery",
+                "source": "XPHB",
+                "page": 211,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Last Stand",
+                        "entries": [
+                            "When you would be reduced to 0 {@variantrule Hit Points|XPHB}, you can drop to 1 {@variantrule Hit Points|XPHB|Hit Point} instead and regain a number of {@variantrule Hit Points|XPHB} equal to half your {@variantrule Hit Points|XPHB|Hit Point} maximum. Once you use this benefit, you can't use it again until you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Recover Vitality",
+                        "entries": [
+                            "You have a pool of ten d10s. As a {@variantrule Bonus Action|XPHB}, you can expend dice from the pool, roll those dice, and regain a number of {@variantrule Hit Points|XPHB} equal to the roll's total. You regain all the expended dice when you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Revelry",
+                "source": "FRHoF",
+                "page": 43,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "prepared": {
+                            "_": [
+                                "otto's irresistible dance|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Inspire Dance",
+                        "entries": [
+                            "You always have the {@spell Otto's Irresistible Dance|XPHB} spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level.",
+                            "When you cast the spell, it requires no spell components, and taking damage doesn't break your {@status Concentration|XPHB} on it."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Sing Out",
+                        "entries": [
+                            "While a creature that failed its saving throw against your {@spell Otto's Irresistible Dance|XPHB} has the {@condition Charmed|XPHB} condition from that spell, it can't cast spells with Verbal components, and it sings delightful nonsense if it can sing."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Siberys",
+                "source": "EFA",
+                "page": 45,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19,
+                        "campaign": [
+                            "Eberron"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "name": "Mark of Handling",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "animal shapes|xphb"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Mark of Storm",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "control weather|xphb"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Mark of Making",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "demiplane|xphb"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Mark of Hospitality",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "heroes' feast|xphb"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Mark of Warding",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "maze|xphb"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Mark of Sentinel",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "mind blank|xphb"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Mark of Passage",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "plane shift|xphb"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Mark of Shadow",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "project image|xphb"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Mark of Healing",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "regenerate|xphb"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Mark of Scribing",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "symbol|xphb"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Mark of Finding",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "teleport|xphb"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Mark of Detection",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "true seeing|xphb"
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Sorcerer Spell",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1;2;3;4;5;6;7;8|class=Sorcerer"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Aberrant Magic",
+                        "entries": [
+                            "Choose a level 8 or lower spell from the {@filter Sorcerer spell list|spells|class=Sorcerer|level=0;1;2;3;4;5;6;7;8} or a spell from the Siberys Dragonmark Spells table (the table includes dragonmark suggestions if you'd like to associate a spell with one of the marks). You always have that spell prepared. You can cast it once without a spell slot or spell components, and you regain the ability to cast it in that way when you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}. You can also cast this spell using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you gain this feat).",
+                            {
+                                "type": "table",
+                                "caption": "Siberys Dragonmark Seplls",
+                                "colStyles": [
+                                    "col-6",
+                                    "col-6"
+                                ],
+                                "colLabels": [
+                                    "Spell",
+                                    "Suggested Dragonmark"
+                                ],
+                                "rows": [
+                                    [
+                                        "{@spell Animal Shapes|XPHB}",
+                                        "Handling"
+                                    ],
+                                    [
+                                        "{@spell Control Weather|XPHB}",
+                                        "Storm"
+                                    ],
+                                    [
+                                        "{@spell Demiplane|XPHB}",
+                                        "Making"
+                                    ],
+                                    [
+                                        "{@spell Heroes' Feast|XPHB}",
+                                        "Hospitality"
+                                    ],
+                                    [
+                                        "{@spell Maze|XPHB}",
+                                        "Warding"
+                                    ],
+                                    [
+                                        "{@spell Mind Blank|XPHB}",
+                                        "Sentinel"
+                                    ],
+                                    [
+                                        "{@spell Plane Shift|XPHB}",
+                                        "Passage"
+                                    ],
+                                    [
+                                        "{@spell Project Image|XPHB}",
+                                        "Shadow"
+                                    ],
+                                    [
+                                        "{@spell Regenerate|XPHB}",
+                                        "Healing"
+                                    ],
+                                    [
+                                        "{@spell Symbol|XPHB}",
+                                        "Scribing"
+                                    ],
+                                    [
+                                        "{@spell Teleport|XPHB}",
+                                        "Finding"
+                                    ],
+                                    [
+                                        "{@spell True Seeing|XPHB}",
+                                        "Detection"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Boon of Skill",
+                "source": "XPHB",
+                "page": 211,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "skillProficiencies": [
+                    {
+                        "athletics": true,
+                        "acrobatics": true,
+                        "sleight of hand": true,
+                        "stealth": true,
+                        "arcana": true,
+                        "history": true,
+                        "investigation": true,
+                        "nature": true,
+                        "religion": true,
+                        "animal handling": true,
+                        "insight": true,
+                        "medicine": true,
+                        "perception": true,
+                        "survival": true,
+                        "deception": true,
+                        "intimidation": true,
+                        "performance": true,
+                        "persuasion": true
+                    }
+                ],
+                "expertise": [
+                    {
+                        "anyProficientSkill": 1
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "All-Around Adept",
+                        "entries": [
+                            "You gain proficiency in all skills."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Expertise",
+                        "entries": [
+                            "Choose one skill in which you lack {@variantrule Expertise|XPHB}. You gain {@variantrule Expertise|XPHB} in that skill."
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Boon of Speed",
+                "source": "XPHB",
+                "page": 211,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Escape Artist",
+                        "entries": [
+                            "As a {@variantrule Bonus Action|XPHB}, you can take the {@action Disengage|XPHB} action, which also ends the {@condition Grappled|XPHB} condition on you."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Quickness",
+                        "entries": [
+                            "Your {@variantrule Speed|XPHB} increases by 30 feet."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Spell Recall",
+                "source": "XPHB",
+                "page": 211,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19,
+                        "spellcasting2020": true
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Free Casting",
+                        "entries": [
+                            "Whenever you cast a spell with a level 1-4 spell slot, roll {@dice 1d4}. If the number you roll is the same as the slot's level, the slot isn't expended."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Terror",
+                "source": "FRHoF",
+                "page": 43,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "cha": 1,
+                        "max": 30
                     }
                 ],
                 "skillProficiencies": [
@@ -411,48 +2227,257 @@ export default function getFeats() {
                         "intimidation": true
                     }
                 ],
-                "entries": [
-                    "One of your ancestors was a barbed devil or other spiky fiend. Barbs protrude from your head. You gain the following benefits:",
+                "expertise": [
                     {
-                        "type": "list",
-                        "items": [
-                            "As a bonus action, you can cause small barbs to protrude all over your body or cause them to retract. At the start of each of your turns while the barbs are out, you deal {@damage 1d6} piercing damage to any creature grappling you or any creature {@condition grappled} by you.",
-                            "You gain proficiency in the {@skill Intimidation} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it."
+                        "intimidation": true
+                    }
+                ],
+                "conditionImmune": [
+                    "frightened"
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Fearless",
+                        "entries": [
+                            "You have {@variantrule Immunity|XPHB} to the {@condition Frightened|XPHB} condition."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Flee, Fools!",
+                        "entries": [
+                            "When a creature with the {@condition Frightened|XPHB} condition starts its turn within 60 feet of you, you can take a {@variantrule Reaction|XPHB} to stoke its terror, provided you can see the creature and it isn't behind {@variantrule Cover|XPHB|Total Cover}. If you do so, the creature must succeed on a Wisdom saving throw (DC 8 plus your Charisma modifier and your {@variantrule Proficiency|XPHB|Proficiency Bonus}) or spend its turn moving away from you by the fastest available means. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Intimidating",
+                        "entries": [
+                            "You gain {@variantrule Proficiency|XPHB} in the {@skill Intimidation|XPHB} skill if you don't already have it. You also gain {@variantrule Expertise|XPHB} in {@skill Intimidation|XPHB}."
                         ]
                     }
                 ]
             },
             {
-                "name": "Blade Mastery",
-                "source": "UAFeats",
-                "page": 2,
-                "entries": [
-                    "You master the {@item shortsword|phb}, {@item longsword|phb}, {@item scimitar|phb}, {@item rapier|phb}, and {@item greatsword|phb}. You gain the following benefits when using any of them:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You gain a +1 bonus to attack rolls you make with the weapon.",
-                            "On your turn, you can use your reaction to assume a parrying stance, provided you have the weapon in hand. Doing so grants you a +1 bonus to your AC until the start of your next turn or until you're not holding the weapon.",
-                            "When you make an opportunity attack with the weapon, you have advantage on the attack roll."
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Bountiful Luck",
-                "source": "UAFeatsForRaces",
-                "page": 1,
+                "name": "Boon of the Bright Sun",
+                "source": "FRHoF",
+                "page": 43,
+                "category": "EB",
                 "prerequisite": [
                     {
-                        "race": [
-                            {
-                                "name": "halfling"
-                            }
-                        ]
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "con",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
                     }
                 ],
                 "entries": [
-                    "Whenever an ally you can see within 30 feet of you rolls a 1 on the {@dice d20} for an attack roll, an ability check, or a saving throw, you can use your reaction to let the ally reroll the die. The ally must use the new roll."
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Daylight Presence",
+                        "entries": [
+                            "As a {@variantrule Bonus Action|XPHB}, you radiate a 30-foot {@variantrule Emanation [Area of Effect]|XPHB|Emanation} of {@variantrule Bright Light|XPHB} that is sunlight. If any of the {@variantrule Emanation [Area of Effect]|XPHB|Emanation}'s area overlaps with an area of {@spell Darkness|XPHB} created by a spell, that spell is dispelled. The {@variantrule Emanation [Area of Effect]|XPHB|Emanation} lasts until you dismiss it (no action required), die, or have the {@condition Incapacitated|XPHB} condition."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Fortifying Light",
+                        "entries": [
+                            "When your Daylight Presence is active, at the start of each of your turns, you and allies you can see in your Daylight Presence gain 10 {@variantrule Temporary Hit Points|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of the Furious Storm",
+                "source": "FRHoF",
+                "page": 43,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19,
+                        "spellcasting2020": true
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "resist": [
+                    "lightning",
+                    "thunder"
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Eye of the Storm",
+                        "entries": [
+                            "You have {@variantrule Resistance|XPHB} to Lightning and Thunder damage. While you are {@status Bloodied|XPHB}, you have {@variantrule Immunity|XPHB} to Lightning and Thunder damage."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Storm's Strength",
+                        "entries": [
+                            "Creatures have {@variantrule Disadvantage|XPHB} on saving throws against your spells that deal Lightning or Thunder damage."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of the Night Spirit",
+                "source": "XPHB",
+                "page": 211,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Merge with Shadows",
+                        "entries": [
+                            "While within {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, you can give yourself the {@condition Invisible|XPHB} condition as a {@variantrule Bonus Action|XPHB}. The condition ends on you immediately after you take an action, a {@variantrule Bonus Action|XPHB}, or a {@variantrule Reaction|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Shadowy Form",
+                        "entries": [
+                            "While within {@variantrule Dim Light|XPHB} or {@variantrule Darkness|XPHB}, you have {@variantrule Resistance|XPHB} to all damage except Psychic and Radiant."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of the Soul Drinker",
+                "source": "FRHoF",
+                "page": 43,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "resist": [
+                    "cold",
+                    "necrotic"
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Grave Resistance",
+                        "entries": [
+                            "You have {@variantrule Resistance|XPHB} to Cold damage and Necrotic damage."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Siphon Life",
+                        "entries": [
+                            "When an enemy within 120 feet of you is reduced to 0 {@variantrule Hit Points|XPHB}, you can take a {@variantrule Reaction|XPHB} to regain 50 {@variantrule Hit Points|XPHB}. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Boon of Truesight",
+                "source": "XPHB",
+                "page": 211,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "EB",
+                "prerequisite": [
+                    {
+                        "level": 19
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "max": 30
+                    }
+                ],
+                "senses": [
+                    {
+                        "truesight": 60
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Truesight",
+                        "entries": [
+                            "You have {@sense Truesight|XPHB} with a range of 60 feet."
+                        ]
+                    }
                 ]
             },
             {
@@ -475,50 +2500,44 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Brawny",
-                "source": "UAFeatsForSkills",
-                "page": 1,
-                "ability": [
+                "name": "Cartomancer",
+                "source": "BMT",
+                "page": 49,
+                "prerequisite": [
                     {
-                        "str": 1
+                        "level": 4,
+                        "spellcastingFeature": true
                     }
                 ],
-                "skillProficiencies": [
+                "additionalSpells": [
                     {
-                        "athletics": true
-                    }
-                ],
-                "entries": [
-                    "You become stronger, gaining the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Athletics} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "You count as if you were one size larger for the purpose of determining your carrying capacity."
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Burglar",
-                "source": "UAFeats",
-                "page": 4,
-                "ability": [
-                    {
-                        "dex": 1
-                    }
-                ],
-                "toolProficiencies": [
-                    {
-                        "thieves' tools": true
+                        "known": {
+                            "_": [
+                                "prestidigitation#c"
+                            ]
+                        }
                     }
                 ],
                 "entries": [
-                    "You pride yourself on your quickness and your close study of certain clandestine activities. You gain the following benefits:",
+                    "You have learned to channel your magic through a deck of cards. You can use a card deck as your spellcasting focus, and you gain the following benefits:",
                     {
                         "type": "list",
+                        "style": "list-hang-notitle",
                         "items": [
-                            "You gain proficiency with {@item thieves' tools|phb}. If you are already proficient with them, you add double your proficiency bonus to checks you make with them."
+                            {
+                                "type": "item",
+                                "name": "Card Tricks",
+                                "entries": [
+                                    "You learn the {@spell Prestidigitation} cantrip and can use it to create illusions that duplicate the effects of stage magic. When you use {@spell Prestidigitation} in this way, you can conceal the verbal and somatic components of the spell as ordinary conversation and card handling."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Hidden Ace",
+                                "entries": [
+                                    "When you finish a long rest, you can choose one spell from your class's spell list and imbue that spell into a card. The chosen spell must have a casting time of 1 action, and it must be a level for which you have spell slots. The card remains imbued with this spell for 8 hours. While the card is imbued with the spell, you can use a bonus action to flourish the card and cast the spell within. The card then immediately loses its magic."
+                                ]
+                            }
                         ]
                     }
                 ]
@@ -527,15 +2546,72 @@ export default function getFeats() {
                 "name": "Charger",
                 "source": "PHB",
                 "page": 165,
+                "reprintedAs": [
+                    "Charger|XPHB"
+                ],
                 "entries": [
                     "When you use your action to {@action Dash}, you can use a bonus action to make one melee weapon attack or to {@action shove} a creature.",
                     "If you move at least 10 feet in a straight line immediately before taking this bonus action, you either gain a +5 bonus to the attack's damage roll (if you chose to make a melee attack and hit) or push the target up to 10 feet away from you (if you chose to shove and you succeed)."
                 ]
             },
             {
+                "name": "Charger",
+                "source": "XPHB",
+                "page": 202,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "str": 13
+                            }
+                        ]
+                    },
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "dex": 13
+                            }
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Dash",
+                        "entries": [
+                            "When you take the {@action Dash|XPHB} action, your {@variantrule Speed|XPHB} increases by 10 feet for that action."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Charge Attack",
+                        "entries": [
+                            "If you move at least 10 feet in a straight line toward a target immediately before hitting it with a melee attack roll as part of the {@action Attack|XPHB} action, choose one of the following effects: gain a {@dice 1d8} bonus to the attack's damage roll, or push the target up to 10 feet away if it is no more than one size larger than you. You can use this benefit only once on each of your turns."
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "Chef",
                 "source": "TCE",
                 "page": 79,
+                "reprintedAs": [
+                    "Chef|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -566,16 +2642,21 @@ export default function getFeats() {
             },
             {
                 "name": "Chef",
-                "source": "UA2020Feats",
-                "page": 1,
+                "source": "XPHB",
+                "page": 202,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
                 "ability": [
                     {
                         "choose": {
                             "from": [
                                 "con",
                                 "wis"
-                            ],
-                            "amount": 1
+                            ]
                         }
                     }
                 ],
@@ -585,60 +2666,355 @@ export default function getFeats() {
                     }
                 ],
                 "entries": [
-                    "Time and effort spent mastering the culinary arts has paid off. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency with {@item cook's utensils|phb} if you don't already have it.",
-                            "As part of a short rest, you can cook special food, provided you have ingredients and {@item cook's utensils|phb} on hand. You can prepare enough of this food for a number of creatures equal to 4 + your proficiency bonus. At the end of the short rest, any creature who eats the food and spends one or more Hit Dice to regain hit points regains an extra {@dice 1d8} hit points.",
-                            "With one hour of work or when you finish a long rest, you can cook a number of treats equal to your proficiency bonus. These special treats last 8 hours after being made. A creature can use a bonus action to eat one of those treats to gain temporary hit points equal to your proficiency bonus."
+                        "type": "entries",
+                        "name": "Cook's Utensils",
+                        "entries": [
+                            "You gain proficiency with {@item Cook's Utensils|XPHB} if you don't already have it."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Replenishing Meal",
+                        "entries": [
+                            "As part of a {@variantrule Short Rest|XPHB}, you can cook special food if you have ingredients and {@item Cook's Utensils|XPHB} on hand. You can prepare enough of this food for a number of creatures equal to 4 plus your {@variantrule Proficiency|XPHB|Proficiency Bonus}. At the end of the {@variantrule Short Rest|XPHB}, any creature who eats the food and spends one or more Hit Dice to regain {@variantrule Hit Points|XPHB} regains an extra {@dice 1d8} {@variantrule Hit Points|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Bolstering Treats",
+                        "entries": [
+                            "With 1 hour of work or when you finish a {@variantrule Long Rest|XPHB}, you can cook a number of treats equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus} if you have ingredients and {@item Cook's Utensils|XPHB} on hand. These special treats last 8 hours after being made. A creature can use a {@variantrule Bonus Action|XPHB} to eat one of those treats to gain a number of {@variantrule Temporary Hit Points|XPHB} equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}."
                         ]
                     }
                 ]
             },
             {
-                "name": "Critter Friend",
-                "source": "UAFeatsForRaces",
-                "page": 1,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "gnome",
-                                "subrace": "forest"
-                            }
-                        ]
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "animal handling": true
-                    }
-                ],
+                "name": "Child of the Sun",
+                "source": "LFL",
+                "category": "O",
                 "additionalSpells": [
                     {
-                        "ability": "int",
                         "innate": {
                             "_": {
-                                "will": [
-                                    "speak with animals"
-                                ],
                                 "daily": {
                                     "1": [
-                                        "animal friendship"
+                                        "faerie fire|xphb"
                                     ]
                                 }
                             }
+                        },
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
                         }
                     }
                 ],
                 "entries": [
-                    "Your friendship with animals mystically deepens. You gain the following benefits:",
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Eyes of Eirdu",
+                        "entries": [
+                            "You and allies within 10 feet of you have {@variantrule Advantage|XPHB} on saving throws made to avoid or end the {@condition Blinded|XPHB} condition."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Faerie Fire",
+                        "entries": [
+                            "You learn the {@spell Faerie Fire|XPHB} spell. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have.",
+                            "When you cast {@spell Faerie Fire|XPHB} without a spell slot using this benefit, taking damage can't break your {@status Concentration|XPHB} on the spell."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Cloying Mists",
+                "source": "ABH",
+                "page": 9,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "prepared": {
+                            "_": [
+                                "fog cloud|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Arise, Fog",
+                        "entries": [
+                            "You always have the {@spell Fog Cloud|XPHB} spell prepared. You can cast it without a spell slot, and you must finish a {@variantrule Long Rest|XPHB} before you can cast it in this way again. You can also cast it using spell slots you have of the appropriate level. Your spellcasting ability for the spell is the ability increased by this feat."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Grasping Mist",
+                        "entries": [
+                            "Whenever you cast {@spell Fog Cloud|XPHB}, nonmagical flames in the spell's {@variantrule Sphere [Area of Effect]|XPHB|Sphere} are extinguished, and creatures other than you and your allies have their {@variantrule Speed|XPHB} reduced by 5 feet while in the spell's {@variantrule Sphere [Area of Effect]|XPHB|Sphere}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Cohort of Chaos",
+                "source": "SatO",
+                "page": 10,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "scion of the outer planes|sato|scion of the outer planes (chaotic outer plane)"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ],
+                            "amount": 1
+                        }
+                    }
+                ],
+                "entries": [
+                    "You can channel cosmic forces of chaos to gain these benefits:",
                     {
                         "type": "list",
+                        "style": "list-hang-notitle",
                         "items": [
-                            "You gain proficiency in the {@skill Animal Handling} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "You learn the {@spell speak with animals} spell and can cast it at will, without expending a spell slot. You also learn the {@spell animal friendship} spell, and you can cast it once with this feat, without expending a spell slot. You regain the ability to cast it in this way when you finish a long rest. Intelligence is your spellcasting ability for these spells."
+                            {
+                                "type": "item",
+                                "name": "Chaotic Flare",
+                                "entries": [
+                                    "When you roll a 1 or a 20 on an attack roll or a saving throw, the magic of chaos flows through you. Roll a d4 and consult the Chaotic Flares table to determine what happens. A flare lasts until the end of your next turn, and a new flare can't occur until after the first flare ends.",
+                                    {
+                                        "type": "table",
+                                        "caption": "Chaotic Flares",
+                                        "colStyles": [
+                                            "col-2 text-center",
+                                            "col-10"
+                                        ],
+                                        "colLabels": [
+                                            "d4",
+                                            "Flare"
+                                        ],
+                                        "rows": [
+                                            [
+                                                "1",
+                                                "{@b Battle Fury.} A creature of your choice that you can see is filled with reckless fury. It has advantage on attack rolls and disadvantage on ability checks."
+                                            ],
+                                            [
+                                                "2",
+                                                "{@b Disruption Field.} Waves of energy ripple around you. Every creature that starts its turn within 5 feet of you, or that moves into that area for the first time on a turn, takes {@damage 1d8} force damage."
+                                            ],
+                                            [
+                                                "3",
+                                                "{@b Unbound.} When you move, you can use some or all of your walking speed to teleport yourself once, along with any equipment you're wearing or carrying, up to the distance used to an unoccupied space that you can see."
+                                            ],
+                                            [
+                                                "4",
+                                                "{@b Wailing Winds.} Winds swirl in a 15-foot-radius sphere centered on you. You and any other creatures in that area have disadvantage on Wisdom saving throws."
+                                            ]
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Cold Caster",
+                "source": "FRHoF",
+                "page": 39,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "ray of frost|xphb#c"
+                            ]
+                        }
+                    },
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Wizard"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Cantrip",
+                        "entries": [
+                            "You learn the {@spell Ray of Frost|XPHB} cantrip. If you already know it, you learn a different Wizard cantrip of your choice. The spell's spellcasting ability is the ability increased by this feat."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Frostbite",
+                        "entries": [
+                            "Once per turn when you hit a creature with an attack roll and deal Cold damage, you can temporarily negate the creature's defenses. The creature subtracts {@dice 1d4} from the next saving throw it makes before the end of your next turn."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Crafter",
+                "source": "XPHB",
+                "page": 200,
+                "category": "O",
+                "toolProficiencies": [
+                    {
+                        "choose": {
+                            "from": [
+                                "carpenter's tools",
+                                "leatherworker's tools",
+                                "mason's tools",
+                                "potter's tools",
+                                "smith's tools",
+                                "tinker's tools",
+                                "weaver's tools",
+                                "woodcarver's tools"
+                            ],
+                            "count": 3
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Tool Proficiency",
+                        "entries": [
+                            "You gain proficiency with three different {@item Artisan's Tools|XPHB} of your choice from the Fast Crafting table."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Discount",
+                        "entries": [
+                            "Whenever you buy a nonmagical item, you receive a 20 percent discount on it."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Fast Crafting",
+                        "entries": [
+                            "When you finish a {@variantrule Long Rest|XPHB}, you can craft one piece of gear from the Fast Crafting table, provided you have the {@item Artisan's Tools|XPHB} associated with that item and have proficiency with those tools. The item lasts until you finish another {@variantrule Long Rest|XPHB}, at which point the item falls apart.",
+                            {
+                                "type": "table",
+                                "caption": "Fast Crafting",
+                                "colStyles": [
+                                    "col-3",
+                                    "col-9"
+                                ],
+                                "colLabels": [
+                                    "Artisan's Tools",
+                                    "Crafted Gear"
+                                ],
+                                "rows": [
+                                    [
+                                        "{@item Carpenter's Tools|XPHB}",
+                                        "{@item Ladder|XPHB}, {@item Torch|XPHB}"
+                                    ],
+                                    [
+                                        "{@item Leatherworker's Tools|XPHB}",
+                                        "{@item Crossbow Bolt Case|XPHB}, {@item Map or Scroll Case|XPHB}, {@item Pouch|XPHB}"
+                                    ],
+                                    [
+                                        "{@item Mason's Tools|XPHB}",
+                                        "{@item Block and Tackle|XPHB}"
+                                    ],
+                                    [
+                                        "{@item Potter's Tools|XPHB}",
+                                        "{@item Jug|XPHB}, {@item Lamp|XPHB}"
+                                    ],
+                                    [
+                                        "{@item Smith's Tools|XPHB}",
+                                        "{@item Ball Bearings|XPHB}, {@item Bucket|XPHB}, {@item Caltrops|XPHB}, {@item Grappling Hook|XPHB}, {@item Iron Pot|XPHB}"
+                                    ],
+                                    [
+                                        "{@item Tinker's Tools|XPHB}",
+                                        "{@item Bell|XPHB}, {@item Shovel|XPHB}, {@item Tinderbox|XPHB}"
+                                    ],
+                                    [
+                                        "{@item Weaver's Tools|XPHB}",
+                                        "{@item Basket|XPHB}, {@item Rope|XPHB}, {@item Net|XPHB}, {@item Tent|XPHB}"
+                                    ],
+                                    [
+                                        "{@item Woodcarver's Tools|XPHB}",
+                                        "{@item Club|XPHB}, {@item Greatclub|XPHB}, {@item Quarterstaff|XPHB}"
+                                    ]
+                                ]
+                            }
                         ]
                     }
                 ]
@@ -647,6 +3023,9 @@ export default function getFeats() {
                 "name": "Crossbow Expert",
                 "source": "PHB",
                 "page": 165,
+                "reprintedAs": [
+                    "Crossbow Expert|XPHB"
+                ],
                 "entries": [
                     "Thanks to extensive practice with the crossbow, you gain the following benefits:",
                     {
@@ -660,9 +3039,57 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Crossbow Expert",
+                "source": "XPHB",
+                "page": 203,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "dex": 13
+                            }
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "dex": 1
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Ignore Loading",
+                        "entries": [
+                            "You ignore the {@itemProperty LD|XPHB|Loading} property of the {@item Hand Crossbow|XPHB}, {@item Heavy Crossbow|XPHB}, and {@item Light Crossbow|XPHB} (all called crossbows elsewhere in this feat). If you're holding one of them, you can load a piece of ammunition into it even if you lack a free hand."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Firing in Melee",
+                        "entries": [
+                            "Being within 5 feet of an enemy doesn't impose {@variantrule Disadvantage|XPHB} on your attack rolls with crossbows."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Dual Wielding",
+                        "entries": [
+                            "When you make the extra attack of the {@itemProperty L|XPHB|Light} property, you can add your ability modifier to the damage of the extra attack if that attack is with a crossbow that has the {@itemProperty L|XPHB|Light} property and you aren't already adding that modifier to the damage."
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "Crusher",
                 "source": "TCE",
                 "page": 79,
+                "reprintedAs": [
+                    "Crusher|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -687,34 +3114,105 @@ export default function getFeats() {
             },
             {
                 "name": "Crusher",
-                "source": "UA2020Feats",
-                "page": 1,
+                "source": "XPHB",
+                "page": 203,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
                 "ability": [
                     {
                         "choose": {
                             "from": [
                                 "str",
-                                "dex"
-                            ],
-                            "amount": 1
+                                "con"
+                            ]
                         }
                     }
                 ],
                 "entries": [
-                    "You are practiced in the art of crushing your enemies, granting you the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "Once per turn, when you hit a creature with an attack that deals bludgeoning damage, you can move it 5 feet to an unoccupied space, provided the target is no more than one size larger than you.",
-                            "When you score a critical hit that deals bludgeoning damage to a creature, attack rolls against that creature are made with advantage until the end of your next turn."
+                        "type": "entries",
+                        "name": "Push",
+                        "entries": [
+                            "Once per turn, when you hit a creature with an attack that deals Bludgeoning damage, you can move it 5 feet to an unoccupied space if the target is no more than one size larger than you."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Enhanced Critical",
+                        "entries": [
+                            "When you score a {@variantrule Critical Hit|XPHB} that deals Bludgeoning damage to a creature, attack rolls against that creature have {@variantrule Advantage|XPHB} until the start of your next turn."
                         ]
                     }
+                ]
+            },
+            {
+                "name": "Cult of the Dragon Initiate",
+                "source": "FRHoF",
+                "page": 37,
+                "category": "O",
+                "languageProficiencies": [
+                    {
+                        "draconic": true
+                    },
+                    {
+                        "any": 1
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Dragon's Tongue",
+                        "entries": [
+                            "You know Draconic. If you already know Draconic when you select this feat, you instead learn one language of your choice from the language tables in the Player's Handbook or Chapter 2 of this book."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Dragon's Terror",
+                        "entries": [
+                            "You can take a {@action Magic|XPHB} action to instill terror in a creature you can see within 30 feet of yourself. The target must succeed on a Wisdom saving throw (DC 8 plus your Wisdom modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}) or have the {@condition Frightened|XPHB} condition until the end of your next turn. If the target succeeds on the save or when the effect ends for a target, the target is immune to this effect for 24 hours."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Inspired by Fear",
+                        "entries": [
+                            "When you cause a creature to have the {@condition Frightened|XPHB} condition and you are the source of its fear, you can gain {@variantrule Heroic Inspiration|XPHB} if you lack it. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Defense",
+                "source": "XPHB",
+                "page": 209,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "FS",
+                "prerequisite": [
+                    {
+                        "feature": [
+                            "Fighting Style"
+                        ]
+                    }
+                ],
+                "entries": [
+                    "While you're wearing Light, Medium, or Heavy armor, you gain a +1 bonus to {@variantrule Armor Class|XPHB}."
                 ]
             },
             {
                 "name": "Defensive Duelist",
                 "source": "PHB",
                 "page": 165,
+                "reprintedAs": [
+                    "Defensive Duelist|XPHB"
+                ],
                 "prerequisite": [
                     {
                         "ability": [
@@ -729,41 +3227,44 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Diplomat",
-                "source": "UAFeatsForSkills",
-                "page": 2,
-                "ability": [
+                "name": "Defensive Duelist",
+                "source": "XPHB",
+                "page": 203,
+                "category": "G",
+                "prerequisite": [
                     {
-                        "cha": 1
+                        "level": 4,
+                        "ability": [
+                            {
+                                "dex": 13
+                            }
+                        ]
                     }
                 ],
-                "skillProficiencies": [
+                "ability": [
                     {
-                        "persuasion": true
+                        "dex": 1
                     }
                 ],
                 "entries": [
-                    "You master the arts of diplomacy, gaining the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Persuasion} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "If you spend 1 minute talking to someone who can understand what you say, you can make a Charisma ({@skill Persuasion}) check contested by the creature's Wisdom ({@skill Insight}) check. If you or your companions are fighting the creature, your check automatically fails. If your check succeeds, the target is {@condition charmed} by you as long as it remains within 60 feet of you and for 1 minute thereafter."
+                        "type": "entries",
+                        "name": "Parry",
+                        "entries": [
+                            "If you're holding a Finesse weapon and another creature hits you with a melee attack, you can take a {@variantrule Reaction|XPHB} to add your {@variantrule Proficiency|XPHB|Proficiency Bonus} to your {@variantrule Armor Class|XPHB}, potentially causing the attack to miss you. You gain this bonus to your AC against melee attacks until the start of your next turn."
                         ]
                     }
                 ]
             },
             {
-                "name": "Dragon Fear",
-                "source": "UAFeatsForRaces",
-                "page": 2,
+                "name": "Delicious Pain",
+                "source": "ABH",
+                "page": 9,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
-                            {
-                                "name": "dragonborn"
-                            }
-                        ]
+                        "level": 4
                     }
                 ],
                 "ability": [
@@ -771,20 +3272,162 @@ export default function getFeats() {
                         "choose": {
                             "from": [
                                 "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
                                 "cha"
-                            ],
-                            "amount": 1
+                            ]
                         }
                     }
                 ],
                 "entries": [
-                    "When angered, you radiate menace. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "Instead of exhaling destructive energy, you can roar and expend a use of your breath weapon to force each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds if it can't hear or see you. On a failed save, a target becomes {@condition frightened} for 1 minute. If the {@condition frightened} target takes any damage, it can repeat the saving throw, ending the effect on itself on a success."
+                        "type": "entries",
+                        "name": "Toughened Flesh",
+                        "entries": [
+                            "Immediately after you take Bludgeoning, Piercing, or Slashing damage, you can take a {@variantrule Reaction|XPHB} to gain {@variantrule Resistance|XPHB} to Bludgeoning, Piercing, and Slashing damage until the start of your next turn. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
                         ]
                     }
+                ]
+            },
+            {
+                "name": "Divinely Favored",
+                "source": "DSotDQ",
+                "page": 32,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "campaign": [
+                            "Dragonlance"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "name": "Evil",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Cleric",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1e": [
+                                        "augury",
+                                        {
+                                            "choose": "level=1|class=warlock"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Good",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Cleric",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1e": [
+                                        "augury",
+                                        {
+                                            "choose": "level=1|class=cleric"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Neutral",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Cleric",
+                                    "count": 1
+                                }
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1e": [
+                                        "augury",
+                                        {
+                                            "choose": "level=1|class=druid"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "entries": [
+                    "A god chose you to carry a spark of their power.",
+                    "You learn one cantrip of your choice from the {@filter cleric spell list|spells|level=0|class=cleric} and one 1st-level spell based on the alignment of your character, as specified in the Alignment Spells table below. You also learn the {@spell augury} spell.",
+                    {
+                        "type": "table",
+                        "caption": "Alignment Spells",
+                        "colLabels": [
+                            "Alignment",
+                            "1st-Level Spell"
+                        ],
+                        "colStyles": [
+                            "col-2",
+                            "col-10"
+                        ],
+                        "rows": [
+                            [
+                                "Evil",
+                                "Choose one {@filter 1st-level warlock spell|spells|level=1|class=warlock}"
+                            ],
+                            [
+                                "Good",
+                                "Choose one {@filter 1st-level cleric spell|spells|level=1|class=cleric}"
+                            ],
+                            [
+                                "Neutral",
+                                "Choose one {@filter 1st-level druid spell|spells|level=1|class=druid}"
+                            ]
+                        ]
+                    },
+                    "You can cast the chosen 1st-level spell and the {@spell augury} spell without a spell slot, and you must finish a long rest before you can cast either of these spells in this way again. You can also cast these spells using spell slots you have of the appropriate level.",
+                    "Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+                    "In addition, you can use a holy symbol as a spellcasting focus for any spell you cast that uses the spellcasting ability you choose when you select this feat."
                 ]
             },
             {
@@ -817,42 +3460,7 @@ export default function getFeats() {
                     {
                         "type": "list",
                         "items": [
-                            "Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw (DC 8 + your proficiency bonus + your Charisma modifier). A target automatically succeeds on the save if it can't hear or see you. On a failed save, a target becomes {@condition frightened} of you for 1 minute. If the {@condition frightened} target takes any damage, it can repeat the saving throw, ending the effect on itself on a success."
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Dragon Hide",
-                "source": "UAFeatsForRaces",
-                "page": 2,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "dragonborn"
-                            }
-                        ]
-                    }
-                ],
-                "ability": [
-                    {
-                        "choose": {
-                            "from": [
-                                "str",
-                                "cha"
-                            ],
-                            "amount": 1
-                        }
-                    }
-                ],
-                "entries": [
-                    "You inherited the might and majesty of your dragon ancestors. You gain the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to {@dice 1d4} + your Strength modifier, instead of the bludgeoning damage normal for an unarmed strike.",
-                            "Your scales harden; you gain a +1 bonus to AC while you aren't wearing armor."
+                            "Instead of exhaling destructive energy, you can expend a use of your Breath Weapon trait to roar, forcing each creature of your choice within 30 feet of you to make a Wisdom saving throw ({@dc 8} + your proficiency bonus + your Charisma modifier). A target automatically succeeds on the save if it can't hear or see you. On a failed save, a target becomes {@condition frightened} of you for 1 minute. If the {@condition frightened} target takes any damage, it can repeat the saving throw, ending the effect on itself on a success."
                         ]
                     }
                 ]
@@ -888,905 +3496,63 @@ export default function getFeats() {
                         "type": "list",
                         "items": [
                             "Your scales harden. While you aren't wearing armor, you can calculate your AC as 13 + your Dexterity modifier. You can use a shield and still gain this benefit.",
-                            "You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to {@dice 1d4} + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike."
+                            "You grow retractable claws from the tips of your fingers. Extending or retracting the claws requires no action. The claws are natural weapons, which you can use to make unarmed strikes. If you hit with them, you deal slashing damage equal to {@damage 1d4} + your Strength modifier, instead of the normal bludgeoning damage for an unarmed strike."
                         ]
                     }
                 ]
             },
             {
-                "name": "Dragon Wings",
-                "source": "UAFeatsForRaces",
-                "page": 2,
+                "name": "Dragonscarred",
+                "source": "FRHoF",
+                "page": 39,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
-                            {
-                                "name": "dragonborn"
-                            }
+                        "level": 4,
+                        "feat": [
+                            "cult of the dragon initiate|frhof"
                         ]
                     }
                 ],
-                "entries": [
-                    "You sprout draconic wings. With your wings, you have a flying speed of 20 feet if you aren't wearing heavy armor and aren't exceeding your carrying capacity."
-                ]
-            },
-            {
-                "name": "Dragonmark of Detection",
-                "source": "UAEberron",
-                "page": 5,
-                "prerequisite": [
+                "ability": [
                     {
-                        "race": [
-                            {
-                                "name": "half-elf"
-                            }
-                        ]
+                        "choose": {
+                            "from": [
+                                "con",
+                                "cha"
+                            ]
+                        }
                     }
                 ],
-                "additionalSpells": [
+                "resist": [
                     {
-                        "innate": {
-                            "5": {
-                                "daily": {
-                                    "1": [
-                                        "detect thoughts"
-                                    ]
-                                }
-                            },
-                            "9": {
-                                "daily": {
-                                    "1": [
-                                        "clairvoyance"
-                                    ]
-                                }
-                            },
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "detect magic"
-                                    ]
-                                },
-                                "_": [
-                                    "mage hand"
-                                ]
-                            }
-                        },
-                        "ability": "wis"
-                    }
-                ],
-                "entries": [
-                    "Your have the magical mark of Detection, the dragonmark of House Medani, and are a member of that house.",
-                    "You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
-                    {
-                        "type": "entries",
-                        "name": "Least Dragonmark",
-                        "entries": [
-                            "When you first take this feat, you gain the least dragonmark. You learn the following spells: {@spell detect magic}, {@spell mage hand}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Lesser Dragonmark",
-                        "entries": [
-                            "At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: {@spell detect thoughts}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Greater Dragonmark",
-                        "entries": [
-                            "At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: {@spell clairvoyance}"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Dragonmark of Finding",
-                "source": "UAEberron",
-                "page": 5,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "half-orc"
-                            },
-                            {
-                                "name": "human"
-                            }
-                        ]
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "5": {
-                                "daily": {
-                                    "1": [
-                                        "locate object"
-                                    ]
-                                }
-                            },
-                            "9": {
-                                "daily": {
-                                    "1": [
-                                        "clairvoyance"
-                                    ]
-                                }
-                            },
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "identify"
-                                    ]
-                                },
-                                "_": [
-                                    "mage hand"
-                                ]
-                            }
-                        },
-                        "ability": "wis"
-                    }
-                ],
-                "entries": [
-                    "Your have the magical mark of Finding, the dragonmark of House Tharashk, and are a member of that house.",
-                    "You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
-                    {
-                        "type": "entries",
-                        "name": "Least Dragonmark",
-                        "entries": [
-                            "When you first take this feat, you gain the least dragonmark. You learn the following spells: {@spell identify}, {@spell mage hand}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Lesser Dragonmark",
-                        "entries": [
-                            "At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: {@spell locate object}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Greater Dragonmark",
-                        "entries": [
-                            "At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: {@spell clairvoyance}"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Dragonmark of Handling",
-                "source": "UAEberron",
-                "page": 5,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "human"
-                            }
-                        ]
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "5": {
-                                "daily": {
-                                    "1": [
-                                        "beast sense"
-                                    ]
-                                }
-                            },
-                            "9": {
-                                "daily": {
-                                    "1": [
-                                        "conjure animals"
-                                    ]
-                                }
-                            },
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "speak with animals"
-                                    ]
-                                },
-                                "_": [
-                                    "druidcraft"
-                                ]
-                            }
-                        },
-                        "ability": "wis"
-                    }
-                ],
-                "entries": [
-                    "Your have the magical mark of Handling, the dragonmark of House Vadalis, and are a member of that house.",
-                    "You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
-                    {
-                        "type": "entries",
-                        "name": "Least Dragonmark",
-                        "entries": [
-                            "When you first take this feat, you gain the least dragonmark. You learn the following spells: {@spell druidcraft}, {@spell speak with animals}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Lesser Dragonmark",
-                        "entries": [
-                            "At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: {@spell beast sense}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Greater Dragonmark",
-                        "entries": [
-                            "At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: {@spell conjure animals}"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Dragonmark of Healing",
-                "source": "UAEberron",
-                "page": 5,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "halfling"
-                            }
-                        ]
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "5": {
-                                "daily": {
-                                    "1": [
-                                        "lesser restoration"
-                                    ]
-                                }
-                            },
-                            "9": {
-                                "daily": {
-                                    "1": [
-                                        "revivify"
-                                    ]
-                                }
-                            },
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "cure wounds"
-                                    ]
-                                },
-                                "_": [
-                                    "spare the dying"
-                                ]
-                            }
-                        },
-                        "ability": "wis"
-                    }
-                ],
-                "entries": [
-                    "Your have the magical mark of Healing, the dragonmark of House Jorasco, and are a member of that house.",
-                    "You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
-                    {
-                        "type": "entries",
-                        "name": "Least Dragonmark",
-                        "entries": [
-                            "When you first take this feat, you gain the least dragonmark. You learn the following spells: {@spell cure wounds}, {@spell spare the dying}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Lesser Dragonmark",
-                        "entries": [
-                            "At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: {@spell lesser restoration}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Greater Dragonmark",
-                        "entries": [
-                            "At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: {@spell revivify}"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Dragonmark of Hospitality",
-                "source": "UAEberron",
-                "page": 5,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "halfling"
-                            }
-                        ]
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "5": {
-                                "daily": {
-                                    "1": [
-                                        "rope trick"
-                                    ]
-                                }
-                            },
-                            "9": {
-                                "daily": {
-                                    "1": [
-                                        "Leomund's tiny hut"
-                                    ]
-                                }
-                            },
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "unseen servant"
-                                    ]
-                                },
-                                "_": [
-                                    "friends"
-                                ]
-                            }
-                        },
-                        "ability": "cha"
-                    }
-                ],
-                "entries": [
-                    "Your have the magical mark of Hospitality, the dragonmark of House Ghallanda, and are a member of that house.",
-                    "You gain the ability to innately cast spells and cantrips, using Charisma as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
-                    {
-                        "type": "entries",
-                        "name": "Least Dragonmark",
-                        "entries": [
-                            "When you first take this feat, you gain the least dragonmark. You learn the following spells: {@spell friends}, {@spell unseen servant}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Lesser Dragonmark",
-                        "entries": [
-                            "At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: {@spell rope trick}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Greater Dragonmark",
-                        "entries": [
-                            "At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: {@spell Leomund's tiny hut}"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Dragonmark of Making",
-                "source": "UAEberron",
-                "page": 5,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "human"
-                            }
-                        ]
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "5": {
-                                "daily": {
-                                    "1": [
-                                        "magic weapon"
-                                    ]
-                                }
-                            },
-                            "9": {
-                                "daily": {
-                                    "1": [
-                                        "fabricate"
-                                    ]
-                                }
-                            },
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "identify"
-                                    ]
-                                },
-                                "_": [
-                                    "mending"
-                                ]
-                            }
-                        },
-                        "ability": "wis"
-                    }
-                ],
-                "entries": [
-                    "Your have the magical mark of Making, the dragonmark of House Cannith, and are a member of that house.",
-                    "You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
-                    {
-                        "type": "entries",
-                        "name": "Least Dragonmark",
-                        "entries": [
-                            "When you first take this feat, you gain the least dragonmark. You learn the following spells: {@spell identify}, {@spell mending}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Lesser Dragonmark",
-                        "entries": [
-                            "At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: {@spell magic weapon}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Greater Dragonmark",
-                        "entries": [
-                            "At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: {@spell fabricate}"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Dragonmark of Passage",
-                "source": "UAEberron",
-                "page": 5,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "human"
-                            }
-                        ]
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "5": {
-                                "daily": {
-                                    "1": [
-                                        "misty step"
-                                    ]
-                                }
-                            },
-                            "9": {
-                                "daily": {
-                                    "1": [
-                                        "teleportation circle"
-                                    ]
-                                }
-                            },
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "expeditious retreat"
-                                    ]
-                                },
-                                "_": [
-                                    "light"
-                                ]
-                            }
-                        },
-                        "ability": "wis"
-                    }
-                ],
-                "entries": [
-                    "Your have the magical mark of Passage, the dragonmark of House Orien, and are a member of that house.",
-                    "You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
-                    {
-                        "type": "entries",
-                        "name": "Least Dragonmark",
-                        "entries": [
-                            "When you first take this feat, you gain the least dragonmark. You learn the following spells: {@spell expeditious retreat}, {@spell light}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Lesser Dragonmark",
-                        "entries": [
-                            "At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: {@spell misty step}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Greater Dragonmark",
-                        "entries": [
-                            "At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: {@spell teleportation circle}"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Dragonmark of Scribing",
-                "source": "UAEberron",
-                "page": 5,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "gnome"
-                            }
-                        ]
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "5": {
-                                "daily": {
-                                    "1": [
-                                        "sending"
-                                    ]
-                                }
-                            },
-                            "9": {
-                                "daily": {
-                                    "1": [
-                                        "tongues"
-                                    ]
-                                }
-                            },
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "comprehend languages"
-                                    ]
-                                },
-                                "_": [
-                                    "message"
-                                ]
-                            }
-                        },
-                        "ability": "wis"
-                    }
-                ],
-                "entries": [
-                    "Your have the magical mark of Scribing, the dragonmark of House Sivis, and are a member of that house.",
-                    "You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
-                    {
-                        "type": "entries",
-                        "name": "Least Dragonmark",
-                        "entries": [
-                            "When you first take this feat, you gain the least dragonmark. You learn the following spells: {@spell comprehend languages}, {@spell message}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Lesser Dragonmark",
-                        "entries": [
-                            "At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: {@spell sending}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Greater Dragonmark",
-                        "entries": [
-                            "At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: {@spell tongues}"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Dragonmark of Sentinel",
-                "source": "UAEberron",
-                "page": 5,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "human"
-                            }
-                        ]
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "5": {
-                                "daily": {
-                                    "1": [
-                                        "blur"
-                                    ]
-                                }
-                            },
-                            "9": {
-                                "daily": {
-                                    "1": [
-                                        "protection from energy"
-                                    ]
-                                }
-                            },
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "compelled duel"
-                                    ]
-                                },
-                                "_": [
-                                    "blade ward"
-                                ]
-                            }
-                        },
-                        "ability": "wis"
-                    }
-                ],
-                "entries": [
-                    "Your have the magical mark of Sentinel, the dragonmark of House Deneith, and are a member of that house.",
-                    "You gain the ability to innately cast spells and cantrips, using Wisdom as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
-                    {
-                        "type": "entries",
-                        "name": "Least Dragonmark",
-                        "entries": [
-                            "When you first take this feat, you gain the least dragonmark. You learn the following spells: {@spell blade ward}, {@spell compelled duel}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Lesser Dragonmark",
-                        "entries": [
-                            "At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: {@spell blur}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Greater Dragonmark",
-                        "entries": [
-                            "At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: {@spell protection from energy}"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Dragonmark of Shadow",
-                "source": "UAEberron",
-                "page": 5,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "elf"
-                            }
-                        ]
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "5": {
-                                "daily": {
-                                    "1": [
-                                        "darkness"
-                                    ]
-                                }
-                            },
-                            "9": {
-                                "daily": {
-                                    "1": [
-                                        "nondetection"
-                                    ]
-                                }
-                            },
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "dancing lights"
-                                    ]
-                                },
-                                "_": [
-                                    "disguise self"
-                                ]
-                            }
-                        },
-                        "ability": "wis"
-                    }
-                ],
-                "entries": [
-                    "Your have the magical mark of Shadow, the dragonmark of House Phiarlan and House Thuranni, and are a member of one of those houses.",
-                    "You gain the ability to innately cast spells and cantrips, using Charisma as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
-                    {
-                        "type": "entries",
-                        "name": "Least Dragonmark",
-                        "entries": [
-                            "When you first take this feat, you gain the least dragonmark. You learn the following spells: {@spell dancing lights}, {@spell disguise self}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Lesser Dragonmark",
-                        "entries": [
-                            "At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: {@spell darkness}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Greater Dragonmark",
-                        "entries": [
-                            "At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: {@spell nondetection}"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Dragonmark of Storm",
-                "source": "UAEberron",
-                "page": 5,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "half-elf"
-                            }
-                        ]
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "5": {
-                                "daily": {
-                                    "1": [
-                                        "gust of wind"
-                                    ]
-                                }
-                            },
-                            "9": {
-                                "daily": {
-                                    "1": [
-                                        "sleet storm"
-                                    ]
-                                }
-                            },
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "fog cloud"
-                                    ]
-                                },
-                                "_": [
-                                    "shocking grasp"
-                                ]
-                            }
-                        },
-                        "ability": "wis"
-                    }
-                ],
-                "entries": [
-                    "Your have the magical mark of Storm, the dragonmark of House Lyrander, and are a member of that house.",
-                    "You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
-                    {
-                        "type": "entries",
-                        "name": "Least Dragonmark",
-                        "entries": [
-                            "When you first take this feat, you gain the least dragonmark. You learn the following spells: {@spell fog cloud}, {@spell shocking grasp}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Lesser Dragonmark",
-                        "entries": [
-                            "At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: {@spell gust of wind}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Greater Dragonmark",
-                        "entries": [
-                            "At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: {@spell sleet storm}"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Dragonmark of Warding",
-                "source": "UAEberron",
-                "page": 5,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "dwarf"
-                            }
-                        ]
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "5": {
-                                "daily": {
-                                    "1": [
-                                        "arcane lock"
-                                    ]
-                                }
-                            },
-                            "9": {
-                                "daily": {
-                                    "1": [
-                                        "magic circle"
-                                    ]
-                                }
-                            },
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "alarm"
-                                    ]
-                                },
-                                "_": [
-                                    "resistance"
-                                ]
-                            }
-                        },
-                        "ability": "wis"
-                    }
-                ],
-                "entries": [
-                    "Your have the magical mark of Warding, the dragonmark of House Kundarak, and are a member of that house.",
-                    "You gain the ability to innately cast spells and cantrips, using Intelligence as your spellcasting ability. You cast each spell at its lowest level. Once you cast a given spell this way, you must finish a long rest before you can cast it innately again. You must still expend any material components. Your dragonmark confers the following benefits:",
-                    {
-                        "type": "entries",
-                        "name": "Least Dragonmark",
-                        "entries": [
-                            "When you first take this feat, you gain the least dragonmark. You learn the following spells: {@spell alarm}, {@spell resistance}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Lesser Dragonmark",
-                        "entries": [
-                            "At 5th level and higher, your mark becomes more potent, improving to lesser dragonmark. You learn the following spell: {@spell arcane lock}"
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Greater Dragonmark",
-                        "entries": [
-                            "At 9th level and higher, your mark's power increases again, becoming a greater dragonmark. You learn the following spell: {@spell magic circle}"
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Drow High Magic",
-                "source": "UAFeatsForRaces",
-                "page": 2,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "elf",
-                                "subrace": "drow"
-                            }
-                        ]
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "ability": "cha",
-                        "innate": {
-                            "_": {
-                                "will": [
-                                    "detect magic"
-                                ],
-                                "daily": {
-                                    "1e": [
-                                        "levitate",
-                                        "dispel magic"
-                                    ]
-                                }
-                            }
+                        "choose": {
+                            "from": [
+                                "acid",
+                                "cold",
+                                "fire",
+                                "lightning",
+                                "poison"
+                            ]
                         }
                     }
                 ],
                 "entries": [
-                    "You learn more of the spells typical for your people. You learn {@spell detect magic} and can cast it at will, without expending a spell slot. You also learn {@spell levitate} and {@spell dispel magic}, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Charisma is your spellcasting ability for these spells."
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Damage Resistance",
+                        "entries": [
+                            "When you gain this feat, choose Acid, Cold, Fire, Lightning, or Poison. You have {@variantrule Resistance|XPHB} to the chosen damage type."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Fearsome Power",
+                        "entries": [
+                            "When you deal damage to a creature as part of the Attack or Magic action on your turn, you can use the Dragon's Terror benefit of the Cult of the Dragon Initiate feat as a {@variantrule Bonus Action|XPHB} this turn."
+                        ]
+                    }
                 ]
             },
             {
@@ -1826,9 +3592,42 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Druidic Warrior",
+                "source": "XPHB",
+                "page": 120,
+                "category": "FS:R",
+                "prerequisite": [
+                    {
+                        "otherSummary": {
+                            "entry": "When Gaining the Level 2 Ranger \"Fighting Style\" Feature",
+                            "entrySummary": "Special"
+                        }
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": "wis",
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=druid",
+                                    "count": 2
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You learn two {@filter Druid cantrips|spells|level=0|class=druid} of your choice. {@spell Guidance|XPHB} and {@spell Starry Wisp|XPHB} are recommended. The chosen cantrips count as Ranger spells for you, and Wisdom is your spellcasting ability for them. Whenever you gain a Ranger level, you can replace one of these cantrips with another Druid cantrip."
+                ]
+            },
+            {
                 "name": "Dual Wielder",
                 "source": "PHB",
                 "page": 165,
+                "reprintedAs": [
+                    "Dual Wielder|XPHB"
+                ],
                 "entries": [
                     "You master fighting with two weapons, gaining the following benefits:",
                     {
@@ -1839,6 +3638,73 @@ export default function getFeats() {
                             "You can draw or stow two one-handed weapons when you would normally be able to draw or stow only one."
                         ]
                     }
+                ]
+            },
+            {
+                "name": "Dual Wielder",
+                "source": "XPHB",
+                "page": 203,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "str": 13
+                            }
+                        ]
+                    },
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "dex": 13
+                            }
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Enhanced Dual Wielding",
+                        "entries": [
+                            "When you take the {@action Attack|XPHB} action on your turn and attack with a weapon that has the {@itemProperty L|XPHB|Light} property, you can make one extra attack as a {@variantrule Bonus Action|XPHB} later on the same turn with a different weapon, which must be a Melee weapon that lacks the {@itemProperty 2H|XPHB|Two-Handed} property. You don't add your ability modifier to the extra attack's damage unless that modifier is negative."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Quick Draw",
+                        "entries": [
+                            "You can draw or stow two weapons that lack the {@itemProperty 2H|XPHB|Two-Handed} property when you would normally be able to draw or stow only one."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Dueling",
+                "source": "XPHB",
+                "page": 209,
+                "category": "FS",
+                "prerequisite": [
+                    {
+                        "feature": [
+                            "Fighting Style"
+                        ]
+                    }
+                ],
+                "entries": [
+                    "When you're holding a Melee weapon in one hand and no other weapons, you gain a +2 bonus to damage rolls with that weapon."
                 ]
             },
             {
@@ -1862,6 +3728,9 @@ export default function getFeats() {
                 "name": "Durable",
                 "source": "PHB",
                 "page": 166,
+                "reprintedAs": [
+                    "Durable|XPHB"
+                ],
                 "ability": [
                     {
                         "con": 1
@@ -1878,16 +3747,13 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Dwarf Resilience",
-                "source": "UAFeatsForRaces",
-                "page": 2,
+                "name": "Durable",
+                "source": "XPHB",
+                "page": 203,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
-                            {
-                                "name": "dwarf"
-                            }
-                        ]
+                        "level": 4
                     }
                 ],
                 "ability": [
@@ -1896,11 +3762,19 @@ export default function getFeats() {
                     }
                 ],
                 "entries": [
-                    "You have the blood of dwarf heroes flowing through your veins. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "Whenever you take the {@action Dodge} action in combat, you can spend one Hit Die to heal yourself. Roll the die, add your Constitution modifier, and regain a number of hit points equal to the total (minimum of 1)."
+                        "type": "entries",
+                        "name": "Defy Death",
+                        "entries": [
+                            "You have {@variantrule Advantage|XPHB} on {@variantrule Death Saving Throw|XPHB|Death Saving Throws}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Speedy Recovery",
+                        "entries": [
+                            "As a {@variantrule Bonus Action|XPHB}, you can expend one of your {@variantrule Hit Point Dice|XPHB}, roll the die, and regain a number of {@variantrule Hit Points|XPHB} equal to the roll."
                         ]
                     }
                 ]
@@ -1942,29 +3816,30 @@ export default function getFeats() {
                         "spellcasting2020": true
                     }
                 ],
-                "entries": [
-                    "Studying occult lore, you have unlocked eldritch power within yourself: you learn one {@filter Eldritch Invocation|optionalfeatures|Feature Type=EI} option of your choice from the warlock class. If the invocation has a prerequisite of any kind, you can choose that invocation only if you're a warlock who meets the prerequisite.",
-                    "Whenever you gain a level, you can replace the invocation with another one from the warlock class."
-                ]
-            },
-            {
-                "name": "Eldritch Adept",
-                "source": "UA2020Feats",
-                "page": 1,
-                "prerequisite": [
+                "optionalfeatureProgression": [
                     {
-                        "spellcasting2020": true
+                        "name": "Eldritch Invocations",
+                        "featureType": [
+                            "EI"
+                        ],
+                        "progression": {
+                            "*": 1
+                        }
                     }
                 ],
                 "entries": [
-                    "Studying occult lore, you have unlocked eldritch power within yourself: you learn one {@filter Eldritch Invocation|optionalfeatures|Feature Type=EI} option of your choice from the warlock class. If the invocation has a prerequisite, you can choose that invocation only if you're a warlock and only if you meet the prerequisite.",
+                    "Studying occult lore, you learn one {@filter Eldritch Invocation|optionalfeatures|Feature Type=EI} option of your choice from the warlock class. Your spellcasting ability for the invocation is Intelligence, Wisdom, or Charisma (choose when you select this feat). If the invocation has a prerequisite of any kind, you can choose that invocation only if you're a warlock who meets the prerequisite.",
                     "Whenever you gain a level, you can replace the invocation with another one from the warlock class."
-                ]
+                ],
+                "hasFluffImages": true
             },
             {
                 "name": "Elemental Adept",
                 "source": "PHB",
                 "page": 166,
+                "reprintedAs": [
+                    "Elemental Adept|XPHB"
+                ],
                 "prerequisite": [
                     {
                         "spellcasting": true
@@ -1977,32 +3852,43 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Elven Accuracy",
-                "source": "UAFeatsForRaces",
-                "page": 2,
+                "name": "Elemental Adept",
+                "source": "XPHB",
+                "page": 203,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
-                            {
-                                "name": "elf"
-                            },
-                            {
-                                "name": "half-elf"
-                            }
-                        ]
+                        "level": 4,
+                        "spellcasting2020": true
                     }
                 ],
+                "repeatable": true,
+                "repeatableHidden": true,
                 "ability": [
                     {
-                        "dex": 1
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
                     }
                 ],
                 "entries": [
-                    "You have uncanny aim. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "Whenever you have advantage on an attack roll, you can reroll one of the dice once."
+                        "type": "entries",
+                        "name": "Energy Mastery",
+                        "entries": [
+                            "Choose one of the following damage types: Acid, Cold, Fire, Lightning, or Thunder. Spells you cast ignore {@variantrule Resistance|XPHB} to damage of the chosen type. In addition, when you roll damage for a spell you cast that deals damage of that type, you can treat any 1 on a damage die as a 2."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Repeatable",
+                        "entries": [
+                            "You can take this feat more than once, but you must choose a different damage type each time for Energy Mastery."
                         ]
                     }
                 ]
@@ -2047,88 +3933,153 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Empathic",
-                "source": "UAFeatsForSkills",
-                "page": 2,
+                "name": "Ember of the Fire Giant",
+                "source": "BGG",
+                "page": 17,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "strike of the giants|BGG|strike of the giants (fire strike)"
+                        ]
+                    }
+                ],
                 "ability": [
                     {
-                        "wis": 1
+                        "choose": {
+                            "from": [
+                                "str",
+                                "con",
+                                "wis"
+                            ],
+                            "amount": 1
+                        }
                     }
                 ],
-                "skillProficiencies": [
-                    {
-                        "insight": true
-                    }
+                "resist": [
+                    "fire"
                 ],
                 "entries": [
-                    "You possess keen insight into how other people think and feel. You gain the following benefits:",
+                    "You've manifested the fiery combat emblematic of fire giants, granting you the following benefits:",
                     {
                         "type": "list",
+                        "style": "list-hang-notitle",
                         "items": [
-                            "You gain proficiency in the {@skill Insight} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "You can use your action to try to get uncanny insight about one humanoid you can see within 30 feet of you. Make a Wisdom ({@skill Insight}) check contested by the target's Charisma ({@skill Deception}) check. If your check succeeds, you have advantage on attack rolls and ability checks against the target until the end of your next turn."
+                            {
+                                "type": "item",
+                                "name": "Born of Flame",
+                                "entries": [
+                                    "You have resistance to fire damage."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Searing Ignition",
+                                "entries": [
+                                    "When you take the {@action Attack} action on your turn, you can replace a single attack with a magical burst of flame. Each creature of your choice in a 15-foot-radius sphere centered on you must make a Dexterity saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, a creature takes fire damage equal to {@damage 1d8} + your proficiency bonus, and it has the blinded condition until the start of your next turn. On a successful save, the creature takes half as much damage only. You can use your Searing Ignition a number of times equal to your proficiency bonus (but no more than once per turn), and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
                         ]
                     }
                 ]
             },
             {
-                "name": "Everybody's Friend",
-                "source": "UAFeatsForRaces",
-                "page": 2,
-                "prerequisite": [
+                "name": "Emerald Enclave Fledgling",
+                "source": "FRHoF",
+                "page": 37,
+                "category": "O",
+                "additionalSpells": [
                     {
-                        "race": [
-                            {
-                                "name": "half-elf"
-                            }
-                        ]
-                    }
-                ],
-                "ability": [
-                    {
-                        "cha": 1
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "deception": true,
-                        "persuasion": true
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": [
+                                "speak with animals|xphb"
+                            ]
+                        }
                     }
                 ],
                 "entries": [
-                    "You develop your magnetic personality to ease your way through the world. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Deception} and {@skill Persuasion} skills. If you're already proficient in either skill, your proficiency bonus is doubled for any check you make with that skill."
+                        "type": "entries",
+                        "name": "Speak with Animals",
+                        "entries": [
+                            "You always have the {@spell Speak with Animals|XPHB} spell prepared and can cast it with any spell slots you have. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). When you cast this spell as a {@variantrule Ritual|XPHB}, its duration is 8 hours."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Tag Team",
+                        "entries": [
+                            "When you take the {@action Help|XPHB} action, you can switch places with a willing ally within 5 feet of yourself as part of that same action. This movement doesn't provoke {@action Opportunity Attack|XPHB|Opportunity Attacks}. You can't use this benefit if the ally has the {@condition Incapacitated|XPHB} condition."
                         ]
                     }
                 ]
             },
             {
-                "name": "Fade Away",
-                "source": "UAFeatsForRaces",
-                "page": 2,
+                "name": "Enclave Magic",
+                "source": "FRHoF",
+                "page": 39,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
-                            {
-                                "name": "gnome"
-                            }
+                        "level": 4,
+                        "feat": [
+                            "emerald enclave fledgling|frhof"
                         ]
                     }
                 ],
                 "ability": [
                     {
-                        "int": 1
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "beast sense|xphb"
+                                    ]
+                                }
+                            }
+                        }
                     }
                 ],
                 "entries": [
-                    "You can draw on your magical heritage to escape danger. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "When you take damage, you can use a reaction to magically become {@condition invisible} until the end of your next turn or until you attack, deal damage, or force someone to make a saving throw. Once you use this ability, you can't do so again until you finish a short or long rest."
+                        "type": "entries",
+                        "name": "Friend to Animals",
+                        "entries": [
+                            "You have {@variantrule Advantage|XPHB} on ability checks when taking the {@action Influence|XPHB} action with Beasts."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Two Hearts, One Mind",
+                        "entries": [
+                            "You always have the {@spell Beast Sense|XPHB} spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. When you cast it without a spell slot using this feature, it doesn't require {@status Concentration|XPHB}. You can also cast the spell using any spell slots you have of the appropriate level. The spell's spellcasting ability is the ability increased by this feat."
                         ]
                     }
                 ]
@@ -2168,61 +4119,40 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Fell Handed",
-                "source": "UAFeats",
-                "page": 2,
-                "entries": [
-                    "You master the {@item handaxe|phb}, {@item battleaxe|phb}, {@item greataxe|phb}, {@item warhammer|phb}, and {@item maul|phb}. You gain the following benefits when using any of them:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You gain a +1 bonus to attack rolls you make with the weapon.",
-                            "Whenever you have advantage on a melee attack roll you make with the weapon and hit, you can knock the target {@condition prone} if the lower of the two {@dice d20} rolls would also hit the target.",
-                            "Whenever you have disadvantage on a melee attack roll you make with the weapon, the target takes bludgeoning damage equal to your Strength modifier (minimum of 0) if the attack misses but the higher of the two {@dice d20} rolls would have hit.",
-                            "If you use the {@action Help} action to aid an ally's melee attack while you're wielding the weapon, you knock the target's shield aside momentarily. In addition to the ally gaining advantage on the attack roll, the ally gains a +2 bonus to the roll if the target is using a shield."
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Fey Teleportation",
-                "source": "UAFeatsForRaces",
-                "page": 3,
+                "name": "Fairy Trickster",
+                "source": "FRHoF",
+                "page": 39,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
-                            {
-                                "name": "elf",
-                                "subrace": "high"
-                            }
-                        ]
+                        "level": 4
                     }
                 ],
                 "ability": [
                     {
-                        "int": 1
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "ability": "int",
-                        "innate": {
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "misty step"
-                                    ]
-                                }
-                            }
+                        "choose": {
+                            "from": [
+                                "dex",
+                                "cha"
+                            ]
                         }
                     }
                 ],
                 "entries": [
-                    "Drawing on your fey ancestry, you have learned how to teleport. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You learn the {@spell misty step} spell and can cast it once without expending a spell slot. You regain the ability to cast it in this way when you finish a short or long rest. Intelligence is your spellcasting ability for this spell."
+                        "type": "entries",
+                        "name": "Faerie Trod Trotter",
+                        "entries": [
+                            "When you take the {@action Disengage|XPHB} action on your turn, {@variantrule Difficult Terrain|XPHB} doesn't cost you extra movement for the rest of that turn."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Flustering Strike",
+                        "entries": [
+                            "When you hit a creature with an attack roll, you can attempt to fluster the target. The target must succeed on a Wisdom saving throw (DC 8 plus the ability modifier of the score increased by this feat and your {@variantrule Proficiency|XPHB|Proficiency Bonus}) or have {@variantrule Disadvantage|XPHB} on saving throws until the end of your next turn.",
+                            "You can use this benefit a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
                         ]
                     }
                 ]
@@ -2286,6 +4216,9 @@ export default function getFeats() {
                 "name": "Fey Touched",
                 "source": "TCE",
                 "page": 79,
+                "reprintedAs": [
+                    "Fey-Touched|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -2320,15 +4253,21 @@ export default function getFeats() {
                     {
                         "type": "list",
                         "items": [
-                            "You learn the {@spell misty step} spell and one {@filter 1st-level spell|spells|level=1|school=E;D} of your choice. The 1st-level spell must be from the divination or enchantment school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat."
+                            "You learn the {@spell misty step} spell and one {@filter 1st-level spell|spells|level=1|school=E;D} of your choice. The {@filter 1st-level spell|spells|level=1|school=E;D} must be from the divination or enchantment school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat."
                         ]
                     }
                 ]
             },
             {
-                "name": "Fey Touched",
-                "source": "UA2020Feats",
-                "page": 2,
+                "name": "Fey-Touched",
+                "source": "XPHB",
+                "page": 204,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -2336,8 +4275,7 @@ export default function getFeats() {
                                 "int",
                                 "wis",
                                 "cha"
-                            ],
-                            "amount": 1
+                            ]
                         }
                     }
                 ],
@@ -2348,7 +4286,7 @@ export default function getFeats() {
                             "_": {
                                 "daily": {
                                     "1e": [
-                                        "misty step",
+                                        "misty step|xphb",
                                         {
                                             "choose": "level=1|school=E;D"
                                         }
@@ -2359,14 +4297,16 @@ export default function getFeats() {
                     }
                 ],
                 "entries": [
-                    "Your exposure to the Feywild or one of its denizens has left a magical mark on you. You gain the following benefits:",
+                    "Your exposure to the Feywild's magic grants you the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You learn the {@spell misty step} spell and one {@filter 1st-level spell|spells|level=1|school=E;D} of your choice. The 1st-level spell must be from the divination or enchantment school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat."
+                        "type": "entries",
+                        "name": "Fey Magic",
+                        "entries": [
+                            "Choose one {@filter level 1 spell from the Divination or Enchantment|spells|level=1|school=E;D} school of magic. You always have that spell and the {@spell Misty Step|XPHB} spell prepared. You can cast each of these spells without expending a spell slot. Once you cast either spell in this way, you can't cast that spell in this way again until you finish a {@variantrule Long Rest|XPHB}. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat."
                         ]
                     }
-                ]
+                ],
+                "hasFluffImages": true
             },
             {
                 "name": "Fighting Initiate",
@@ -2381,78 +4321,20 @@ export default function getFeats() {
                         ]
                     }
                 ],
-                "entries": [
-                    "Your martial training has helped you develop a particular style of fighting. As a result, you learn one {@filter Fighting Style|optionalfeatures|Feature Type=FS:F} option of your choice from the fighter class. If you already have a style, the one you choose must be different.",
-                    "Whenever you reach a level that grants the Ability Score Improvement feature, you can replace this feat's fighting style with another one from the fighter class that you don't have."
-                ]
-            },
-            {
-                "name": "Fighting Initiate",
-                "source": "UA2020Feats",
-                "page": 2,
-                "prerequisite": [
+                "optionalfeatureProgression": [
                     {
-                        "proficiency": [
-                            {
-                                "weapon": "martial"
-                            }
-                        ]
-                    }
-                ],
-                "entries": [
-                    "Your martial training has helped you develop a particular style of fighting. As a result, you learn one {@filter Fighting Style|optionalfeatures|Feature Type=FS:F} option of your choice from the fighter class. If you already have a style, the one you choose must be different.",
-                    "Whenever you gain a level, you can replace this feat's fighting style with another one from the fighter class that you don't have."
-                ]
-            },
-            {
-                "name": "Flail Mastery",
-                "source": "UAFeats",
-                "page": 3,
-                "entries": [
-                    "The {@item flail|phb} is a tricky weapon to use, but you have spent countless hours mastering it. You gain the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You gain a +1 bonus to attack rolls you make with a flail.",
-                            "As a bonus action on your turn, you can prepare yourself to extend your flail to sweep over targets' {@item shield|phb|shields}. Until the end of this turn, your attack rolls with a flail gain a +2 bonus against any target using a {@item shield|phb}.",
-                            "When you hit with an opportunity attack using a flail, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Strength modifier) or be knocked {@condition prone}."
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Flames of Phlegethos",
-                "source": "UAFeatsForRaces",
-                "page": 3,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "tiefling"
-                            }
-                        ]
-                    }
-                ],
-                "ability": [
-                    {
-                        "choose": {
-                            "from": [
-                                "int",
-                                "cha"
-                            ],
-                            "amount": 1
+                        "name": "Fighting Style",
+                        "featureType": [
+                            "FS:F"
+                        ],
+                        "progression": {
+                            "*": 1
                         }
                     }
                 ],
                 "entries": [
-                    "You learn to call on hellfire to serve your commands. You gain the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "When you roll fire damage for a spell you cast, you can reroll any roll of 1 on the fire damage dice, but you must use the new roll, even if it is another 1.",
-                            "Whenever you cast a spell that deals fire damage, you can cause flames to wreathe you until the end of your next turn. The flames don't harm you or your possessions, and they shed bright light out to 30 feet and dim light for an additional 30 feet. While the flames are present, any creature within 5 feet of you that hits you with a melee attack takes {@damage 1d4} fire damage."
-                        ]
-                    }
+                    "Your martial training has helped you develop a particular style of fighting. As a result, you learn one {@filter Fighting Style|optionalfeatures|Feature Type=FS:F} option of your choice from the fighter class. If you already have a style, the one you choose must be different.",
+                    "Whenever you reach a level that grants the Ability Score Improvement feature, you can replace this feat's fighting style with another one from the fighter class that you don't have."
                 ]
             },
             {
@@ -2491,24 +4373,123 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Fury of the Frost Giant",
+                "source": "BGG",
+                "page": 17,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "strike of the giants|BGG|strike of the giants (frost strike)"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "con",
+                                "wis"
+                            ],
+                            "amount": 1
+                        }
+                    }
+                ],
+                "resist": [
+                    "cold"
+                ],
+                "entries": [
+                    "You've manifested the icy might emblematic of frost giants, granting you the following benefits:",
+                    {
+                        "type": "list",
+                        "style": "list-hang-notitle",
+                        "items": [
+                            {
+                                "type": "item",
+                                "name": "Born of Ice",
+                                "entries": [
+                                    "You have resistance to cold damage."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Frigid Retaliation",
+                                "entries": [
+                                    "Immediately after a creature you can see within 30 feet of you hits you with an attack roll and deals damage, you can use your reaction to retaliate with a conjured blast of ice. The creature must make a Constitution saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, the creature takes cold damage equal to {@damage 1d8} + your proficiency bonus, and its speed is reduced to 0 until the end of its next turn. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Genie Magic",
+                "source": "FRHoF",
+                "page": 39,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Wish Magic",
+                        "entries": [
+                            "As a {@action Magic|XPHB} action, you can cast a {@filter level 1 spell of your choice from the Sorcerer spell list|spells|level=1|class=Sorcerer} that has a casting time of an action. Once you use this benefit, you can't do so again until you finish a {@variantrule Long Rest|XPHB}. The spell's spellcasting ability is the ability increased by this feat.",
+                            "When you reach level 11, the spell you cast with this feat is cast as though using a level 2 spell slot.",
+                            "When you reach level 17, the spell is cast as though using a level 3 spell slot."
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "Gift of the Chromatic Dragon",
-                "source": "UA2021DraconicOptions",
-                "page": 4,
+                "source": "FTD",
+                "page": 17,
                 "entries": [
                     "You've manifested some of the power of chromatic dragons, granting you the following benefits:",
                     {
                         "type": "list",
+                        "style": "list-hang-notitle",
                         "items": [
-                            "As a bonus action, you can touch a simple or martial weapon and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra {@dice 1d4} damage of the chosen type when it hits. After you use this ability, you can't do so again until you finish a long rest.",
-                            "When you take acid, cold, fire, lightning, or poison damage, you can use your reaction to give yourself resistance to that instance of damage. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                            {
+                                "type": "item",
+                                "name": "Chromatic Infusion",
+                                "entries": [
+                                    "As a bonus action, you can touch a {@filter simple or martial weapon|items|source=phb|category=basic|type=martial weapon;simple weapon} and infuse it with one of the following damage types: acid, cold, fire, lightning, or poison. For the next minute, the weapon deals an extra {@damage 1d4} damage of the chosen type when it hits. After you use this bonus action, you can't do so again until you finish a long rest."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Reactive Resistance",
+                                "entries": [
+                                    "When you take acid, cold, fire, lightning, or poison damage, you can use your reaction to give yourself resistance to that instance of damage. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
                         ]
                     }
                 ]
             },
             {
                 "name": "Gift of the Gem Dragon",
-                "source": "UA2021DraconicOptions",
-                "page": 5,
+                "source": "FTD",
+                "page": 17,
                 "ability": [
                     {
                         "choose": {
@@ -2525,16 +4506,23 @@ export default function getFeats() {
                     "You've manifested some of the power of gem dragons, granting you the following benefits:",
                     {
                         "type": "list",
+                        "style": "list-hang-notitle",
                         "items": [
-                            "When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or take {@dice 2d8} force damage and be pushed 10 feet away from you. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                            {
+                                "type": "item",
+                                "name": "Telekinetic Reprisal",
+                                "entries": [
+                                    "When you take damage from a creature that is within 10 feet of you, you can use your reaction to emanate telekinetic energy. The creature that dealt damage to you must make a Strength saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the creature takes {@damage 2d8} force damage and is pushed up to 10 feet away from you. On a successful save, the creature takes half as much damage and isn't pushed. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
                         ]
                     }
                 ]
             },
             {
                 "name": "Gift of the Metallic Dragon",
-                "source": "UA2021DraconicOptions",
-                "page": 4,
+                "source": "FTD",
+                "page": 17,
                 "additionalSpells": [
                     {
                         "ability": {
@@ -2559,35 +4547,22 @@ export default function getFeats() {
                     "You've manifested some of the power of metallic dragons, granting you the following benefits:",
                     {
                         "type": "list",
+                        "style": "list-hang-notitle",
                         "items": [
-                            "You learn the {@spell cure wounds} spell. You can cast this spell without expending a spell slot. Once you cast this spell in this way, you can't do so again until you finish a long rest. You can also cast this spell using spell slots you have. The spell's spellcasting ability is Intelligence, Wisdom, or Charisma when you cast it with this feat (choose when you gain this feat).",
-                            "You can manifest protective wings that can shield you or others from attacks. When you or another creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to manifest spectral wings from your back for a moment. Roll a {@dice d4} and grant a bonus to the target's AC equal to the number rolled against that attack roll, potentially causing it to miss. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Gourmand",
-                "source": "UAFeats",
-                "page": 4,
-                "ability": [
-                    {
-                        "con": 1
-                    }
-                ],
-                "toolProficiencies": [
-                    {
-                        "cook's utensils": true
-                    }
-                ],
-                "entries": [
-                    "You have mastered a variety of special recipes, allowing you to prepare exotic dishes with useful effects. You gain the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency with {@item cook's utensils|phb}. If you are already proficient with them, you add double your proficiency bonus to checks you make with them.",
-                            "As an action, you can inspect a drink or plate of food within 5 feet of you and determine whether it is {@condition poisoned}, provided that you can see and smell it.",
-                            "During a long rest, you can prepare and serve a meal that helps you and your allies recover from the rigors of adventuring, provided you have suitable food, {@item cook's utensils|phb}, and other supplies on hand. The meal serves up to six people, and each person who eats it regains two additional Hit Dice at the end of the long rest. In addition, those who partake of the meal have advantage on Constitution saving throws against disease for the next 24 hours."
+                            {
+                                "type": "item",
+                                "name": "Draconic Healing",
+                                "entries": [
+                                    "You learn the {@spell cure wounds} spell. You can cast this spell without expending a spell slot. Once you cast this spell in this way, you can't do so again until you finish a long rest. You can also cast this spell using spell slots you have. The spell's spellcasting ability is Intelligence, Wisdom, or Charisma when you cast it with this feat (choose when you gain the feat)."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Protective Wings",
+                                "entries": [
+                                    "You can manifest protective wings that can shield you or others. When you or another creature you can see within 5 feet of you is hit by an attack roll, you can use your reaction to manifest spectral wings from your back for a moment. You grant a bonus to the target's AC equal to your proficiency bonus against that attack roll, potentially causing it to miss. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
                         ]
                     }
                 ]
@@ -2597,6 +4572,9 @@ export default function getFeats() {
                 "source": "PHB",
                 "page": 167,
                 "srd": true,
+                "reprintedAs": [
+                    "Grappler|XPHB"
+                ],
                 "prerequisite": [
                     {
                         "ability": [
@@ -2618,9 +4596,90 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Grappler",
+                "source": "XPHB",
+                "page": 204,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "str": 13
+                            }
+                        ]
+                    },
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "dex": 13
+                            }
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Punch and Grab",
+                        "entries": [
+                            "When you hit a creature with an {@variantrule Unarmed Strike|XPHB} as part of the {@action Attack|XPHB} action on your turn, you can use both the Damage and the Grapple option. You can use this benefit only once per turn."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Attack Advantage",
+                        "entries": [
+                            "You have {@variantrule Advantage|XPHB} on attack rolls against a creature {@condition Grappled|XPHB} by you."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Fast Wrestler",
+                        "entries": [
+                            "You don't have to spend extra movement to move a creature {@condition Grappled|XPHB} by you if the creature is your size or smaller."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Great Weapon Fighting",
+                "source": "XPHB",
+                "page": 209,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "FS",
+                "prerequisite": [
+                    {
+                        "feature": [
+                            "Fighting Style"
+                        ]
+                    }
+                ],
+                "entries": [
+                    "When you roll damage for an attack you make with a Melee weapon that you are holding with two hands, you can treat any 1 or 2 on a damage die as a 3. The weapon must have the {@itemProperty 2h|XPHB|Two-Handed} or {@itemProperty V|XPHB|Versatile} property to gain this benefit."
+                ]
+            },
+            {
                 "name": "Great Weapon Master",
                 "source": "PHB",
                 "page": 167,
+                "reprintedAs": [
+                    "Great Weapon Master|XPHB"
+                ],
                 "entries": [
                     "You've learned to put the weight of a weapon to your advantage, letting its momentum empower your strikes. You gain the following benefits:",
                     {
@@ -2633,15 +4692,642 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Grudge-Bearer",
-                "source": "UAFeatsForRaces",
-                "page": 3,
+                "name": "Great Weapon Master",
+                "source": "XPHB",
+                "page": 204,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
+                        "level": 4,
+                        "ability": [
                             {
-                                "name": "dwarf"
+                                "str": 13
                             }
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "str": 1
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Heavy Weapon Mastery",
+                        "entries": [
+                            "When you hit a creature with a weapon that has the {@itemProperty H|XPHB|Heavy} property as part of the {@action Attack|XPHB} action on your turn, you can cause the weapon to deal extra damage to the target. The extra damage equals your {@variantrule Proficiency|XPHB|Proficiency Bonus}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Hew",
+                        "entries": [
+                            "Immediately after you score a {@variantrule Critical Hit|XPHB} with a Melee weapon or reduce a creature to 0 {@variantrule Hit Points|XPHB} with one, you can make one attack with the same weapon as a {@variantrule Bonus Action|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Greater Aberrant Mark",
+                "source": "EFA",
+                "page": 43,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "aberrant dragonmark|efa"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "con": 1
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Fortitude",
+                        "entries": [
+                            "When you use the Aberrant Fortitude benefit of your Aberrant Dragonmark feat, you can roll {@dice 1d6} instead of {@dice 1d4}. You also now regain your use of Aberrant Fortitude whenever you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Mark of Inspiration",
+                        "entries": [
+                            "When you cast a cantrip, you can roll one or two of your unexpended {@variantrule Hit Point Dice|XPHB}. You gain a number of {@variantrule Temporary Hit Points|XPHB} equal to the number rolled plus your Constitution modifier, and one creature of your choice within 30 feet of you (not including you) takes Force damage equal to the number rolled. Those dice are then expended.",
+                            "You can use this benefit a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Greater Mark of Detection",
+                "source": "EFA",
+                "page": 43,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "mark of detection|efa"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Intuition",
+                        "entries": [
+                            "When you use the Deductive Intuition benefit of your {@feat Mark of Detection|EFA} feat, you can roll {@dice 1d6} instead of {@dice 1d4}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Shared Detection",
+                        "entries": [
+                            "When you use the Magical Detection benefit of your {@feat Mark of Detection|EFA} feat to cast {@spell See Invisibility|XPHB} without a spell slot, you can choose one creature you can see within 30 feet of yourself. That creature also gains the benefits of the spell for its duration."
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Greater Mark of Finding",
+                "source": "EFA",
+                "page": 43,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "mark of finding|efa"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Intuition",
+                        "entries": [
+                            "When you use the Hunter's Intuition benefit of your {@feat Mark of Finding|EFA} feat, you can roll {@dice 1d6} instead of {@dice 1d4}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Improved Finding",
+                        "entries": [
+                            "When you use the Finder's Magic benefit of your {@feat Mark of Finding|EFA} to cast {@spell Hunter's Mark|XPHB} without a spell slot, the range of the spell is doubled, and you can modify the spell so that the target can't benefit from the {@condition Invisible|XPHB} condition for the duration."
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Greater Mark of Handling",
+                "source": "EFA",
+                "page": 43,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "mark of handling|efa"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Intuition",
+                        "entries": [
+                            "When you use the Wild Intuition benefit of your {@feat Mark of Handling|EFA} feat, you can roll {@dice 1d6} instead of {@dice 1d4}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Improved Handling",
+                        "entries": [
+                            "While you are mounted, immediately after you hit a target within 5 feet of your mount with a melee attack roll, your mount can take a {@variantrule Reaction|XPHB} to move up to its {@variantrule Speed|XPHB} or take the {@action Attack|XPHB} action to make one attack only (your choice)."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Subdue Animal",
+                        "entries": [
+                            "As a {@action Magic|XPHB} action, you exert command over one Beast or Monstrosity you can see within 30 feet of yourself. The target must succeed on a Wisdom saving throw (DC 8 plus your Wisdom modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}) or have the {@condition Frightened|XPHB} condition until the start of your next turn. You can use this benefit a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Greater Mark of Healing",
+                "source": "EFA",
+                "page": 44,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "mark of healing|efa"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Intuition",
+                        "entries": [
+                            "When you use the Medical Intuition benefit of your {@feat Mark of Healing|EFA} feat, you can roll {@dice 1d6} instead of {@dice 1d4}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Improved Healing",
+                        "entries": [
+                            "You can now use the Healing Touch benefit of your {@feat Mark of Healing|EFA} feat to cast {@spell Cure Wounds|XPHB} without using a spell slot a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}. Additionally, when you cast {@spell Cure Wounds|XPHB} and roll dice to determine the number of {@variantrule Hit Points|XPHB} restored, you can treat any 1 or 2 on a roll as a 3."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Greater Mark of Hospitality",
+                "source": "EFA",
+                "page": 44,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "mark of hospitality|efa"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Intuition",
+                        "entries": [
+                            "When you use the Ever Hospitable benefit of your {@feat Mark of Hospitality|EFA} feat, you can roll {@dice 1d6} instead of {@dice 1d4}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Improved Hospitality",
+                        "entries": [
+                            "When you cast {@spell Purify Food and Drink|XPHB}, you can modify the spell so that instead of its normal effect, each creature of your choice within 30 feet of you is refreshed. Each affected creature's {@condition Exhaustion|XPHB} level is reduced by 1, and the creature gains {@variantrule Temporary Hit Points|XPHB} equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus} plus your Intelligence, Wisdom, or Charisma modifier (choose when you select this feat). Once you modify the spell with this benefit, you can't do so again until you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Greater Mark of Making",
+                "source": "EFA",
+                "page": 44,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "mark of making|efa"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Intuition",
+                        "entries": [
+                            "When you use the Artisan's Intuition benefit of your {@feat Mark of Making|EFA} feat, you can roll {@dice 1d6} instead of {@dice 1d4}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Improved Making",
+                        "entries": [
+                            "When you use the Spellsmith benefit of your {@feat Mark of Making|EFA} feat to cast {@spell Magic Weapon|XPHB} without a spell slot, you cast the spell as its level 3 version."
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Greater Mark of Passage",
+                "source": "EFA",
+                "page": 44,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "mark of passage|efa"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Intuition",
+                        "entries": [
+                            "When you use the Intuitive Motion benefit of your {@feat Mark of Passage|EFA} feat, you can roll {@dice 1d6} instead of {@dice 1d4}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Improved Passage",
+                        "entries": [
+                            "When you use the Magical Passage benefit of your {@feat Mark of Passage|EFA} feat to cast {@spell Misty Step|XPHB} without a spell slot, you can also choose up to two willing creatures you can see within 30 feet of yourself before you teleport. Each target can then take a {@variantrule Reaction|XPHB} to also teleport up to 30 feet to an unoccupied space it can see."
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Greater Mark of Scribing",
+                "source": "EFA",
+                "page": 44,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "mark of scribing|efa"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Intuition",
+                        "entries": [
+                            "When you use the Gifted Scribe benefit of your {@feat Mark of Scribing|EFA} feat, you can roll {@dice 1d6} instead of {@dice 1d4}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Inspired Scribing",
+                        "entries": [
+                            "When you cast {@spell Comprehend Languages|XPHB}, you can modify the spell to encompass up to three willing creatures you can see within 30 feet of yourself. Each chosen creature also gains the benefits of the spell for the duration. In addition, for the duration of the spell, you and the chosen creatures can communicate telepathically with each other while within 1 mile of each other. Once you modify the spell with this benefit, you can't do so again until you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Greater Mark of Sentinel",
+                "source": "EFA",
+                "page": 44,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "mark of sentinel|efa"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Intuition",
+                        "entries": [
+                            "When you use the Sentinel's Intuition benefit of your {@feat Mark of Sentinel|EFA} feat, you can roll {@dice 1d6} instead of {@dice 1d4}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Improved Sentinel",
+                        "entries": [
+                            "When you use the Vigilant Guardian benefit of your {@feat Mark of Sentinel|EFA} feat, you can also make one attack with a weapon or an {@variantrule Unarmed Strike|XPHB} as part of that same {@variantrule Reaction|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Greater Mark of Shadow",
+                "source": "EFA",
+                "page": 45,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "mark of shadow|efa"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Intuition",
+                        "entries": [
+                            "When you use the Cunning Intuition benefit of your {@feat Mark of Shadow|EFA} feat, you can roll {@dice 1d6} instead of {@dice 1d4}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Improved Shadow",
+                        "entries": [
+                            "When you use the Shape Shadows benefit of your {@feat Mark of Shadow|EFA} feat to cast {@spell Invisibility|XPHB} without a spell slot, you cast the spell as its level 3 version."
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Greater Mark of Storm",
+                "source": "EFA",
+                "page": 45,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "mark of storm|efa"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Intuition",
+                        "entries": [
+                            "When you use the Windwright's Intuition benefit of your {@feat Mark of Storm|EFA} feat, you can roll {@dice 1d6} instead of {@dice 1d4}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Improved Storm",
+                        "entries": [
+                            "When you use the Storm Magic benefit of your {@feat Mark of Storm|EFA} feat to cast {@spell Gust of Wind|XPHB} without a spell slot, you also gain a {@variantrule Fly Speed|XPHB} of 60 feet for the duration of the spell."
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Greater Mark of Warding",
+                "source": "EFA",
+                "page": 45,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "mark of warding|efa"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Improved Intuition",
+                        "entries": [
+                            "When you use the Warder's Intuition benefit of your {@feat Mark of Warding|EFA} feat, you can roll {@dice 1d6} instead of {@dice 1d4}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Improved Warding",
+                        "entries": [
+                            "When a creature makes an attack roll against you or a creature you can see within 30 feet of yourself, you can take a {@variantrule Reaction|XPHB} to impose {@variantrule Disadvantage|XPHB} on that roll. You can use this benefit a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Guile of the Cloud Giant",
+                "source": "BGG",
+                "page": 18,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "strike of the giants|BGG|strike of the giants (cloud strike)"
                         ]
                     }
                 ],
@@ -2651,20 +5337,25 @@ export default function getFeats() {
                             "from": [
                                 "str",
                                 "con",
-                                "wis"
+                                "cha"
                             ],
                             "amount": 1
                         }
                     }
                 ],
                 "entries": [
-                    "You have a deep hatred for a particular kind of creature. Choose your foes, a type of creature to bear the burden of your wrath: aberrations, beasts, celestials, constructs, dragons, elementals, fey, fiends, giants, monstrosities, oozes, plants, or undead. Alternatively, you can choose two races of humanoid (such as gnolls and orcs). You gain the following benefits:",
+                    "You've manifested the confounding magic emblematic of cloud giants, granting you the following benefits:",
                     {
                         "type": "list",
+                        "style": "list-hang-notitle",
                         "items": [
-                            "During the first round of any combat against your chosen foes, your attack rolls against any of them have advantage.",
-                            "When any of your chosen foes makes an opportunity attack against you, it makes the attack roll with disadvantage.",
-                            "Whenever you make an Intelligence ({@skill Arcana}, {@skill History}, {@skill Nature}, or {@skill Religion}) check to recall information about your chosen foes, you add double your proficiency bonus to the check, even if you're not normally proficient."
+                            {
+                                "type": "item",
+                                "name": "Cloudy Escape",
+                                "entries": [
+                                    "When a creature you can see hits you with an attack roll, you can use your reaction to give yourself resistance to that attack's damage. You then teleport to an unoccupied space that you can see within 30 feet of yourself. You can use this reaction a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
                         ]
                     }
                 ]
@@ -2689,34 +5380,89 @@ export default function getFeats() {
                         "type": "list",
                         "items": [
                             "You gain proficiency with firearms (see \"{@variantrule Firearms|DMG}\" in the Dungeon Master's Guide).",
-                            "You ignore the loading property of firearms.",
+                            "You ignore the {@itemProperty LD|PHB|loading} property of firearms.",
                             "Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls."
                         ]
                     }
                 ]
             },
             {
-                "name": "Gunner",
-                "source": "UA2020Feats",
-                "page": 2,
-                "ability": [
+                "name": "Harper Agent",
+                "source": "FRHoF",
+                "page": 37,
+                "category": "O",
+                "languageProficiencies": [
                     {
-                        "dex": 1
+                        "thieves' cant": true
                     }
                 ],
-                "weaponProficiencies": [
+                "toolProficiencies": [
                     {
-                        "firearms": true
+                        "anyMusicalInstrument": 3
                     }
                 ],
                 "entries": [
-                    "You have a quick hand and keen eye when employing firearms, granting you the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency with firearms (see \"{@variantrule Firearms|DMG}\" in the Dungeon Master's Guide).",
-                            "You ignore the loading property of firearms.",
-                            "Being within 5 feet of a hostile creature doesn't impose disadvantage on your ranged attack rolls."
+                        "type": "entries",
+                        "name": "Thieves' Cant",
+                        "entries": [
+                            "You know Thieves' Cant."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Instrument Training",
+                        "entries": [
+                            "You gain proficiency with a {@item Musical Instrument|XPHB} of your choice."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Distracting Melody",
+                        "entries": [
+                            "When you take the {@action Help|XPHB} action to assist an ally's attack roll, the enemy you're distracting can be within 30 feet of you, rather than within 5 feet of you, provided the enemy can see or hear you."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Harper Teamwork",
+                "source": "FRHoF",
+                "page": 39,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "harper agent|frhof"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "dex",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Withering Wordplay",
+                        "entries": [
+                            "When you take the {@action Help|XPHB} action to assist an ally's attack roll against an enemy, that enemy also has {@variantrule Disadvantage|XPHB} on the first saving throw it makes before the start of your next turn."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Inspiring Willpower",
+                        "entries": [
+                            "If you succeed on a saving throw to end the {@condition Frightened|XPHB} or {@condition Paralyzed|XPHB} condition on yourself, you can choose one ally you can see within 30 feet of yourself that has the same condition. That condition immediately ends for that ally."
                         ]
                     }
                 ]
@@ -2725,6 +5471,9 @@ export default function getFeats() {
                 "name": "Healer",
                 "source": "PHB",
                 "page": 167,
+                "reprintedAs": [
+                    "Healer|XPHB"
+                ],
                 "entries": [
                     "You are an able physician, allowing you to mend wounds quickly and get your allies back in the fight. You gain the following benefits:",
                     {
@@ -2737,9 +5486,36 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Healer",
+                "source": "XPHB",
+                "page": 201,
+                "category": "O",
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Battle Medic",
+                        "entries": [
+                            "If you have a {@item Healer's Kit|XPHB}, you can expend one use of it and tend to a creature within 5 feet of yourself as a {@action Utilize|XPHB} action. That creature can expend one of its {@variantrule Hit Point Dice|XPHB}, and you then roll that die. The creature regains a number of {@variantrule Hit Points|XPHB} equal to the roll plus your {@variantrule Proficiency|XPHB|Proficiency Bonus}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Healing Rerolls",
+                        "entries": [
+                            "Whenever you roll a die to determine the number of {@variantrule Hit Points|XPHB} you restore with a spell or with this feat's Battle Medic benefit, you can reroll the die if it rolls a 1, and you must use the new roll."
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
                 "name": "Heavily Armored",
                 "source": "PHB",
                 "page": 167,
+                "reprintedAs": [
+                    "Heavily Armored|XPHB"
+                ],
                 "prerequisite": [
                     {
                         "proficiency": [
@@ -2770,9 +5546,53 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Heavily Armored",
+                "source": "XPHB",
+                "page": 204,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "proficiency": [
+                            {
+                                "armor": "medium"
+                            }
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "con",
+                                "str"
+                            ]
+                        }
+                    }
+                ],
+                "armorProficiencies": [
+                    {
+                        "heavy": true
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Armor Training",
+                        "entries": [
+                            "You gain training with Heavy armor."
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "Heavy Armor Master",
                 "source": "PHB",
                 "page": 167,
+                "reprintedAs": [
+                    "Heavy Armor Master|XPHB"
+                ],
                 "prerequisite": [
                     {
                         "proficiency": [
@@ -2792,45 +5612,22 @@ export default function getFeats() {
                     {
                         "type": "list",
                         "items": [
-                            "While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from nonmagical weapons is reduced by 3."
+                            "While you are wearing heavy armor, bludgeoning, piercing, and slashing damage that you take from nonmagical attacks is reduced by 3."
                         ]
                     }
                 ]
             },
             {
-                "name": "Historian",
-                "source": "UAFeatsForSkills",
-                "page": 2,
-                "ability": [
-                    {
-                        "int": 1
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "history": true
-                    }
-                ],
-                "entries": [
-                    "Your study of history rewards you with the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill History} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "When you take the {@action Help} action to aid another creature's ability check, you can make a DC 15 Intelligence ({@skill History}) check. On a success, that creature's check gains a bonus equal to your proficiency bonus, as you share pertinent advice and historical examples. To receive this bonus, the creature must be able to understand what you're saying."
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Human Determination",
-                "source": "UAFeatsForRaces",
-                "page": 3,
+                "name": "Heavy Armor Master",
+                "source": "XPHB",
+                "page": 204,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
+                        "level": 4,
+                        "proficiency": [
                             {
-                                "name": "human"
+                                "armor": "heavy"
                             }
                         ]
                     }
@@ -2839,52 +5636,19 @@ export default function getFeats() {
                     {
                         "choose": {
                             "from": [
-                                "str",
-                                "dex",
                                 "con",
-                                "int",
-                                "wis",
-                                "cha"
-                            ],
-                            "amount": 1
+                                "str"
+                            ]
                         }
                     }
                 ],
                 "entries": [
-                    "You are filled with a determination that can draw the unreachable within your reach. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "When you make an attack roll, an ability check, or a saving throw, you can do so with advantage. Once you use this ability, you can't use it again until you finish a short or long rest."
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Infernal Constitution",
-                "source": "UAFeatsForRaces",
-                "page": 3,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "tiefling"
-                            }
-                        ]
-                    }
-                ],
-                "ability": [
-                    {
-                        "con": 1
-                    }
-                ],
-                "entries": [
-                    "Fiendish blood runs strong in you. You gain the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You have resistance to cold and poison damage.",
-                            "You have advantage on saving throws against being {@condition poisoned}."
+                        "type": "entries",
+                        "name": "Damage Reduction",
+                        "entries": [
+                            "When you're hit by an attack while you're wearing Heavy armor, any Bludgeoning, Piercing, and Slashing damage dealt to you by that attack is reduced by an amount equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}."
                         ]
                     }
                 ]
@@ -2907,6 +5671,10 @@ export default function getFeats() {
                         "con": 1
                     }
                 ],
+                "resist": [
+                    "cold",
+                    "poison"
+                ],
                 "entries": [
                     "Fiendish blood runs strong in you, unlocking a resilience akin to that possessed by some fiends. You gain the following benefits:",
                     {
@@ -2919,9 +5687,197 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Initiate of High Sorcery",
+                "source": "DSotDQ",
+                "page": 32,
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Dragonlance"
+                        ],
+                        "level": {
+                            "level": 1,
+                            "class": {
+                                "name": "Sorcerer",
+                                "visible": true
+                            }
+                        }
+                    },
+                    {
+                        "campaign": [
+                            "Dragonlance"
+                        ],
+                        "level": {
+                            "level": 1,
+                            "class": {
+                                "name": "Wizard",
+                                "visible": true
+                            }
+                        }
+                    },
+                    {
+                        "campaign": [
+                            "Dragonlance"
+                        ],
+                        "background": [
+                            {
+                                "name": "Mage of High Sorcery",
+                                "displayEntry": "{@background Mage of High Sorcery|DSotDQ}"
+                            }
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "name": "Nuitari",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Wizard"
+                                }
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1e": [
+                                        {
+                                            "choose": {
+                                                "from": [
+                                                    "dissonant whispers",
+                                                    "false life",
+                                                    "hex",
+                                                    "ray of sickness"
+                                                ],
+                                                "count": 2
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Lunitari",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Wizard"
+                                }
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1e": [
+                                        {
+                                            "choose": {
+                                                "from": [
+                                                    "color spray",
+                                                    "disguise self",
+                                                    "feather fall",
+                                                    "longstrider"
+                                                ],
+                                                "count": 2
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Solinari",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Wizard"
+                                }
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1e": [
+                                        {
+                                            "choose": {
+                                                "from": [
+                                                    "comprehend languages",
+                                                    "detect evil and good",
+                                                    "protection from evil and good",
+                                                    "shield"
+                                                ],
+                                                "count": 2
+                                            }
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "entries": [
+                    "You've received training from magic-users affiliated with the Mages of High Sorcery.",
+                    "Choose one of the three moons of Krynn to influence your magic: the black moon, Nuitari; the red moon, Lunitari; or the white moon, Solinari. You learn one cantrip of your choice from the wizard spell list and two 1st-level spells based on the moon you choose, as specified in the Lunar Spells table.",
+                    {
+                        "type": "table",
+                        "caption": "Lunar Spells",
+                        "colLabels": [
+                            "Moon",
+                            "1st-Level Spell"
+                        ],
+                        "colStyles": [
+                            "col-1",
+                            "col-11"
+                        ],
+                        "rows": [
+                            [
+                                "Nuitari",
+                                "Choose two from {@spell dissonant whispers}, {@spell false life}, {@spell hex}, and {@spell ray of sickness}"
+                            ],
+                            [
+                                "Lunitari",
+                                "Choose two from {@spell color spray}, {@spell disguise self}, {@spell feather fall}, and {@spell longstrider}"
+                            ],
+                            [
+                                "Solinari",
+                                "Choose two from {@spell comprehend languages}, {@spell detect evil and good}, {@spell protection from evil and good}, and {@spell shield}"
+                            ]
+                        ]
+                    },
+                    "You can cast each of the chosen 1st-level spells without a spell slot, and you must finish a long rest before you can cast them in this way again. You can also cast the spells using any spell slots you have.",
+                    "Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat)."
+                ],
+                "hasFluffImages": true
+            },
+            {
                 "name": "Inspiring Leader",
                 "source": "PHB",
                 "page": 167,
+                "reprintedAs": [
+                    "Inspiring Leader|XPHB"
+                ],
                 "prerequisite": [
                     {
                         "ability": [
@@ -2933,37 +5889,76 @@ export default function getFeats() {
                 ],
                 "entries": [
                     "You can spend 10 minutes inspiring your companions, shoring up their resolve to fight. When you do so, choose up to six friendly creatures (which can include yourself) within 30 feet of you who can see or hear you and who can understand you. Each creature can gain temporary hit points equal to your level + your Charisma modifier. A creature can't gain temporary hit points from this feat again until it has finished a short or long rest."
-                ]
+                ],
+                "hasFluffImages": true
             },
             {
-                "name": "Investigator",
-                "source": "UAFeatsForSkills",
-                "page": 2,
-                "ability": [
+                "name": "Inspiring Leader",
+                "source": "XPHB",
+                "page": 204,
+                "category": "G",
+                "prerequisite": [
                     {
-                        "int": 1
+                        "level": 4,
+                        "ability": [
+                            {
+                                "wis": 13
+                            }
+                        ]
+                    },
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "cha": 13
+                            }
+                        ]
                     }
                 ],
-                "skillProficiencies": [
+                "ability": [
                     {
-                        "investigation": true
+                        "choose": {
+                            "from": [
+                                "wis",
+                                "cha"
+                            ]
+                        }
                     }
                 ],
                 "entries": [
-                    "You have an eye for detail and can pick out the smallest clues. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Investigation} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "You can take the {@action Search} action as a bonus action."
+                        "type": "entries",
+                        "name": "Bolstering Performance",
+                        "entries": [
+                            "When you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}, you can give an inspiring performance: a speech, song, or dance. When you do so, choose up to six allies (which can include yourself) within 30 feet of yourself who witness the performance. The chosen creatures each gain {@variantrule Temporary Hit Points|XPHB} equal to your character level plus the modifier of the ability you increased with this feat."
                         ]
                     }
+                ]
+            },
+            {
+                "name": "Interception",
+                "source": "XPHB",
+                "page": 209,
+                "category": "FS",
+                "prerequisite": [
+                    {
+                        "feature": [
+                            "Fighting Style"
+                        ]
+                    }
+                ],
+                "entries": [
+                    "When a creature you can see hits another creature within 5 feet of you with an attack roll, you can take a {@variantrule Reaction|XPHB} to reduce the damage dealt to the target by {@dice 1d10} plus your {@variantrule Proficiency|XPHB|Proficiency Bonus}. You must be holding a {@item Shield|XPHB} or a Simple or Martial weapon to use this {@variantrule Reaction|XPHB}."
                 ]
             },
             {
                 "name": "Keen Mind",
                 "source": "PHB",
                 "page": 167,
+                "reprintedAs": [
+                    "Keen Mind|XPHB"
+                ],
                 "ability": [
                     {
                         "int": 1
@@ -2982,9 +5977,327 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Keen Mind",
+                "source": "XPHB",
+                "page": 205,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "int": 13
+                            }
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "int": 1
+                    }
+                ],
+                "skillProficiencies": [
+                    {
+                        "choose": {
+                            "from": [
+                                "arcana",
+                                "history",
+                                "investigation",
+                                "nature",
+                                "religion"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Lore Knowledge",
+                        "entries": [
+                            "Choose one of the following skills: {@skill Arcana|XPHB}, {@skill History|XPHB}, {@skill Investigation|XPHB}, {@skill Nature|XPHB}, or {@skill Religion|XPHB}. If you lack proficiency in the chosen skill, you gain proficiency in it, and if you already have proficiency in it, you gain {@variantrule Expertise|XPHB} in it."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Quick Study",
+                        "entries": [
+                            "You can take the {@action Study|XPHB} action as a {@variantrule Bonus Action|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Keenness of the Stone Giant",
+                "source": "BGG",
+                "page": 18,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "strike of the giants|BGG|strike of the giants (stone strike)"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "con",
+                                "wis"
+                            ],
+                            "amount": 1
+                        }
+                    }
+                ],
+                "bonusSenses": [
+                    {
+                        "darkvision": 60
+                    }
+                ],
+                "entries": [
+                    "You've manifested the physical talents emblematic of stone giants, granting you the following benefits:",
+                    {
+                        "type": "list",
+                        "style": "list-hang-notitle",
+                        "items": [
+                            {
+                                "type": "item",
+                                "name": "Cavernous Sight",
+                                "entries": [
+                                    "You gain {@sense darkvision} with a range of 60 feet. If you already have {@sense darkvision} from another source, its range increases by 60 feet."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Stone Throw",
+                                "entries": [
+                                    "As a bonus action, you can take a rock and make a magical attack with it. The attack is a ranged spell attack with a range of 60 feet that uses the ability score you increased with this feat as the spellcasting ability. On a hit, the rock deals {@damage 1d10} force damage, and the target must succeed on a Strength saving throw (DC equals 8 + your proficiency bonus + the spellcasting ability modifier) or have the prone condition. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Knight of the Crown",
+                "source": "DSotDQ",
+                "page": 32,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "squire of solamnia|dsotdq"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con"
+                            ],
+                            "amount": 1
+                        }
+                    }
+                ],
+                "entries": [
+                    "You are a Knight of Solamnia aligned with the Order of the Crown, a group that extols the virtues of cooperation, loyalty, and obedience. You excel in group combat and gain these benefits:",
+                    {
+                        "type": "list",
+                        "style": "list-hang-notitle",
+                        "items": [
+                            {
+                                "type": "item",
+                                "name": "Commanding Rally",
+                                "entries": [
+                                    "As a bonus action, you can command one ally within 30 feet of yourself to attack. If that ally can see or hear you, they can immediately make one weapon attack as a reaction. If the attack hits, the ally can roll a {@dice d8} and add the number rolled as a bonus to the attack's damage roll. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "inset",
+                        "name": "Membership in Knightly Orders",
+                        "entries": [
+                            "Knights of Solamnia are only ever members of one of their organization's orders. In the course of their training, most knights begin as members of the Knights of the Crown and then move on to join other orders. Whether a character follows this path or another, they retain what they learned as a member of an order even if they join another. Characters can change what knightly order they're a part of, but they always have access to any Knight of Solamnia feats they've acquired."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Knight of the Rose",
+                "source": "DSotDQ",
+                "page": 33,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "squire of solamnia|dsotdq"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "con",
+                                "wis",
+                                "cha"
+                            ],
+                            "amount": 1
+                        }
+                    }
+                ],
+                "entries": [
+                    "You are a Knight of Solamnia aligned with the Order of the Rose, a group known for leadership, justice, and wisdom. Your resolve grants you these benefits:",
+                    {
+                        "type": "list",
+                        "style": "list-hang-notitle",
+                        "items": [
+                            {
+                                "type": "item",
+                                "name": "Bolstering Rally",
+                                "entries": [
+                                    "As a bonus action, you can encourage one creature you can see within 30 feet of yourself (you can choose yourself). If the target can see or hear you, the target gains temporary hit points equal to {@dice 1d8} + your proficiency bonus + the ability modifier of the ability score increased by this feat. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "inset",
+                        "name": "Membership in Knightly Orders",
+                        "entries": [
+                            "Knights of Solamnia are only ever members of one of their organization's orders. In the course of their training, most knights begin as members of the Knights of the Crown and then move on to join other orders. Whether a character follows this path or another, they retain what they learned as a member of an order even if they join another. Characters can change what knightly order they're a part of, but they always have access to any Knight of Solamnia feats they've acquired."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Knight of the Sword",
+                "source": "DSotDQ",
+                "page": 33,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "squire of solamnia|dsotdq"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ],
+                            "amount": 1
+                        }
+                    }
+                ],
+                "entries": [
+                    "You are a Knight of Solamnia aligned with the Order of the Sword, a group devoted to heroism and courage. Bravery steels your spirit, granting you these benefits:",
+                    {
+                        "type": "list",
+                        "style": "list-hang-notitle",
+                        "items": [
+                            {
+                                "type": "item",
+                                "name": "Demoralizing Strike",
+                                "entries": [
+                                    "Once per turn, when you hit a creature with a weapon attack roll, you can attempt to frighten that target. The target must make a Wisdom saving throw (DC equals 8 + your proficiency bonus + the ability modifier of the score increased by this feat). On a failed save, the target is {@condition frightened} of you until the end of your next turn. On a successful save, the target has disadvantage on the next attack roll it makes before the end of its next turn. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "inset",
+                        "name": "Membership in Knightly Orders",
+                        "entries": [
+                            "Knights of Solamnia are only ever members of one of their organization's orders. In the course of their training, most knights begin as members of the Knights of the Crown and then move on to join other orders. Whether a character follows this path or another, they retain what they learned as a member of an order even if they join another. Characters can change what knightly order they're a part of, but they always have access to any Knight of Solamnia feats they've acquired."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Light Bringer",
+                "source": "ABH",
+                "page": 10,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "name": "Light",
+                        "known": {
+                            "_": [
+                                "light|xphb#c"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Cleric Cantrip",
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Cleric",
+                                    "count": 1
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Sacred Magic",
+                        "entries": [
+                            "You learn the {@spell Light|XPHB} spell and can cast it without Material components. If you already know that cantrip, you learn a different Cleric cantrip of your choice. The spell's spellcasting ability is the ability increased by this feat."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Solar Luminance",
+                        "entries": [
+                            "When you cast {@spell Light|XPHB}, you can have the light from the spell be sunlight. Once you use this benefit, you can't use it again until you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Sun's Healing",
+                        "entries": [
+                            "As a {@variantrule Bonus Action|XPHB} while within sunlight, you can expend one of your {@variantrule Hit Point Dice|XPHB}, roll the die, and regain a number of {@variantrule Hit Points|XPHB} equal to the roll. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "Lightly Armored",
                 "source": "PHB",
                 "page": 167,
+                "reprintedAs": [
+                    "Lightly Armored|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -3007,6 +6320,43 @@ export default function getFeats() {
                         "type": "list",
                         "items": [
                             "You gain proficiency with light armor."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Lightly Armored",
+                "source": "XPHB",
+                "page": 205,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex"
+                            ]
+                        }
+                    }
+                ],
+                "armorProficiencies": [
+                    {
+                        "light": true,
+                        "shield": true
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Armor Training",
+                        "entries": [
+                            "You gain training with Light armor and Shields."
                         ]
                     }
                 ]
@@ -3037,9 +6387,105 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Lordly Resolve",
+                "source": "FRHoF",
+                "page": 40,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "lords' alliance agent|frhof"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Standard Bearer",
+                        "entries": [
+                            "As a {@variantrule Bonus Action|XPHB}, choose up to three creatures within 60 feet of yourself that can see you. Each target can immediately take a {@variantrule Reaction|XPHB} to right itself and end the {@condition Prone|XPHB} condition, provided its {@variantrule Speed|XPHB} isn't 0. Additionally, you bolster the targets' resolve, which lasts for 1 minute or until you have the {@condition Incapacitated|XPHB} condition. While bolstered, a target can't be possessed or gain the {@condition Charmed|XPHB} or {@condition Frightened|XPHB} condition; if a target is already possessed, {@condition Charmed|XPHB}, or {@condition Frightened|XPHB}, the target has {@variantrule Advantage|XPHB} on any new saving throw against the relevant effect.",
+                            "Once you use this benefit, you can't do so again until you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Lords' Alliance Agent",
+                "source": "FRHoF",
+                "page": 38,
+                "category": "O",
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Inspiring Strike",
+                        "entries": [
+                            "Once per turn when you score a {@variantrule Critical Hit|XPHB} against a creature, you can choose an ally within 30 feet of yourself who can see or hear you and who lacks {@variantrule Heroic Inspiration|XPHB}. That ally gains {@variantrule Heroic Inspiration|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Reassert Honor",
+                        "entries": [
+                            "When an enemy you can see deals damage to an ally of yours that is within 5 feet of you, you have {@variantrule Advantage|XPHB} on your next attack roll against that enemy before the end of your next turn."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Love Bites",
+                "source": "ABH",
+                "page": 10,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Endearing Pain",
+                        "entries": [
+                            "Immediately after you damage a creature with a Melee weapon or an {@variantrule Unarmed Strike|XPHB}, you can take a {@variantrule Bonus Action|XPHB} to give the target the {@condition Charmed|XPHB} condition until the start of your next turn or until you or your allies damage it. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "Lucky",
                 "source": "PHB",
                 "page": 167,
+                "reprintedAs": [
+                    "Lucky|XPHB"
+                ],
                 "entries": [
                     "You have inexplicable luck that seems to kick in at just the right moment.",
                     "You have 3 luck points. Whenever you make an attack roll, an ability check, or a saving throw, you can spend one luck point to roll an additional {@dice d20}. You can choose to spend one of your luck points after you roll the die, but before the outcome is determined. You choose which of the {@dice d20}s is used for the attack roll, ability check, or saving throw.",
@@ -3048,17 +6494,88 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Lucky",
+                "source": "XPHB",
+                "page": 201,
+                "category": "O",
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Luck Points",
+                        "entries": [
+                            "You have a number of Luck Points equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus} and can spend the points on the benefits below. You regain your expended Luck Points when you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Advantage",
+                        "entries": [
+                            "When you roll a {@dice d20} for a {@variantrule D20 Test|XPHB}, you can spend 1 Luck Point to give yourself {@variantrule Advantage|XPHB} on the roll."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Disadvantage",
+                        "entries": [
+                            "When a creature rolls a {@dice d20} for an attack roll against you, you can spend 1 Luck Point to impose {@variantrule Disadvantage|XPHB} on that roll."
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "Mage Slayer",
                 "source": "PHB",
                 "page": 168,
+                "reprintedAs": [
+                    "Mage Slayer|XPHB"
+                ],
                 "entries": [
                     "You have practiced techniques useful in melee combat against spellcasters, gaining the following benefits:",
                     {
                         "type": "list",
                         "items": [
                             "When a creature within 5 feet of you casts a spell, you can use your reaction to make a melee weapon attack against that creature.",
-                            "When you damage a creature that is concentrating on a spell, that creature has disadvantage on the saving throw it makes to maintain its concentration.",
+                            "When you damage a creature that is {@status concentration||concentrating} on a spell, that creature has disadvantage on the saving throw it makes to maintain its {@status concentration}.",
                             "You have advantage on saving throws against spells cast by creatures within 5 feet of you."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Mage Slayer",
+                "source": "XPHB",
+                "page": 205,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Concentration Breaker",
+                        "entries": [
+                            "When you damage a creature that is {@status Concentration|XPHB|Concentrating}, it has {@variantrule Disadvantage|XPHB} on the saving throw it makes to maintain {@status Concentration|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Guarded Mind",
+                        "entries": [
+                            "If you fail an Intelligence, a Wisdom, or a Charisma saving throw, you can cause yourself to succeed instead. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
                         ]
                     }
                 ]
@@ -3067,18 +6584,15 @@ export default function getFeats() {
                 "name": "Magic Initiate",
                 "source": "PHB",
                 "page": 168,
+                "reprintedAs": [
+                    "Magic Initiate|XPHB"
+                ],
                 "additionalSpells": [
                     {
                         "name": "Bard Spells",
                         "ability": "cha",
                         "innate": {
                             "_": {
-                                "_": [
-                                    {
-                                        "choose": "level=0|class=Bard",
-                                        "count": 2
-                                    }
-                                ],
                                 "daily": {
                                     "1": [
                                         {
@@ -3087,6 +6601,14 @@ export default function getFeats() {
                                     ]
                                 }
                             }
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Bard",
+                                    "count": 2
+                                }
+                            ]
                         }
                     },
                     {
@@ -3094,12 +6616,6 @@ export default function getFeats() {
                         "ability": "wis",
                         "innate": {
                             "_": {
-                                "_": [
-                                    {
-                                        "choose": "level=0|class=Cleric",
-                                        "count": 2
-                                    }
-                                ],
                                 "daily": {
                                     "1": [
                                         {
@@ -3108,6 +6624,14 @@ export default function getFeats() {
                                     ]
                                 }
                             }
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Cleric",
+                                    "count": 2
+                                }
+                            ]
                         }
                     },
                     {
@@ -3115,12 +6639,6 @@ export default function getFeats() {
                         "ability": "wis",
                         "innate": {
                             "_": {
-                                "_": [
-                                    {
-                                        "choose": "level=0|class=Druid",
-                                        "count": 2
-                                    }
-                                ],
                                 "daily": {
                                     "1": [
                                         {
@@ -3129,6 +6647,14 @@ export default function getFeats() {
                                     ]
                                 }
                             }
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Druid",
+                                    "count": 2
+                                }
+                            ]
                         }
                     },
                     {
@@ -3136,12 +6662,6 @@ export default function getFeats() {
                         "ability": "cha",
                         "innate": {
                             "_": {
-                                "_": [
-                                    {
-                                        "choose": "level=0|class=Sorcerer",
-                                        "count": 2
-                                    }
-                                ],
                                 "daily": {
                                     "1": [
                                         {
@@ -3150,6 +6670,14 @@ export default function getFeats() {
                                     ]
                                 }
                             }
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Sorcerer",
+                                    "count": 2
+                                }
+                            ]
                         }
                     },
                     {
@@ -3157,12 +6685,6 @@ export default function getFeats() {
                         "ability": "cha",
                         "innate": {
                             "_": {
-                                "_": [
-                                    {
-                                        "choose": "level=0|class=Warlock",
-                                        "count": 2
-                                    }
-                                ],
                                 "daily": {
                                     "1": [
                                         {
@@ -3171,6 +6693,14 @@ export default function getFeats() {
                                     ]
                                 }
                             }
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Warlock",
+                                    "count": 2
+                                }
+                            ]
                         }
                     },
                     {
@@ -3178,12 +6708,6 @@ export default function getFeats() {
                         "ability": "int",
                         "innate": {
                             "_": {
-                                "_": [
-                                    {
-                                        "choose": "level=0|class=Wizard",
-                                        "count": 2
-                                    }
-                                ],
                                 "daily": {
                                     "1": [
                                         {
@@ -3192,19 +6716,1832 @@ export default function getFeats() {
                                     ]
                                 }
                             }
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Wizard",
+                                    "count": 2
+                                }
+                            ]
                         }
                     }
                 ],
                 "entries": [
                     "Choose a class: {@filter bard|spells|level=0;1|class=bard}, {@filter cleric|spells|level=0;1|class=cleric}, {@filter druid|spells|level=0;1|class=druid}, {@filter sorcerer|spells|level=0;1|class=sorcerer}, {@filter warlock|spells|level=0;1|class=warlock}, or {@filter wizard|spells|level=0;1|class=wizard}. You learn two cantrips of your choice from that class's spell list.",
-                    "In addition, choose one 1st-level spell from that same list. You learn that spell and can cast it at its lowest level. Once you cast it, you must finish a long rest before you can cast it again using this feat.",
+                    "In addition, choose one 1st-level spell to learn from that same list. Using this feat, you can cast the spell once at its lowest level, and you must finish a long rest before you can cast it in this way again.",
                     "Your spellcasting ability for these spells depends on the class you chose: Charisma for {@filter bard|spells|level=0;1|class=bard}, {@filter sorcerer|spells|level=0;1|class=sorcerer}, or {@filter warlock|spells|level=0;1|class=warlock}; Wisdom for {@filter cleric|spells|level=0;1|class=cleric} or {@filter druid|spells|level=0;1|class=druid}; or Intelligence for {@filter wizard|spells|level=0;1|class=wizard}."
+                ]
+            },
+            {
+                "name": "Magic Initiate",
+                "source": "XPHB",
+                "page": 201,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "O",
+                "repeatable": true,
+                "repeatableHidden": true,
+                "additionalSpells": [
+                    {
+                        "name": "Cleric Spells",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=Cleric"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Cleric",
+                                    "count": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Druid Spells",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=Druid"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Druid",
+                                    "count": 2
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Wizard Spells",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=Wizard"
+                                        }
+                                    ]
+                                }
+                            }
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Wizard",
+                                    "count": 2
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Two Cantrips",
+                        "entries": [
+                            "You learn two cantrips of your choice from the {@filter Cleric|spells|level=0;1|class=Cleric}, {@filter Druid|spells|level=0;1|class=Druid}, or {@filter Wizard|spells|level=0;1|class=Wizard} spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for this feat's spells (choose when you select this feat)."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Level 1 Spell",
+                        "entries": [
+                            "Choose a level 1 spell from the same list you selected for this feat's cantrips. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spell Change",
+                        "entries": [
+                            "Whenever you gain a new level, you can replace one of the spells you chose for this feat with a different spell of the same level from the chosen spell list."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Repeatable",
+                        "entries": [
+                            "You can take this feat more than once, but you must choose a different spell list each time."
+                        ]
+                    }
+                ],
+                "_versions": [
+                    {
+                        "name": "Magic Initiate; Cleric",
+                        "source": "XPHB",
+                        "_mod": {
+                            "entries": [
+                                {
+                                    "mode": "replaceArr",
+                                    "replace": "Two Cantrips",
+                                    "items": {
+                                        "name": "Two Cantrips",
+                                        "entries": [
+                                            "You learn two cantrips of your choice from the {@filter Cleric|spells|level=0;1|class=Cleric} spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for this feat's spells (choose when you select this feat)."
+                                        ]
+                                    }
+                                },
+                                {
+                                    "mode": "replaceArr",
+                                    "replace": "Level 1 Spell",
+                                    "items": {
+                                        "name": "Level 1 Spell",
+                                        "entries": [
+                                            "Choose a level 1 spell from the {@filter Cleric|spells|level=0;1|class=Cleric} spell list. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have."
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "additionalSpells": [
+                            {
+                                "ability": {
+                                    "choose": [
+                                        "int",
+                                        "wis",
+                                        "cha"
+                                    ]
+                                },
+                                "innate": {
+                                    "_": {
+                                        "daily": {
+                                            "1": [
+                                                {
+                                                    "choose": "level=1|class=Cleric"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                "known": {
+                                    "_": [
+                                        {
+                                            "choose": "level=0|class=Cleric",
+                                            "count": 2
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Magic Initiate; Druid",
+                        "source": "XPHB",
+                        "_mod": {
+                            "entries": [
+                                {
+                                    "mode": "replaceArr",
+                                    "replace": "Two Cantrips",
+                                    "items": {
+                                        "name": "Two Cantrips",
+                                        "entries": [
+                                            "You learn two cantrips of your choice from the {@filter Druid|spells|level=0;1|class=Druid} spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for this feat's spells (choose when you select this feat)."
+                                        ]
+                                    }
+                                },
+                                {
+                                    "mode": "replaceArr",
+                                    "replace": "Level 1 Spell",
+                                    "items": {
+                                        "name": "Level 1 Spell",
+                                        "entries": [
+                                            "Choose a level 1 spell from the {@filter Druid|spells|level=0;1|class=Druid} spell list. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have."
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "additionalSpells": [
+                            {
+                                "ability": {
+                                    "choose": [
+                                        "int",
+                                        "wis",
+                                        "cha"
+                                    ]
+                                },
+                                "innate": {
+                                    "_": {
+                                        "daily": {
+                                            "1": [
+                                                {
+                                                    "choose": "level=1|class=Druid"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                "known": {
+                                    "_": [
+                                        {
+                                            "choose": "level=0|class=Druid",
+                                            "count": 2
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    },
+                    {
+                        "name": "Magic Initiate; Wizard",
+                        "source": "XPHB",
+                        "_mod": {
+                            "entries": [
+                                {
+                                    "mode": "replaceArr",
+                                    "replace": "Two Cantrips",
+                                    "items": {
+                                        "name": "Two Cantrips",
+                                        "entries": [
+                                            "You learn two cantrips of your choice from the {@filter Wizard|spells|level=0;1|class=Wizard} spell list. Intelligence, Wisdom, or Charisma is your spellcasting ability for this feat's spells (choose when you select this feat)."
+                                        ]
+                                    }
+                                },
+                                {
+                                    "mode": "replaceArr",
+                                    "replace": "Level 1 Spell",
+                                    "items": {
+                                        "name": "Level 1 Spell",
+                                        "entries": [
+                                            "Choose a level 1 spell from the {@filter Wizard|spells|level=0;1|class=Wizard} spell list. You always have that spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have."
+                                        ]
+                                    }
+                                }
+                            ]
+                        },
+                        "additionalSpells": [
+                            {
+                                "ability": {
+                                    "choose": [
+                                        "int",
+                                        "wis",
+                                        "cha"
+                                    ]
+                                },
+                                "innate": {
+                                    "_": {
+                                        "daily": {
+                                            "1": [
+                                                {
+                                                    "choose": "level=1|class=Wizard"
+                                                }
+                                            ]
+                                        }
+                                    }
+                                },
+                                "known": {
+                                    "_": [
+                                        {
+                                            "choose": "level=0|class=Wizard",
+                                            "count": 2
+                                        }
+                                    ]
+                                }
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Mark of Detection",
+                "source": "EFA",
+                "page": 39,
+                "category": "D",
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Eberron"
+                        ],
+                        "exclusiveFeatCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "3": {
+                                "daily": {
+                                    "1": [
+                                        "see invisibility|xphb"
+                                    ]
+                                }
+                            },
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "detect magic|xphb"
+                                    ]
+                                }
+                            }
+                        },
+                        "expanded": {
+                            "s1": [
+                                "detect evil and good|xphb",
+                                "identify|xphb"
+                            ],
+                            "s2": [
+                                "detect thoughts|xphb",
+                                "find traps|xphb"
+                            ],
+                            "s3": [
+                                "clairvoyance|xphb",
+                                "nondetection|xphb"
+                            ],
+                            "s4": [
+                                "arcane eye|xphb",
+                                "divination|xphb"
+                            ],
+                            "s5": [
+                                "legend lore|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Deductive Intuition",
+                        "entries": [
+                            "When you make an Intelligence ({@skill Investigation|XPHB}) or Wisdom ({@skill Insight|XPHB}) check, you can roll {@dice 1d4} and add the number rolled to the ability check."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Magical Detection",
+                        "entries": [
+                            "You always have the {@spell Detect Magic|XPHB} and {@spell Detect Poison and Disease|XPHB} spells prepared. You can cast each spell once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast these spells using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose when you select this feat).",
+                            "When you reach character level 3, you also always have the {@spell See Invisibility|XPHB} spell prepared and can cast it the same way."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spells of the Mark",
+                        "entries": [
+                            "If you have the Spellcasting or Pact Magic class feature, the spells on the Mark of Detection Spells table are added to that feature's spell list.",
+                            {
+                                "type": "table",
+                                "caption": "Mark of Detection Spells",
+                                "colStyles": [
+                                    "col-2 text-center",
+                                    "col-10"
+                                ],
+                                "colLabels": [
+                                    "Spell Level",
+                                    "Spells"
+                                ],
+                                "rows": [
+                                    [
+                                        "1",
+                                        "{@spell Detect Evil and Good|XPHB}, {@spell Identify|XPHB}"
+                                    ],
+                                    [
+                                        "2",
+                                        "{@spell Detect Thoughts|XPHB}, {@spell Find Traps|XPHB}"
+                                    ],
+                                    [
+                                        "3",
+                                        "{@spell Clairvoyance|XPHB}, {@spell Nondetection|XPHB}"
+                                    ],
+                                    [
+                                        "4",
+                                        "{@spell Arcane Eye|XPHB}, {@spell Divination|XPHB}"
+                                    ],
+                                    [
+                                        "5",
+                                        "{@spell Legend Lore|XPHB}"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Mark of Finding",
+                "source": "EFA",
+                "page": 39,
+                "category": "D",
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Eberron"
+                        ],
+                        "exclusiveFeatCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "3": {
+                                "daily": {
+                                    "1": [
+                                        "locate object|xphb"
+                                    ]
+                                }
+                            },
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "hunter's mark|xphb"
+                                    ]
+                                }
+                            }
+                        },
+                        "expanded": {
+                            "s1": [
+                                "faerie fire|xphb",
+                                "longstrider|xphb"
+                            ],
+                            "s2": [
+                                "locate animals or plants|xphb",
+                                "mind spike|xphb"
+                            ],
+                            "s3": [
+                                "clairvoyance|xphb",
+                                "speak with plants|xphb"
+                            ],
+                            "s4": [
+                                "divination|xphb",
+                                "locate creature|xphb"
+                            ],
+                            "s5": [
+                                "commune with nature|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Hunter's Intuition",
+                        "entries": [
+                            "When you make a Wisdom ({@skill Perception|XPHB} or {@skill Survival|XPHB}) check, you can roll {@dice 1d4} and add the number rolled to the ability check."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Finder's Magic",
+                        "entries": [
+                            "You always have the {@spell Hunter's Mark|XPHB} spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast it using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat).",
+                            "When you reach character level 3, you also always have the {@spell Locate Object|XPHB} spell prepared and can cast it the same way."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spells of the Mark",
+                        "entries": [
+                            "If you have the Spellcasting or Pact Magic class feature, the spells on the Mark of Finding Spells table are added to that feature's spell list.",
+                            {
+                                "type": "table",
+                                "caption": "Mark of Finding Spells",
+                                "colStyles": [
+                                    "col-2 text-center",
+                                    "col-10"
+                                ],
+                                "colLabels": [
+                                    "Spell Level",
+                                    "Spells"
+                                ],
+                                "rows": [
+                                    [
+                                        "1",
+                                        "{@spell Faerie Fire|XPHB}, {@spell Longstrider|XPHB}"
+                                    ],
+                                    [
+                                        "2",
+                                        "{@spell Locate Animals or Plants|XPHB}, {@spell Mind Spike|XPHB}"
+                                    ],
+                                    [
+                                        "3",
+                                        "{@spell Clairvoyance|XPHB}, {@spell Speak with Plants|XPHB}"
+                                    ],
+                                    [
+                                        "4",
+                                        "{@spell Divination|XPHB}, {@spell Locate Creature|XPHB}"
+                                    ],
+                                    [
+                                        "5",
+                                        "{@spell Commune with Nature|XPHB}"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Mark of Handling",
+                "source": "EFA",
+                "page": 39,
+                "category": "D",
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Eberron"
+                        ],
+                        "exclusiveFeatCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "3": {
+                                "daily": {
+                                    "1": [
+                                        "speak with animals|xphb"
+                                    ]
+                                }
+                            },
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "animal friendship|xphb"
+                                    ]
+                                }
+                            }
+                        },
+                        "expanded": {
+                            "s1": [
+                                "command|xphb",
+                                "find familiar|xphb"
+                            ],
+                            "s2": [
+                                "beast sense|xphb",
+                                "calm emotions|xphb"
+                            ],
+                            "s3": [
+                                "beacon of hope|xphb",
+                                "conjure animals|xphb"
+                            ],
+                            "s4": [
+                                "aura of life|xphb",
+                                "dominate beast|xphb"
+                            ],
+                            "s5": [
+                                "awaken|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Wild Intuition",
+                        "entries": [
+                            "When you make an Intelligence ({@skill Nature|XPHB}) or Wisdom ({@skill Animal Handling|XPHB}) check, you can roll {@dice 1d4} and add the number rolled to the ability check."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Primal Connection",
+                        "entries": [
+                            "You always have the {@spell Animal Friendship|XPHB} and {@spell Speak with Animals|XPHB} spells prepared. You can cast each spell once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast these spells using any spell slots you have. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose when you select this feat)."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Monstrous Connections",
+                        "entries": [
+                            "When you reach character level 3, you can target a Monstrosity when you cast {@spell Animal Friendship|XPHB} or {@spell Speak with Animals|XPHB} if the creature's Intelligence score is 3 or lower."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spells of the Mark",
+                        "entries": [
+                            "If you have the Spellcasting or Pact Magic class feature, the spells on the Mark of Handling Spells table are added to that feature's spell list.",
+                            {
+                                "type": "table",
+                                "caption": "Mark of Handling Spells",
+                                "colStyles": [
+                                    "col-2 text-center",
+                                    "col-10"
+                                ],
+                                "colLabels": [
+                                    "Spell Level",
+                                    "Spells"
+                                ],
+                                "rows": [
+                                    [
+                                        "1",
+                                        "{@spell Command|XPHB}, {@spell Find Familiar|XPHB}"
+                                    ],
+                                    [
+                                        "2",
+                                        "{@spell Beast Sense|XPHB}, {@spell Calm Emotions|XPHB}"
+                                    ],
+                                    [
+                                        "3",
+                                        "{@spell Beacon of Hope|XPHB}, {@spell Conjure Animals|XPHB}"
+                                    ],
+                                    [
+                                        "4",
+                                        "{@spell Aura of Life|XPHB}, {@spell Dominate Beast|XPHB}"
+                                    ],
+                                    [
+                                        "5",
+                                        "{@spell Awaken|XPHB}"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Mark of Healing",
+                "source": "EFA",
+                "page": 40,
+                "category": "D",
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Eberron"
+                        ],
+                        "exclusiveFeatCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "3": {
+                                "daily": {
+                                    "1": [
+                                        "lesser restoration|xphb"
+                                    ]
+                                }
+                            },
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "cure wounds|xphb"
+                                    ]
+                                }
+                            }
+                        },
+                        "expanded": {
+                            "s1": [
+                                "false life|xphb",
+                                "healing word|xphb"
+                            ],
+                            "s2": [
+                                "arcane vigor|xphb",
+                                "prayer of healing|xphb"
+                            ],
+                            "s3": [
+                                "aura of vitality|xphb",
+                                "mass healing word|xphb"
+                            ],
+                            "s4": [
+                                "aura of life|xphb",
+                                "aura of purity|xphb"
+                            ],
+                            "s5": [
+                                "greater restoration|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Medical Intuition",
+                        "entries": [
+                            "When you make a Wisdom ({@skill Medicine|XPHB}) check or an ability check using a {@item Herbalism Kit|XPHB}, you can roll {@dice 1d4} and add the number rolled to the ability check."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Healing Touch",
+                        "entries": [
+                            "You always have the {@spell Cure Wounds|XPHB} spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast it using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat).",
+                            "When you reach character level 3, you also always have the {@spell Lesser Restoration|XPHB} spell prepared and can cast it the same way."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spells of the Mark",
+                        "entries": [
+                            "If you have the Spellcasting or Pact Magic class feature, the spells on the Mark of Healing Spells table are added to that feature's spell list.",
+                            {
+                                "type": "table",
+                                "caption": "Mark of Healing Spells",
+                                "colStyles": [
+                                    "col-2 text-center",
+                                    "col-10"
+                                ],
+                                "colLabels": [
+                                    "Spell Level",
+                                    "Spells"
+                                ],
+                                "rows": [
+                                    [
+                                        "1",
+                                        "{@spell False Life|XPHB}, {@spell Healing Word|XPHB}"
+                                    ],
+                                    [
+                                        "2",
+                                        "{@spell Arcane Vigor|XPHB}, {@spell Prayer of Healing|XPHB}"
+                                    ],
+                                    [
+                                        "3",
+                                        "{@spell Aura of Vitality|XPHB}, {@spell Mass Healing Word|XPHB}"
+                                    ],
+                                    [
+                                        "4",
+                                        "{@spell Aura of Life|XPHB}, {@spell Aura of Purity|XPHB}"
+                                    ],
+                                    [
+                                        "5",
+                                        "{@spell Greater Restoration|XPHB}"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Mark of Hospitality",
+                "source": "EFA",
+                "page": 40,
+                "category": "D",
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Eberron"
+                        ],
+                        "exclusiveFeatCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "3": {
+                                "daily": {
+                                    "1": [
+                                        "calm emotions|xphb"
+                                    ]
+                                }
+                            },
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "purify food and drink|xphb"
+                                    ]
+                                }
+                            }
+                        },
+                        "expanded": {
+                            "s1": [
+                                "goodberry|xphb",
+                                "sleep|xphb"
+                            ],
+                            "s2": [
+                                "aid|xphb",
+                                "enhance ability|xphb"
+                            ],
+                            "s3": [
+                                "create food and water|xphb",
+                                "leomund's tiny hut|xphb"
+                            ],
+                            "s4": [
+                                "aura of purity|xphb",
+                                "mordenkainen's private sanctum|xphb"
+                            ],
+                            "s5": [
+                                "hallow|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Ever Hospitable",
+                        "entries": [
+                            "When you make a Charisma ({@skill Persuasion|XPHB}) check or an ability check using {@item Brewer's Supplies|XPHB} or {@item Cook's Utensils|XPHB}, you can roll {@dice 1d4} and add the number rolled to the ability check."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Innkeeper's Magic",
+                        "entries": [
+                            "You always have the {@spell Purify Food and Drink|XPHB} and {@spell Unseen Servant|XPHB} spells prepared. You can cast each spell once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast these spells using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose when you select this feat).",
+                            "When you reach character level 3, you also always have the {@spell Calm Emotions|XPHB} spell prepared and can cast it the same way"
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spells of the Mark",
+                        "entries": [
+                            "If you have the Spellcasting or Pact Magic class feature, the spells on the Mark of Hospitality Spells table are added to that feature's spell list.",
+                            {
+                                "type": "table",
+                                "caption": "Mark of Hospitality Spells",
+                                "colStyles": [
+                                    "col-2 text-center",
+                                    "col-10"
+                                ],
+                                "colLabels": [
+                                    "Spell Level",
+                                    "Spells"
+                                ],
+                                "rows": [
+                                    [
+                                        "1",
+                                        "{@spell Goodberry|XPHB}, {@spell Sleep|XPHB}"
+                                    ],
+                                    [
+                                        "2",
+                                        "{@spell Aid|XPHB}, {@spell Enhance Ability|XPHB}"
+                                    ],
+                                    [
+                                        "3",
+                                        "{@spell Create Food and Water|XPHB}, {@spell Leomund's Tiny Hut|XPHB}"
+                                    ],
+                                    [
+                                        "4",
+                                        "{@spell Aura of Purity|XPHB}, {@spell Mordenkainen's Private Sanctum|XPHB}"
+                                    ],
+                                    [
+                                        "5",
+                                        "{@spell Hallow|XPHB}"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Mark of Making",
+                "source": "EFA",
+                "page": 40,
+                "category": "D",
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Eberron"
+                        ],
+                        "exclusiveFeatCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "mending|xphb#c"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "magic weapon|xphb"
+                                    ]
+                                }
+                            }
+                        },
+                        "expanded": {
+                            "s1": [
+                                "identify|xphb",
+                                "tenser's floating disk|xphb"
+                            ],
+                            "s2": [
+                                "continual flame|xphb",
+                                "spiritual weapon|xphb"
+                            ],
+                            "s3": [
+                                "conjure barrage|xphb",
+                                "elemental weapon|xphb"
+                            ],
+                            "s4": [
+                                "fabricate|xphb",
+                                "stone shape|xphb"
+                            ],
+                            "s5": [
+                                "creation|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Artisan's Intuition",
+                        "entries": [
+                            "When you make an Intelligence ({@skill Arcana|XPHB}) check or an ability check using {@item Artisan's Tools|XPHB}, you can roll {@dice 1d4} and add the number rolled to the ability check."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spellsmith",
+                        "entries": [
+                            "You know the {@spell Mending|XPHB} cantrip. You also always have the {@spell Magic Weapon|XPHB} spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast it using any spell slots you have. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose when you select this feat)."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spells of the Mark",
+                        "entries": [
+                            "If you have the Spellcasting or Pact Magic class feature, the spells on the Mark of Making Spells table are added to that feature's spell list.",
+                            {
+                                "type": "table",
+                                "caption": "Mark of Making Spells",
+                                "colStyles": [
+                                    "col-2 text-center",
+                                    "col-10"
+                                ],
+                                "colLabels": [
+                                    "Spell Level",
+                                    "Spells"
+                                ],
+                                "rows": [
+                                    [
+                                        "1",
+                                        "{@spell Identify|XPHB}, {@spell Tenser's Floating Disk|XPHB}"
+                                    ],
+                                    [
+                                        "2",
+                                        "{@spell Continual Flame|XPHB}, {@spell Spiritual Weapon|XPHB}"
+                                    ],
+                                    [
+                                        "3",
+                                        "{@spell Conjure Barrage|XPHB}, {@spell Elemental Weapon|XPHB}"
+                                    ],
+                                    [
+                                        "4",
+                                        "{@spell Fabricate|XPHB}, {@spell Stone Shape|XPHB}"
+                                    ],
+                                    [
+                                        "5",
+                                        "{@spell Creation|XPHB}"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Mark of Passage",
+                "source": "EFA",
+                "page": 41,
+                "category": "D",
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Eberron"
+                        ],
+                        "exclusiveFeatCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "misty step|xphb"
+                                    ]
+                                }
+                            }
+                        },
+                        "expanded": {
+                            "s1": [
+                                "expeditious retreat|xphb",
+                                "jump|xphb"
+                            ],
+                            "s2": [
+                                "find steed|xphb",
+                                "pass without trace|xphb"
+                            ],
+                            "s3": [
+                                "blink|xphb",
+                                "phantom steed|xphb"
+                            ],
+                            "s4": [
+                                "dimension door|xphb",
+                                "freedom of movement|xphb"
+                            ],
+                            "s5": [
+                                "teleportation circle|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Courier's Speed",
+                        "entries": [
+                            "Your {@variantrule Speed|XPHB} increases by 5 feet."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Intuitive Motion",
+                        "entries": [
+                            "When you make a Strength ({@skill Athletics|XPHB}) or Dexterity ({@skill Acrobatics|XPHB}) check, you can roll {@dice 1d4} and add the number rolled to the ability check."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Magical Passage",
+                        "entries": [
+                            "You always have the {@spell Misty Step|XPHB} spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast it using any spell slots you have. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat)."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spells of the Mark",
+                        "entries": [
+                            "If you have the Spellcasting or Pact Magic class feature, the spells on the Mark of Passage Spells table are added to that feature's spell list.",
+                            {
+                                "type": "table",
+                                "caption": "Mark of Passage Spells",
+                                "colStyles": [
+                                    "col-2 text-center",
+                                    "col-10"
+                                ],
+                                "colLabels": [
+                                    "Spell Level",
+                                    "Spells"
+                                ],
+                                "rows": [
+                                    [
+                                        "1",
+                                        "{@spell Expeditious Retreat|XPHB}, {@spell Jump|XPHB}"
+                                    ],
+                                    [
+                                        "2",
+                                        "{@spell Find Steed|XPHB}, {@spell Pass without Trace|XPHB}"
+                                    ],
+                                    [
+                                        "3",
+                                        "{@spell Blink|XPHB}, {@spell Phantom Steed|XPHB}"
+                                    ],
+                                    [
+                                        "4",
+                                        "{@spell Dimension Door|XPHB}, {@spell Freedom of Movement|XPHB}"
+                                    ],
+                                    [
+                                        "5",
+                                        "{@spell Teleportation Circle|XPHB}"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Mark of Scribing",
+                "source": "EFA",
+                "page": 41,
+                "category": "D",
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Eberron"
+                        ],
+                        "exclusiveFeatCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "message|xphb#c"
+                            ]
+                        },
+                        "prepared": {
+                            "3": {
+                                "daily": {
+                                    "1": [
+                                        "magic mouth|xphb"
+                                    ]
+                                }
+                            },
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "comprehend languages|xphb"
+                                    ]
+                                }
+                            }
+                        },
+                        "expanded": {
+                            "s1": [
+                                "command|xphb",
+                                "illusory script|xphb"
+                            ],
+                            "s2": [
+                                "animal messenger|xphb",
+                                "silence|xphb"
+                            ],
+                            "s3": [
+                                "sending|xphb",
+                                "tongues|xphb"
+                            ],
+                            "s4": [
+                                "arcane eye|xphb",
+                                "confusion|xphb"
+                            ],
+                            "s5": [
+                                "dream|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Gifted Scribe",
+                        "entries": [
+                            "When you make an Intelligence ({@skill History|XPHB}) check or an ability check using {@item Calligrapher's Supplies|XPHB}, you can roll {@dice 1d4} and add the number rolled to the ability check."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Scribe's Insight",
+                        "entries": [
+                            "You know the {@spell Message|XPHB} cantrip. You also always have the {@spell Comprehend Languages|XPHB} spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast it using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat).",
+                            "When you reach character level 3, you also always have the {@spell Magic Mouth|XPHB} spell prepared and can cast it the same way."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spells of the Mark",
+                        "entries": [
+                            "If you have the Spellcasting or Pact Magic class feature, the spells on the Mark of Scribing Spells table are added to that feature's spell list.",
+                            {
+                                "type": "table",
+                                "caption": "Mark of Scribing Spells",
+                                "colStyles": [
+                                    "col-2 text-center",
+                                    "col-10"
+                                ],
+                                "colLabels": [
+                                    "Spell Level",
+                                    "Spells"
+                                ],
+                                "rows": [
+                                    [
+                                        "1",
+                                        "{@spell Command|XPHB}, {@spell Illusory Script|XPHB}"
+                                    ],
+                                    [
+                                        "2",
+                                        "{@spell Animal Messenger|XPHB}, {@spell Silence|XPHB}"
+                                    ],
+                                    [
+                                        "3",
+                                        "{@spell Sending|XPHB}, {@spell Tongues|XPHB}"
+                                    ],
+                                    [
+                                        "4",
+                                        "{@spell Arcane Eye|XPHB}, {@spell Confusion|XPHB}"
+                                    ],
+                                    [
+                                        "5",
+                                        "{@spell Dream|XPHB}"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Mark of Sentinel",
+                "source": "EFA",
+                "page": 41,
+                "category": "D",
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Eberron"
+                        ],
+                        "exclusiveFeatCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "shield|xphb"
+                                    ]
+                                }
+                            }
+                        },
+                        "expanded": {
+                            "s1": [
+                                "compelled duel|xphb",
+                                "shield of faith|xphb"
+                            ],
+                            "s2": [
+                                "warding bond|xphb",
+                                "zone of truth|xphb"
+                            ],
+                            "s3": [
+                                "counterspell|xphb",
+                                "protection from energy|xphb"
+                            ],
+                            "s4": [
+                                "death ward|xphb",
+                                "guardian of faith|xphb"
+                            ],
+                            "s5": [
+                                "bigby's hand|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Sentinel's Intuition",
+                        "entries": [
+                            "When you make a Wisdom ({@skill Insight|XPHB} or {@skill Perception|XPHB}) check, you can roll {@dice 1d4} and add the number rolled to the ability check."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Guardian's Shield",
+                        "entries": [
+                            "You always have the {@spell Shield|XPHB} spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast it using any spell slots you have. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat)."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Vigilant Guardian",
+                        "entries": [
+                            "When a creature you can see within 5 feet of you is hit by an attack roll, you can take a {@variantrule Reaction|XPHB} to swap places with that creature, and you are hit by the attack instead. You can use this feature a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus} and regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spells of the Mark",
+                        "entries": [
+                            "If you have the Spellcasting or Pact Magic class feature, the spells on the Mark of Sentinel Spells table are added to that feature's spell list.",
+                            {
+                                "type": "table",
+                                "caption": "Mark of Sentinel Spells",
+                                "colStyles": [
+                                    "col-2 text-center",
+                                    "col-10"
+                                ],
+                                "colLabels": [
+                                    "Spell Level",
+                                    "Spells"
+                                ],
+                                "rows": [
+                                    [
+                                        "1",
+                                        "{@spell Compelled Duel|XPHB}, {@spell Shield of Faith|XPHB}"
+                                    ],
+                                    [
+                                        "2",
+                                        "{@spell Warding Bond|XPHB}, {@spell Zone of Truth|XPHB}"
+                                    ],
+                                    [
+                                        "3",
+                                        "{@spell Counterspell|XPHB}, {@spell Protection from Energy|XPHB}"
+                                    ],
+                                    [
+                                        "4",
+                                        "{@spell Death Ward|XPHB}, {@spell Guardian of Faith|XPHB}"
+                                    ],
+                                    [
+                                        "5",
+                                        "{@spell Bigby's Hand|XPHB}"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Mark of Shadow",
+                "source": "EFA",
+                "page": 42,
+                "category": "D",
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Eberron"
+                        ],
+                        "exclusiveFeatCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "minor illusion|xphb#c"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "invisibility|xphb"
+                                    ]
+                                }
+                            }
+                        },
+                        "expanded": {
+                            "s1": [
+                                "disguise self|xphb",
+                                "silent image|xphb"
+                            ],
+                            "s2": [
+                                "darkness|xphb",
+                                "pass without trace|xphb"
+                            ],
+                            "s3": [
+                                "clairvoyance|xphb",
+                                "major image|xphb"
+                            ],
+                            "s4": [
+                                "greater invisibility|xphb",
+                                "hallucinatory terrain|xphb"
+                            ],
+                            "s5": [
+                                "mislead|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Cunning Intuition",
+                        "entries": [
+                            "When you make a Dexterity ({@skill Stealth|XPHB}) or Charisma ({@skill Performance|XPHB}) check, you can roll {@dice 1d4} and add the number rolled to the ability check."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Shape Shadows",
+                        "entries": [
+                            "You know the {@spell Minor Illusion|XPHB} cantrip. You also always have the {@spell Invisibility|XPHB} spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast it using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose when you select this feat)."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spells of the Mark",
+                        "entries": [
+                            "If you have the Spellcasting or Pact Magic class feature, the spells on the Mark of Shadow Spells table are added to that feature's spell list.",
+                            {
+                                "type": "table",
+                                "caption": "Mark of Shadow Spells",
+                                "colStyles": [
+                                    "col-2 text-center",
+                                    "col-10"
+                                ],
+                                "colLabels": [
+                                    "Spell Level",
+                                    "Spells"
+                                ],
+                                "rows": [
+                                    [
+                                        "1",
+                                        "{@spell Disguise Self|XPHB}, {@spell Silent Image|XPHB}"
+                                    ],
+                                    [
+                                        "2",
+                                        "{@spell Darkness|XPHB}, {@spell Pass without Trace|XPHB}"
+                                    ],
+                                    [
+                                        "3",
+                                        "{@spell Clairvoyance|XPHB}, {@spell Major Image|XPHB}"
+                                    ],
+                                    [
+                                        "4",
+                                        "{@spell Greater Invisibility|XPHB}, {@spell Hallucinatory Terrain|XPHB}"
+                                    ],
+                                    [
+                                        "5",
+                                        "{@spell Mislead|XPHB}"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Mark of Storm",
+                "source": "EFA",
+                "page": 42,
+                "category": "D",
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Eberron"
+                        ],
+                        "exclusiveFeatCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "thunderclap|xphb#c"
+                            ]
+                        },
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "gust of wind|xphb"
+                                    ]
+                                }
+                            }
+                        },
+                        "expanded": {
+                            "s1": [
+                                "feather fall|xphb",
+                                "fog cloud|xphb"
+                            ],
+                            "s2": [
+                                "levitate|xphb",
+                                "shatter|xphb"
+                            ],
+                            "s3": [
+                                "sleet storm|xphb",
+                                "wind wall|xphb"
+                            ],
+                            "s4": [
+                                "conjure minor elementals|xphb",
+                                "control water|xphb"
+                            ],
+                            "s5": [
+                                "conjure elemental|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Windwright's Intuition",
+                        "entries": [
+                            "When you make a Dexterity ({@skill Acrobatics|XPHB}) check or an ability check using {@item Navigator's Tools|XPHB}, you can roll {@dice 1d4} and add the number rolled to the ability check."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Storm's Boon",
+                        "entries": [
+                            "You have {@variantrule Resistance|XPHB} to Lightning damage."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Storm Magic",
+                        "entries": [
+                            "You know the {@spell Thunderclap|XPHB} cantrip. When you reach character level 3, you also always have the {@spell Gust of Wind|XPHB} spell prepared. You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast it using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose when you select this feat)."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spells of the Mark",
+                        "entries": [
+                            "If you have the Spellcasting or Pact Magic class feature, the spells on the Mark of Storm Spells table are added to that feature's spell list.",
+                            {
+                                "type": "table",
+                                "caption": "Mark of Storm Spells",
+                                "colStyles": [
+                                    "col-2 text-center",
+                                    "col-10"
+                                ],
+                                "colLabels": [
+                                    "Spell Level",
+                                    "Spells"
+                                ],
+                                "rows": [
+                                    [
+                                        "1",
+                                        "{@spell Feather Fall|XPHB}, {@spell Fog Cloud|XPHB}"
+                                    ],
+                                    [
+                                        "2",
+                                        "{@spell Levitate|XPHB}, {@spell Shatter|XPHB}"
+                                    ],
+                                    [
+                                        "3",
+                                        "{@spell Sleet Storm|XPHB}, {@spell Wind Wall|XPHB}"
+                                    ],
+                                    [
+                                        "4",
+                                        "{@spell Conjure Minor Elementals|XPHB}, {@spell Control Water|XPHB}"
+                                    ],
+                                    [
+                                        "5",
+                                        "{@spell Conjure Elemental|XPHB}"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Mark of Warding",
+                "source": "EFA",
+                "page": 42,
+                "category": "D",
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Eberron"
+                        ],
+                        "exclusiveFeatCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "prepared": {
+                            "3": {
+                                "daily": {
+                                    "1": [
+                                        "arcane lock|xphb"
+                                    ]
+                                }
+                            },
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "alarm|xphb",
+                                        "mage armor|xphb"
+                                    ]
+                                }
+                            }
+                        },
+                        "expanded": {
+                            "s1": [
+                                "armor of agathys|xphb",
+                                "sanctuary|xphb"
+                            ],
+                            "s2": [
+                                "knock|xphb",
+                                "nystul's magic aura|xphb"
+                            ],
+                            "s3": [
+                                "glyph of warding|xphb",
+                                "magic circle|xphb"
+                            ],
+                            "s4": [
+                                "leomund's secret chest|xphb",
+                                "mordenkainen's faithful hound|xphb"
+                            ],
+                            "s5": [
+                                "antilife shell|xphb"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Warder's Intuition",
+                        "entries": [
+                            "When you make an Intelligence ({@skill Investigation|XPHB}) check or an ability check using {@item Thieves' Tools|XPHB}, you can roll {@dice 1d4} and add the number rolled to the ability check."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Wards and Seals",
+                        "entries": [
+                            "You always have the {@spell Alarm|XPHB} and {@spell Mage Armor|XPHB} spells prepared. You can cast each spell once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}.",
+                            "You can also cast these spells using any spell slots you have of the appropriate level. Intelligence, Wisdom, or Charisma is your spellcasting ability for these spells (choose when you select this feat).",
+                            "When you reach character level 3, you also always have the {@spell Arcane Lock|XPHB} spell prepared and can cast it the same way."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spells of the Mark",
+                        "entries": [
+                            "If you have the Spellcasting or Pact Magic class feature, the spells on the Mark of Warding Spells table are added to that feature's spell list.",
+                            {
+                                "type": "table",
+                                "caption": "Mark of Warding Spells",
+                                "colStyles": [
+                                    "col-2 text-center",
+                                    "col-10"
+                                ],
+                                "colLabels": [
+                                    "Spell Level",
+                                    "Spells"
+                                ],
+                                "rows": [
+                                    [
+                                        "1",
+                                        "{@spell Armor of Agathys|XPHB}, {@spell Sanctuary|XPHB}"
+                                    ],
+                                    [
+                                        "2",
+                                        "{@spell Knock|XPHB}, {@spell Nystul's Magic Aura|XPHB}"
+                                    ],
+                                    [
+                                        "3",
+                                        "{@spell Glyph of Warding|XPHB}, {@spell Magic Circle|XPHB}"
+                                    ],
+                                    [
+                                        "4",
+                                        "{@spell Leomund's Secret Chest|XPHB}, {@spell Mordenkainen's Faithful Hound|XPHB}"
+                                    ],
+                                    [
+                                        "5",
+                                        "{@spell Antilife Shell|XPHB}"
+                                    ]
+                                ]
+                            }
+                        ]
+                    }
                 ]
             },
             {
                 "name": "Martial Adept",
                 "source": "PHB",
                 "page": 168,
+                "optionalfeatureProgression": [
+                    {
+                        "name": "Maneuvers",
+                        "featureType": [
+                            "MV:B"
+                        ],
+                        "progression": {
+                            "*": 2
+                        }
+                    }
+                ],
                 "entries": [
                     "You have martial training that allows you to perform special combat maneuvers. You gain the following benefits:",
                     {
@@ -3217,51 +8554,37 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Master of Disguise",
-                "source": "UAFeats",
-                "page": 4,
-                "ability": [
+                "name": "Martial Weapon Training",
+                "source": "XPHB",
+                "page": 205,
+                "category": "G",
+                "prerequisite": [
                     {
-                        "cha": 1
+                        "level": 4
                     }
                 ],
-                "toolProficiencies": [
+                "ability": [
                     {
-                        "disguise kit": true
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex"
+                            ]
+                        }
+                    }
+                ],
+                "weaponProficiencies": [
+                    {
+                        "martial": true
                     }
                 ],
                 "entries": [
-                    "You have honed your ability to shape your personality and to read the personalities of others. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency with the {@item disguise kit|phb}. If you are already proficient with it, you add double your proficiency bonus to checks you make with it.",
-                            "If you spend 1 hour observing a creature, you can then spend 8 hours crafting a disguise you can quickly don to mimic that creature. Making the disguise requires a {@item disguise kit|PHB}. You must make checks as normal to disguise yourself, but you can assume the disguise as an action."
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Medic",
-                "source": "UAFeatsForSkills",
-                "page": 2,
-                "ability": [
-                    {
-                        "wis": 1
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "medicine": true
-                    }
-                ],
-                "entries": [
-                    "You master the physician's arts, gaining the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Medicine} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "During a short rest, you can clean and bind the wounds of up to six willing beasts and humanoids. Make a DC 15 Wisdom ({@skill Medicine}) check for each creature. On a success, if a creature spends a Hit Die during this rest, that creature can forgo the roll and instead regain the maximum number of hit points the die can restore. A creature can do so only once per rest, regardless of how many Hit Dice it spends."
+                        "type": "entries",
+                        "name": "Weapon Proficiency",
+                        "entries": [
+                            "You gain proficiency with {@filter Martial weapons|items|type=martial weapon}."
                         ]
                     }
                 ]
@@ -3270,6 +8593,9 @@ export default function getFeats() {
                 "name": "Medium Armor Master",
                 "source": "PHB",
                 "page": 168,
+                "reprintedAs": [
+                    "Medium Armor Master|XPHB"
+                ],
                 "prerequisite": [
                     {
                         "proficiency": [
@@ -3291,37 +8617,18 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Menacing",
-                "source": "UAFeatsForSkills",
-                "page": 2,
-                "ability": [
-                    {
-                        "cha": 1
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "intimidation": true
-                    }
-                ],
-                "entries": [
-                    "You become fearsome to others, gaining the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Intimidation} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "When you take the {@action Attack} action on your turn, you can replace one attack with an attempt to demoralize one humanoid you can see within 30 feet of you that can see and hear you. Make a Charisma ({@skill Intimidation}) check contested by the target's Wisdom ({@skill Insight}) check. If your check succeeds, the target is {@condition frightened} until the end of your next turn. If your check fails, the target can't be {@condition frightened} by you in this way for 1 hour."
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Metabolic Control",
-                "source": "UA2020PsionicOptionsRevisited",
-                "page": 8,
+                "name": "Medium Armor Master",
+                "source": "XPHB",
+                "page": 205,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "psionics": true
+                        "level": 4,
+                        "proficiency": [
+                            {
+                                "armor": "medium"
+                            }
+                        ]
                     }
                 ],
                 "ability": [
@@ -3329,20 +8636,18 @@ export default function getFeats() {
                         "choose": {
                             "from": [
                                 "str",
-                                "dex",
-                                "con"
-                            ],
-                            "amount": 1
+                                "dex"
+                            ]
                         }
                     }
                 ],
                 "entries": [
-                    "You have refined psionic control over your body's functions.",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "If your Psionic Talent die is available, you can take an action to channel your psionic power to nourish yourself for the next 24 hours, as if you consumed sufficient food and water for a day. When you take this action, your Psionic Talent die decreases by one die size.",
-                            "If your Psionic Talent die is available, you can meditate for 1 minute, at the end of which you gain the benefits of finishing a short rest, and your Psionic Talent die decreases by one die size. You can't meditate in this way again until you finish a long rest."
+                        "type": "entries",
+                        "name": "Dexterous Wearer",
+                        "entries": [
+                            "While you're wearing Medium armor, you can add 3, rather than 2 to your AC if you have a Dexterity score of 16 or higher."
                         ]
                     }
                 ]
@@ -3354,6 +8659,17 @@ export default function getFeats() {
                 "prerequisite": [
                     {
                         "spellcasting2020": true
+                    }
+                ],
+                "optionalfeatureProgression": [
+                    {
+                        "name": "Metamagic",
+                        "featureType": [
+                            "MM"
+                        ],
+                        "progression": {
+                            "*": 2
+                        }
                     }
                 ],
                 "entries": [
@@ -3368,36 +8684,19 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Metamagic Adept",
-                "source": "UA2020Feats",
-                "page": 2,
-                "prerequisite": [
-                    {
-                        "spellcasting2020": true
-                    }
-                ],
-                "entries": [
-                    "You've learned how to exert your will on your spells to alter how they function. You gain the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You learn two {@filter Metamagic|optionalfeatures|Feature Type=MM} options of your choice from the sorcerer class. You can use only one Metamagic option on a spell when you cast it, unless the option says otherwise. Whenever you gain a level, you can replace one of your Metamagic options with another one from the sorcerer class.",
-                            "You gain 2 sorcery points to spend on Metamagic (these points are added to any sorcery points you have from another source but can be used only on Metamagic). You regain all spent sorcery points when you finish a long rest."
-                        ]
-                    }
-                ]
-            },
-            {
                 "name": "Mobile",
                 "source": "PHB",
                 "page": 168,
+                "reprintedAs": [
+                    "Speedy|XPHB"
+                ],
                 "entries": [
                     "You are exceptionally speedy and agile. You gain the following benefits:",
                     {
                         "type": "list",
                         "items": [
                             "Your speed increases by 10 feet.",
-                            "When you use the {@action Dash} action, difficult terrain doesn't cost you extra movement on that turn.",
+                            "When you use the {@action Dash} action, {@quickref difficult terrain||3} doesn't cost you extra movement on that turn.",
                             "When you make a melee attack against a creature, you don't provoke opportunity attacks from that creature for the rest of the turn, whether you hit or not."
                         ]
                     }
@@ -3407,6 +8706,9 @@ export default function getFeats() {
                 "name": "Moderately Armored",
                 "source": "PHB",
                 "page": 168,
+                "reprintedAs": [
+                    "Moderately Armored|XPHB"
+                ],
                 "prerequisite": [
                     {
                         "proficiency": [
@@ -3430,7 +8732,7 @@ export default function getFeats() {
                 "armorProficiencies": [
                     {
                         "medium": true,
-                        "shield|phb": true
+                        "shield": true
                     }
                 ],
                 "entries": [
@@ -3444,11 +8746,55 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Moderately Armored",
+                "source": "XPHB",
+                "page": 205,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "proficiency": [
+                            {
+                                "armor": "light"
+                            }
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex"
+                            ]
+                        }
+                    }
+                ],
+                "armorProficiencies": [
+                    {
+                        "medium": true
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Armor Training",
+                        "entries": [
+                            "You gain training with Medium armor."
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "Mounted Combatant",
                 "source": "PHB",
                 "page": 168,
+                "reprintedAs": [
+                    "Mounted Combatant|XPHB"
+                ],
                 "entries": [
-                    "You are a dangerous foe to face while mounted. While you are mounted and aren't {@condition incapacitated}, you gain the following benefits:",
+                    "You are a dangerous foe to face while {@book mounted|PHB|9|Mounted Combat}. While you are mounted and aren't {@condition incapacitated}, you gain the following benefits:",
                     {
                         "type": "list",
                         "items": [
@@ -3460,42 +8806,149 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Naturalist",
-                "source": "UAFeatsForSkills",
-                "page": 3,
+                "name": "Mounted Combatant",
+                "source": "XPHB",
+                "page": 205,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
                 "ability": [
                     {
-                        "int": 1
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "nature": true
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "_": {
-                                "_": [
-                                    "druidcraft"
-                                ],
-                                "daily": {
-                                    "1": [
-                                        "detect poison and disease"
-                                    ]
-                                }
-                            }
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "wis"
+                            ]
                         }
                     }
                 ],
                 "entries": [
-                    "Your extensive study of nature rewards you with the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Nature} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "You learn the {@spell druidcraft} and {@spell detect poison and disease} spells. You can cast {@spell detect poison and disease} once without expending a spell slot, and you regain the ability to do so when you finish a long rest."
+                        "type": "entries",
+                        "name": "Mounted Strike",
+                        "entries": [
+                            "While {@book mounted|XPHB|1|Mounted Combat}, you have {@variantrule Advantage|XPHB} on attack rolls against any unmounted creature within 5 feet of your mount that is at least one size smaller than the mount."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Leap Aside",
+                        "entries": [
+                            "If your mount is subjected to an effect that allows it to make a Dexterity saving throw to take only half damage, it instead takes no damage if it succeeds on the saving throw and only half damage if it fails. For your mount to gain this benefit, you must be riding it, and neither of you can have the {@condition Incapacitated|XPHB} condition."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Veer",
+                        "entries": [
+                            "While {@book mounted|XPHB|1|Mounted Combat}, you can force an attack that hits your mount to hit you instead if you don't have the {@condition Incapacitated|XPHB} condition."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Musician",
+                "source": "XPHB",
+                "page": 201,
+                "category": "O",
+                "toolProficiencies": [
+                    {
+                        "anyMusicalInstrument": 3
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Instrument Training",
+                        "entries": [
+                            "You gain proficiency with three Musical Instruments of your choice."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Encouraging Song",
+                        "entries": [
+                            "As you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}, you can play a song on a {@item Musical Instrument|XPHB} with which you have proficiency and give {@variantrule Heroic Inspiration|XPHB} to allies who hear the song. The number of allies you can affect in this way equals your {@variantrule Proficiency|XPHB|Proficiency Bonus}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Mythal Touched",
+                "source": "FRHoF",
+                "page": 40,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    {
+                        "type": "entries",
+                        "name": "Mythal Ward",
+                        "entries": [
+                            "If a spell attack hits you or you fail a saving throw against a spell, you can take a {@variantrule Reaction|XPHB} to roll on the Mythal-Touched {@action Magic|XPHB} table to create a magical effect. If an effect requires a saving throw, the DC equals 8 plus the modifier of the ability increased by this feat and your {@variantrule Proficiency|XPHB|Proficiency Bonus}.",
+                            "You can use this benefit a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}.",
+                            {
+                                "type": "table",
+                                "caption": "Mythal-Touched Magic",
+                                "colStyles": [
+                                    "col-2 text-center",
+                                    "col-10"
+                                ],
+                                "colLabels": [
+                                    "1d20",
+                                    "Effect"
+                                ],
+                                "rows": [
+                                    [
+                                        "1-2",
+                                        "You and each creature within 15 feet of you make a Dexterity saving throw, taking Force damage equal to {@dice 1d8} times the level of the triggering spell on a failed save or half as much damage on a successful one."
+                                    ],
+                                    [
+                                        "3-7",
+                                        "You and the triggering spell's caster form a telepathic link for 1 hour."
+                                    ],
+                                    [
+                                        "8-10",
+                                        "Gravity is reversed in a 15-foot-radius, 60-foot-tall {@variantrule Cylinder [Area of Effect]|XPHB|Cylinder} centered on you for 1 minute, per the {@spell Reverse Gravity|XPHB} spell."
+                                    ],
+                                    [
+                                        "11-13",
+                                        "You and the triggering spell's caster each make a Constitution saving throw. On a failed save, the creature has the {@condition Stunned|XPHB} condition until the end of its next turn."
+                                    ],
+                                    [
+                                        "14-17",
+                                        "You gain a +2 bonus to AC for 1 minute, potentially turning the triggering spell into a miss if it was a spell attack."
+                                    ],
+                                    [
+                                        "18-19",
+                                        "Any flammable, nonmagical object within 10 feet of the triggering spell's caster that isn't being worn or carried by another creature bursts into flame, takes {@damage 1d4} Fire damage, and is burning."
+                                    ],
+                                    [
+                                        "20",
+                                        "The triggering spell dissipates with no effect, and the action, {@variantrule Bonus Action|XPHB}, or {@variantrule Reaction|XPHB} used to cast it is wasted. If that spell was cast with a spell slot, the slot isn't expended."
+                                    ]
+                                ]
+                            }
                         ]
                     }
                 ]
@@ -3504,6 +8957,9 @@ export default function getFeats() {
                 "name": "Observant",
                 "source": "PHB",
                 "page": 168,
+                "reprintedAs": [
+                    "Observant|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -3527,31 +8983,24 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Orcish Aggression",
-                "source": "UAFeatsForRaces",
-                "page": 3,
+                "name": "Observant",
+                "source": "XPHB",
+                "page": 205,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
+                        "level": 4,
+                        "ability": [
                             {
-                                "name": "half-orc"
+                                "int": 13
                             }
                         ]
-                    }
-                ],
-                "entries": [
-                    "As a bonus action, you can move up to your speed toward an enemy of your choice that you can see or hear. You must end this move closer to the enemy than you started."
-                ]
-            },
-            {
-                "name": "Orcish Fury",
-                "source": "UAFeatsForRaces",
-                "page": 4,
-                "prerequisite": [
+                    },
                     {
-                        "race": [
+                        "level": 4,
+                        "ability": [
                             {
-                                "name": "half-orc"
+                                "wis": 13
                             }
                         ]
                     }
@@ -3560,20 +9009,37 @@ export default function getFeats() {
                     {
                         "choose": {
                             "from": [
-                                "str",
-                                "con"
-                            ],
-                            "amount": 1
+                                "int",
+                                "wis"
+                            ]
+                        }
+                    }
+                ],
+                "skillProficiencies": [
+                    {
+                        "choose": {
+                            "from": [
+                                "insight",
+                                "investigation",
+                                "perception"
+                            ]
                         }
                     }
                 ],
                 "entries": [
-                    "Your fury burns tirelessly. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "When you hit with an attack made with a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.",
-                            "Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack."
+                        "type": "entries",
+                        "name": "Keen Observer",
+                        "entries": [
+                            "Choose one of the following skills: {@skill Insight|XPHB}, {@skill Investigation|XPHB}, or {@skill Perception|XPHB}. If you lack proficiency with the chosen skill, you gain proficiency in it, and if you already have proficiency in it, you gain {@variantrule Expertise|XPHB} in it."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Quick Search",
+                        "entries": [
+                            "You can take the {@action Search|XPHB} action as a {@variantrule Bonus Action|XPHB}."
                         ]
                     }
                 ]
@@ -3607,58 +9073,108 @@ export default function getFeats() {
                     {
                         "type": "list",
                         "items": [
-                            "When you hit with an attack using a simple or martial weapon, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.",
+                            "When you hit with an attack using a {@filter simple or martial weapon|items|source=phb|category=basic|type=martial weapon;simple weapon}, you can roll one of the weapon's damage dice an additional time and add it as extra damage of the weapon's damage type. Once you use this ability, you can't use it again until you finish a short or long rest.",
                             "Immediately after you use your Relentless Endurance trait, you can use your reaction to make one weapon attack."
                         ]
                     }
                 ]
             },
             {
-                "name": "Perceptive",
-                "source": "UAFeatsForSkills",
-                "page": 3,
-                "ability": [
+                "name": "Order's Resilience",
+                "source": "FRHoF",
+                "page": 40,
+                "category": "G",
+                "prerequisite": [
                     {
-                        "wis": 1
+                        "level": 4,
+                        "feat": [
+                            "tyro of the gauntlet|frhof"
+                        ]
                     }
                 ],
-                "skillProficiencies": [
+                "ability": [
                     {
-                        "perception": true
+                        "choose": {
+                            "from": [
+                                "str",
+                                "wis",
+                                "cha"
+                            ]
+                        }
                     }
                 ],
                 "entries": [
-                    "You hone your senses until they become razor sharp. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Perception} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "Being in a lightly obscured area doesn't impose disadvantage on your Wisdom ({@skill Perception}) checks if you can both see and hear."
+                        "type": "entries",
+                        "name": "Resurge",
+                        "entries": [
+                            "When you have the {@condition Prone|XPHB} condition, you can right yourself with only 5 feet of movement."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Stronger Together",
+                        "entries": [
+                            "If you are within 5 feet of an ally that doesn't have the {@condition Incapacitated|XPHB} condition, you and that ally have {@variantrule Advantage|XPHB} on Strength saving throws. You can't use this benefit while you have the {@condition Incapacitated|XPHB} condition."
                         ]
                     }
                 ]
             },
             {
-                "name": "Performer",
-                "source": "UAFeatsForSkills",
-                "page": 3,
-                "ability": [
+                "name": "Outlands Envoy",
+                "source": "SatO",
+                "page": 10,
+                "prerequisite": [
                     {
-                        "cha": 1
+                        "level": 4,
+                        "feat": [
+                            "scion of the outer planes|sato|scion of the outer planes (the outlands)"
+                        ]
                     }
                 ],
-                "skillProficiencies": [
+                "ability": [
                     {
-                        "performance": true
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ],
+                            "amount": 1
+                        }
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1e": [
+                                        "misty step",
+                                        "tongues"
+                                    ]
+                                }
+                            }
+                        }
                     }
                 ],
                 "entries": [
-                    "You master performance so that you can command any stage. You gain the following benefits:",
+                    "You have spent significant time in Sigil or the Outlands, the crossroads of the multiverse. Being steeped in converging planar energies grants you these benefits:",
                     {
                         "type": "list",
+                        "style": "list-hang-notitle",
                         "items": [
-                            "You gain proficiency in the {@skill Performance} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "While performing, you can try to distract one humanoid you can see who can see and hear you. Make a Charisma ({@skill Performance}) check contested by the humanoid's Wisdom ({@skill Insight}) check. If your check succeeds, you grab the humanoid's attention enough that it makes Wisdom ({@skill Perception}) and Intelligence ({@skill Investigation}) checks with disadvantage until you stop performing."
+                            {
+                                "type": "item",
+                                "name": "Crossroads Emissary",
+                                "entries": [
+                                    "You learn the {@spell misty step} and {@spell tongues} spells. You can cast each spell once using this feat without a spell slot, and you must finish a long rest before you can cast that spell in this way again. When you cast {@spell tongues} using this feat, you require no material components. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the one chosen when you gained the Scion of the Outer Planes feat."
+                                ]
+                            }
                         ]
                     }
                 ]
@@ -3667,6 +9183,9 @@ export default function getFeats() {
                 "name": "Piercer",
                 "source": "TCE",
                 "page": 80,
+                "reprintedAs": [
+                    "Piercer|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -3691,34 +9210,96 @@ export default function getFeats() {
             },
             {
                 "name": "Piercer",
-                "source": "UA2020Feats",
-                "page": 2,
+                "source": "XPHB",
+                "page": 206,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
                 "ability": [
                     {
                         "choose": {
                             "from": [
                                 "str",
                                 "dex"
-                            ],
-                            "amount": 1
+                            ]
                         }
                     }
                 ],
                 "entries": [
-                    "You have achieved a penetrating precision in combat, granting you the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "Once per turn, when you hit a creature with an attack that deals piercing damage, you can reroll one of the attack's damage dice, and you must use the new roll.",
-                            "When you score a critical hit that deals piercing damage to a creature, you can roll one additional damage die when determining the extra piercing damage the target takes."
+                        "type": "entries",
+                        "name": "Puncture",
+                        "entries": [
+                            "Once per turn, when you hit a creature with an attack that deals Piercing damage, you can reroll one of the attack's damage dice, and you must use the new roll."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Enhanced Critical",
+                        "entries": [
+                            "When you score a {@variantrule Critical Hit|XPHB} that deals Piercing damage to a creature, you can roll one additional damage die when determining the extra Piercing damage the target takes."
                         ]
                     }
                 ]
+            },
+            {
+                "name": "Planar Wanderer",
+                "source": "SatO",
+                "page": 11,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "scion of the outer planes|sato"
+                        ]
+                    }
+                ],
+                "traitTags": [
+                    "Damage Resistance"
+                ],
+                "entries": [
+                    "You can draw on the forces of the multiverse to survive cosmic extremes and to traverse its infinite realms, granting you these benefits:",
+                    {
+                        "type": "list",
+                        "style": "list-hang-notitle",
+                        "items": [
+                            {
+                                "type": "item",
+                                "name": "Planar Adaptation",
+                                "entries": [
+                                    "When you finish a long rest, you gain resistance to either acid, cold, or fire damage (your choice) until you finish your next long rest."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Portal Cracker",
+                                "entries": [
+                                    "Your experience with portals allows you to open them without a portal key. As an action, you can concentrate on a portal you're aware of that is within 5 feet of yourself and make a {@dc 20} Intelligence ({@skill Arcana}) check. On a failed check, you take {@damage 3d8} psychic damage and can't use this benefit on that portal again until you finish a long rest. On a successful check, you can force the portal open or closed for 1 hour. For that duration, the portal doesn't respond to its portal key unless a creature employing the key succeeds on a {@dc 20} Intelligence ({@skill Arcana}) check as an action."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Portal Sense",
+                                "entries": [
+                                    "You know the direction to the last planar portal you used while you and the portal are on the same plane of existence. Moreover, as an action, you can detect the location of any portals within 30 feet of you that aren't behind {@quickref Cover||3||total cover}. Once you detect a portal with this action, you can't use the action again until you finish a long rest."
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
             },
             {
                 "name": "Poisoner",
                 "source": "TCE",
                 "page": 80,
+                "reprintedAs": [
+                    "Poisoner|XPHB"
+                ],
                 "toolProficiencies": [
                     {
                         "poisoner's kit": true
@@ -3731,118 +9312,92 @@ export default function getFeats() {
                         "items": [
                             "When you make a damage roll that deals poison damage, it ignores resistance to poison damage.",
                             "You can apply poison to a weapon or piece of ammunition as a bonus action, instead of an action.",
-                            "You gain proficiency with the {@item poisoner's kit|phb} if you don't already have it. With one hour of work using a {@item poisoner's kit|phb} and expending 50 gp worth of materials, you can create a number of doses of potent poison equal to your proficiency bonus. Once applied to a weapon or piece of ammunition, the poison retains its potency for 1 minute or until you hit with the weapon or ammunition. When a creature takes damage from the coated weapon or ammunition, that creature must succeed on a DC 14 Constitution saving throw or take {@damage 2d8} poison damage and become {@condition poisoned} until the end of your next turn."
+                            "You gain proficiency with the {@item poisoner's kit|phb} if you don't already have it. With one hour of work using a {@item poisoner's kit|phb} and expending 50 gp worth of materials, you can create a number of doses of potent poison equal to your proficiency bonus. Once applied to a weapon or piece of ammunition, the poison retains its potency for 1 minute or until you hit with the weapon or ammunition. When a creature takes damage from the coated weapon or ammunition, that creature must succeed on a {@dc 14} Constitution saving throw or take {@damage 2d8} poison damage and become {@condition poisoned} until the end of your next turn."
                         ]
                     }
                 ]
             },
             {
                 "name": "Poisoner",
-                "source": "UA2020Feats",
-                "page": 2,
+                "source": "XPHB",
+                "page": 206,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "dex",
+                                "int"
+                            ]
+                        }
+                    }
+                ],
                 "toolProficiencies": [
                     {
                         "poisoner's kit": true
                     }
                 ],
                 "entries": [
-                    "You can prepare and deliver deadly poisons, gaining the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "When you make a damage roll, you ignore resistance to poison damage.",
-                            "You can coat a weapon in poison as a bonus action, instead of an action.",
-                            "You gain proficiency with the {@item poisoner's kit|phb} if you don't already have it. With one hour of work using a {@item poisoner's kit|PHB} and expending 50 gp worth of materials, you can create a number of doses of potent poison equal to your proficiency bonus. Once applied, the poison retains potency for 1 minute, or until you hit with the weapon. When a weapon coated in this poison deals damage to a creature, that creature must succeed on a DC 14 Constitution saving throw or take {@damage 2d8} poison damage and become {@condition poisoned} until the end of your next turn."
+                        "type": "entries",
+                        "name": "Potent Poison",
+                        "entries": [
+                            "When you make a damage roll that deals Poison damage, it ignores {@variantrule Resistance|XPHB} to Poison damage."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Brew Poison",
+                        "entries": [
+                            "You gain proficiency with the {@item Poisoner's Kit|XPHB}. With 1 hour of work using such a kit and expending 50 GP worth of materials, you can create a number of poison doses equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}. As a {@variantrule Bonus Action|XPHB}, you can apply a poison dose to a weapon or piece of ammunition. Once applied, the poison retains its potency for 1 minute or until you deal damage with the poisoned item, whichever is shorter. When a creature takes damage from the poisoned item, that creature must succeed on a Constitution saving throw ({@dc 8} plus the modifier of the ability increased by this feat and your {@variantrule Proficiency|XPHB|Proficiency Bonus}) or take {@damage 2d8} Poison damage and have the {@condition Poisoned|XPHB} condition until the end of your next turn."
                         ]
                     }
-                ]
+                ],
+                "hasFluffImages": true
             },
             {
                 "name": "Polearm Master",
                 "source": "PHB",
                 "page": 168,
+                "reprintedAs": [
+                    "Polearm Master|XPHB"
+                ],
                 "entries": [
                     "You can keep your enemies at bay with reach weapons. You gain the following benefits:",
                     {
                         "type": "list",
                         "items": [
                             "When you take the {@action Attack} action and attack with only a {@item glaive|phb}, {@item halberd|phb}, {@item quarterstaff|phb}, or {@item spear|phb}, you can use a bonus action to make a melee attack with the opposite end of the weapon; this attack uses the same ability modifier as the primary attack. The weapon's damage die for this attack is a {@dice d4}, and the attack deals bludgeoning damage.",
-                            "While you are wielding a {@item glaive|phb}, {@item halberd|phb}, {@item pike|phb}, {@item quarterstaff|phb}, or {@item spear|phb}, other creatures provoke an opportunity attack from you when they enter your reach."
+                            "While you are wielding a {@item glaive|phb}, {@item halberd|phb}, {@item pike|phb}, {@item quarterstaff|phb}, or {@item spear|phb}, other creatures provoke an opportunity attack from you when they enter the reach you have with that weapon."
                         ]
                     }
                 ]
             },
             {
-                "name": "Practiced Expert",
-                "source": "UA2020Feats",
-                "page": 3,
-                "ability": [
-                    {
-                        "choose": {
-                            "from": [
-                                "str",
-                                "dex",
-                                "con",
-                                "int",
-                                "wis",
-                                "cha"
-                            ],
-                            "amount": 1
-                        }
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "choose": {
-                            "from": [
-                                "athletics",
-                                "acrobatics",
-                                "sleight of hand",
-                                "stealth",
-                                "arcana",
-                                "history",
-                                "investigation",
-                                "nature",
-                                "religion",
-                                "animal handling",
-                                "insight",
-                                "medicine",
-                                "perception",
-                                "survival",
-                                "deception",
-                                "intimidation",
-                                "performance",
-                                "persuasion",
-                                {
-                                    "tool": true
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "entries": [
-                    "You have honed your proficiency with particular skills or tools, gaining the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency with one {@table skills|phb|skill} or {@filter tool|items|type=tool;artisan's tools} of your choice.",
-                            "Choose one of your skill or tool proficiencies. Your proficiency bonus is doubled for any ability check you make that uses the chosen proficiency."
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Prodigy",
-                "source": "UAFeatsForRaces",
-                "page": 4,
+                "name": "Polearm Master",
+                "source": "XPHB",
+                "page": 206,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
+                        "level": 4,
+                        "ability": [
                             {
-                                "name": "half-elf"
-                            },
+                                "str": 13
+                            }
+                        ]
+                    },
+                    {
+                        "level": 4,
+                        "ability": [
                             {
-                                "name": "human"
+                                "dex": 13
                             }
                         ]
                     }
@@ -3851,6 +9406,47 @@ export default function getFeats() {
                     {
                         "choose": {
                             "from": [
+                                "dex",
+                                "str"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Pole Strike",
+                        "entries": [
+                            "Immediately after you take the {@action Attack|XPHB} action and attack with a {@item Quarterstaff|XPHB}, a {@item Spear|XPHB}, or a {@filter weapon that has the Heavy and Reach properties|items|type=melee weapon;ranged weapon|property=heavy;reach=sand}, you can use a {@variantrule Bonus Action|XPHB} to make a melee attack with the opposite end of the weapon. The weapon deals Bludgeoning damage, and the weapon's damage die for this attack is a {@dice d4}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Reactive Strike",
+                        "entries": [
+                            "While you're holding a {@item Quarterstaff|XPHB}, a {@item Spear|XPHB}, or a {@filter weapon that has the Heavy and Reach properties|items|type=melee weapon;ranged weapon|property=heavy;reach=sand}, you can take a {@variantrule Reaction|XPHB} to make one melee attack against a creature that enters the reach you have with that weapon."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Potent Dragonmark",
+                "source": "EFA",
+                "page": 45,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "featCategory": [
+                            "D"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
                                 "str",
                                 "dex",
                                 "con",
@@ -3858,50 +9454,25 @@ export default function getFeats() {
                                 "wis",
                                 "cha"
                             ],
-                            "amount": 1
+                            "amount": 1,
+                            "entry": "Increase the spellcasting ability score used by your Dragonmark feat by 1, to a maximum of 20."
                         }
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "choose": {
-                            "from": [
-                                "athletics",
-                                "acrobatics",
-                                "sleight of hand",
-                                "stealth",
-                                "arcana",
-                                "history",
-                                "investigation",
-                                "nature",
-                                "religion",
-                                "animal handling",
-                                "insight",
-                                "medicine",
-                                "perception",
-                                "survival",
-                                "deception",
-                                "intimidation",
-                                "performance",
-                                "persuasion",
-                                {
-                                    "tool": true
-                                }
-                            ]
-                        }
-                    }
-                ],
-                "languageProficiencies": [
-                    {
-                        "any": 1
                     }
                 ],
                 "entries": [
-                    "You have a knack for learning new things. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain one {@table skills|phb|skill proficiency} of your choice, one {@filter tool proficiency|items|type=tool;artisan's tools} of your choice, and fluency in one language of your choice."
+                        "type": "entries",
+                        "name": "Dragonmark Preparation",
+                        "entries": [
+                            "You always have the spells on your Spells of the Mark list (if any) prepared."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Dragonmark Spellcasting",
+                        "entries": [
+                            "You have one extra spell slot to cast the spells granted by your Dragonmark feat. The spell slot's level is half your level (round up), to a maximum of level 5. You regain the expended slot when you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}. You can use this spell slot to cast only a spell you have prepared because of your Dragonmark feat or the Dragonmark Preparation benefit of this feat."
                         ]
                     }
                 ]
@@ -3961,6 +9532,11 @@ export default function getFeats() {
                         "any": 1
                     }
                 ],
+                "expertise": [
+                    {
+                        "anyProficientSkill": 1
+                    }
+                ],
                 "entries": [
                     "You have a knack for learning new things. You gain the following benefits:",
                     {
@@ -3973,26 +9549,134 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Quick-Fingered",
-                "source": "UAFeatsForSkills",
-                "page": 3,
-                "ability": [
+                "name": "Protection",
+                "source": "XPHB",
+                "page": 209,
+                "category": "FS",
+                "prerequisite": [
                     {
-                        "dex": 1
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "sleight of hand": true
+                        "feature": [
+                            "Fighting Style"
+                        ]
                     }
                 ],
                 "entries": [
-                    "Your nimble fingers and agility let you perform sleight of hand. You gain the following benefits:",
+                    "When a creature you can see attacks a target other than you that is within 5 feet of you, you can take a {@variantrule Reaction|XPHB} to interpose your {@item Shield|XPHB} if you're holding one. You impose {@variantrule Disadvantage|XPHB} on the triggering attack roll and all other attack rolls against the target until the start of your next turn if you remain within 5 feet of the target."
+                ]
+            },
+            {
+                "name": "Purple Dragon Commandant",
+                "source": "FRHoF",
+                "page": 40,
+                "category": "G",
+                "prerequisite": [
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Sleight of Hand} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "As a bonus action, you can make a Dexterity ({@skill Sleight of Hand}) check to plant something on someone else, conceal an object on a creature, lift a purse, or take something from a pocket."
+                        "level": 4,
+                        "feat": [
+                            "purple dragon rook|frhof"
+                        ]
+                    },
+                    {
+                        "proficiency": [
+                            {
+                                "weaponGroup": "martial"
+                            }
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    {
+                        "type": "entries",
+                        "name": "Encourage Ally",
+                        "entries": [
+                            "As a {@variantrule Bonus Action|XPHB}, you bolster one ally you can see within 30 feet. The ally gains {@variantrule Temporary Hit Points|XPHB} equal to {@dice 2d6} plus the modifier of the ability score increased by this feat. You can take this {@variantrule Bonus Action|XPHB} a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all uses when you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Last Stand",
+                        "entries": [
+                            "You have {@variantrule Advantage|XPHB} on attack rolls while {@status Bloodied|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Purple Dragon Rook",
+                "source": "FRHoF",
+                "page": 38,
+                "category": "O",
+                "skillProficiencies": [
+                    {
+                        "choose": {
+                            "from": [
+                                "insight",
+                                "performance",
+                                "persuasion"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Entreat",
+                        "entries": [
+                            "You gain proficiency in one of the following skills: {@skill Insight|XPHB}, {@skill Performance|XPHB}, or {@skill Persuasion|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Rallying Cry",
+                        "entries": [
+                            "When you roll {@variantrule Initiative|XPHB} and don't have the {@condition Incapacitated|XPHB} condition, you can choose a number of creatures equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus} that you can see within 30 feet of yourself. Those creatures gain {@variantrule Heroic Inspiration|XPHB}.",
+                            "Once you use this benefit, you can't do so again until you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Putrefy",
+                "source": "ABH",
+                "page": 10,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Necrosis",
+                        "entries": [
+                            "When you make a damage roll that deals Necrotic damage, you can cause one creature taking that damage to have the {@condition Poisoned|XPHB} condition until the start of your next turn. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
                         ]
                     }
                 ]
@@ -4012,7 +9696,24 @@ export default function getFeats() {
                 ],
                 "toolProficiencies": [
                     {
-                        "artisan's tools": true
+                        "anyArtisansTool": 1
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "ability": "int",
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|components & miscellaneous=ritual",
+                                            "count": 2
+                                        }
+                                    ]
+                                }
+                            }
+                        }
                     }
                 ],
                 "entries": [
@@ -4045,9 +9746,47 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Rebuke",
+                "source": "ABH",
+                "page": 10,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Radiant Strike",
+                        "entries": [
+                            "When you make a damage roll that deals Radiant damage, you can cause one Huge or smaller creature taking the damage to have the {@condition Prone|XPHB} condition. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "Resilient",
                 "source": "PHB",
                 "page": 168,
+                "reprintedAs": [
+                    "Resilient|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -4064,6 +9803,20 @@ export default function getFeats() {
                         }
                     }
                 ],
+                "savingThrowProficiencies": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
                 "entries": [
                     "Choose one ability score. You gain the following benefits:",
                     {
@@ -4075,15 +9828,60 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Resilient",
+                "source": "XPHB",
+                "page": 206,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ],
+                            "amount": 1,
+                            "entry": "Choose one ability in which you lack saving throw proficiency. Increase the chosen ability score by 1, to a maximum of 20."
+                        }
+                    }
+                ],
+                "savingThrowProficiencies": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Saving Throw Proficiency",
+                        "entries": [
+                            "You gain saving throw proficiency with the chosen ability."
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "Revenant Blade",
                 "source": "ERLW",
                 "page": 22,
-                "otherSources": [
-                    {
-                        "source": "UAWGE",
-                        "page": 74
-                    }
-                ],
                 "prerequisite": [
                     {
                         "race": [
@@ -4110,7 +9908,51 @@ export default function getFeats() {
                         "type": "list",
                         "items": [
                             "While you are holding a double-bladed scimitar with two hands, you gain a +1 bonus to Armor Class.",
-                            "A double-bladed scimitar has the finesse property when you wield it."
+                            "A double-bladed scimitar has the {@itemProperty F|PHB|finesse} property when you wield it."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Righteous Heritor",
+                "source": "SatO",
+                "page": 11,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "scion of the outer planes|sato|scion of the outer planes (good outer plane)"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ],
+                            "amount": 1
+                        }
+                    }
+                ],
+                "entries": [
+                    "You can channel cosmic forces of good to gain these benefits:",
+                    {
+                        "type": "list",
+                        "style": "list-hang-notitle",
+                        "items": [
+                            {
+                                "type": "item",
+                                "name": "Soothe Pain",
+                                "entries": [
+                                    "When you or a creature within 30 feet of you takes damage, you can use your reaction to reduce that damage by {@dice 1d10} + your proficiency bonus. You can use this benefit a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
                         ]
                     }
                 ]
@@ -4119,6 +9961,9 @@ export default function getFeats() {
                 "name": "Ritual Caster",
                 "source": "PHB",
                 "page": 169,
+                "reprintedAs": [
+                    "Ritual Caster|XPHB"
+                ],
                 "prerequisite": [
                     {
                         "ability": [
@@ -4232,26 +10077,37 @@ export default function getFeats() {
                 "entries": [
                     "You have learned a number of spells that you can cast as rituals. These spells are written in a ritual book, which you must have in hand while casting one of them.",
                     "When you choose this feat, you acquire a ritual book holding two 1st-level spells of your choice. Choose one of the following classes: {@filter bard|spells|level=1|class=bard|components & miscellaneous=ritual}, {@filter cleric|spells|level=1|class=cleric|components & miscellaneous=ritual}, {@filter druid|spells|level=1|class=druid|components & miscellaneous=ritual}, {@filter sorcerer|spells|level=1|class=sorcerer|components & miscellaneous=ritual}, {@filter warlock|spells|level=1|class=warlock|components & miscellaneous=ritual}, or {@filter wizard|spells|level=1|class=wizard|components & miscellaneous=ritual}. You must choose your spells from that class's spell list, and the spells you choose must have the ritual tag. The class you choose also determines your spellcasting ability for these spells: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard.",
-                    "If you come across a spell in written form, such as a magical spell scroll or a wizard's spellbook, you might be able to add it to your ritual book. The spell must be on the spell list for the class you chose, the spell's level can be no higher than half your level (rounded up), and it must have the ritual tag. The process of copying the spell into your ritual book takes 2 hours per level of the spell, and costs 50 gp per level. The cost represents material components you expend as you experiment with the spell to master it, as well as the fine inks you need to record it."
-                ]
+                    "If you come across a spell in written form, such as a magical {@item spell scroll} or a wizard's spellbook, you might be able to add it to your ritual book. The spell must be on the spell list for the class you chose, the spell's level can be no higher than half your level (rounded up), and it must have the ritual tag. The process of copying the spell into your ritual book takes 2 hours per level of the spell, and costs 50 gp per level. The cost represents material components you expend as you experiment with the spell to master it, as well as the fine inks you need to record it."
+                ],
+                "hasFluffImages": true
             },
             {
-                "name": "Savage Attacker",
-                "source": "PHB",
-                "page": 169,
-                "entries": [
-                    "Once per turn when you roll damage for a melee weapon attack, you can reroll the weapon's damage dice and use either total."
-                ]
-            },
-            {
-                "name": "Second Chance",
-                "source": "UAFeatsForRaces",
-                "page": 4,
+                "name": "Ritual Caster",
+                "source": "XPHB",
+                "page": 206,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
+                        "level": 4,
+                        "ability": [
                             {
-                                "name": "halfling"
+                                "int": 13
+                            }
+                        ]
+                    },
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "wis": 13
+                            }
+                        ]
+                    },
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "cha": 13
                             }
                         ]
                     }
@@ -4260,20 +10116,365 @@ export default function getFeats() {
                     {
                         "choose": {
                             "from": [
-                                "dex",
-                                "con",
+                                "int",
+                                "wis",
                                 "cha"
+                            ]
+                        }
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "prepared": {
+                            "1": [
+                                {
+                                    "choose": "level=1|components & miscellaneous=ritual",
+                                    "count": 2
+                                }
                             ],
-                            "amount": 1
+                            "5": [
+                                {
+                                    "choose": "level=1|components & miscellaneous=ritual",
+                                    "count": 1
+                                }
+                            ],
+                            "9": [
+                                {
+                                    "choose": "level=1|components & miscellaneous=ritual",
+                                    "count": 1
+                                }
+                            ],
+                            "13": [
+                                {
+                                    "choose": "level=1|components & miscellaneous=ritual",
+                                    "count": 1
+                                }
+                            ],
+                            "17": [
+                                {
+                                    "choose": "level=1|components & miscellaneous=ritual",
+                                    "count": 1
+                                }
+                            ]
                         }
                     }
                 ],
                 "entries": [
-                    "You have a knack for learning new things. You gain the following benefits:",
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Ritual Spells",
+                        "entries": [
+                            "Choose a number of level 1 spells equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus} that have the {@filter Ritual tag|spells|level=1|components & miscellaneous=ritual}. You always have those spells prepared, and you can cast them with any spell slots you have. The spells' spellcasting ability is the ability increased by this feat. Whenever your {@variantrule Proficiency|XPHB|Proficiency Bonus} increases thereafter, you can add an additional level 1 spell with the {@variantrule Ritual|XPHB} tag to the spells always prepared with this feature."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Quick Ritual",
+                        "entries": [
+                            "With this benefit, you can cast a {@variantrule Ritual|XPHB} spell that you have prepared using its regular casting time rather than the extended time for a {@variantrule Ritual|XPHB}. Doing so doesn't require a spell slot. Once you cast the spell in this way, you can't use this benefit again until you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Rune Shaper",
+                "source": "BGG",
+                "page": 18,
+                "prerequisite": [
+                    {
+                        "spellcastingFeature": true
+                    },
+                    {
+                        "background": [
+                            {
+                                "name": "Rune Carver",
+                                "displayEntry": "{@background Rune Carver|BGG}"
+                            }
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1e": [
+                                        "comprehend languages",
+                                        "fog cloud",
+                                        "inflict wounds",
+                                        "chromatic orb",
+                                        "disguise self",
+                                        "burning hands",
+                                        "speak with animals",
+                                        "armor of agathys",
+                                        "goodberry",
+                                        "longstrider",
+                                        "command",
+                                        "entangle",
+                                        "sanctuary",
+                                        "thunderwave"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                ],
+                "entries": [
+                    "You've studied the magic of Giant runes, granting you the following benefits:",
                     {
                         "type": "list",
+                        "style": "list-hang-notitle",
                         "items": [
-                            "When a creature you can see hits you with an attack roll, you can use your reaction to force that creature to reroll. Once you use this ability, you can't do so again until you finish a short or long rest."
+                            {
+                                "type": "item",
+                                "name": "Comprehend Languages",
+                                "entries": [
+                                    "You learn the {@spell comprehend languages} spell. You can cast this spell without expending a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast this spell using any spell slots you have."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Rune Magic",
+                                "entries": [
+                                    "You know a number of runes equal to half your proficiency bonus (rounded down), chosen from the Rune Spells table. Whenever you finish a long rest, you can inscribe each rune you know onto one nonmagical weapon, armor, piece of clothing, or other object you touch. You temporarily learn the 1st-level spells that correspond to the runes you inscribed, as specified on the Rune Spells table, and you know those spells until you finish a long rest, when the runes fade. While you are wearing or carrying any rune-marked object, you can cast the spells associated with those runes using any spell slots you have.",
+                                    "You can also invoke a rune inscribed on an object you are wearing or carrying and cast its associated spell without expending a spell slot or using material components. Once you cast the spell in this way, you can't do so again until you finish a long rest. Your spellcasting ability for this feat is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+                                    "Each time you gain a level, you can replace one of the runes you know with another one from the Rune Spells table.",
+                                    {
+                                        "type": "table",
+                                        "colStyles": [
+                                            "col-2",
+                                            "col-10"
+                                        ],
+                                        "colLabels": [
+                                            "Rune",
+                                            "Spell"
+                                        ],
+                                        "rows": [
+                                            [
+                                                "Cloud",
+                                                "{@spell Fog cloud}"
+                                            ],
+                                            [
+                                                "Death",
+                                                "{@spell Inflict wounds}"
+                                            ],
+                                            [
+                                                "Dragon",
+                                                "{@spell Chromatic orb}"
+                                            ],
+                                            [
+                                                "Enemy",
+                                                "{@spell Disguise self}"
+                                            ],
+                                            [
+                                                "Fire",
+                                                "{@spell Burning hands}"
+                                            ],
+                                            [
+                                                "Friend",
+                                                "{@spell Speak with animals}"
+                                            ],
+                                            [
+                                                "Frost",
+                                                "{@spell Armor of Agathys}"
+                                            ],
+                                            [
+                                                "Hill",
+                                                "{@spell Goodberry}"
+                                            ],
+                                            [
+                                                "Journey",
+                                                "{@spell Longstrider}"
+                                            ],
+                                            [
+                                                "King",
+                                                "{@spell Command}"
+                                            ],
+                                            [
+                                                "Mountain",
+                                                "{@spell Entangle}"
+                                            ],
+                                            [
+                                                "Stone",
+                                                "{@spell Sanctuary}"
+                                            ],
+                                            [
+                                                "Storm",
+                                                "{@spell Thunderwave}"
+                                            ]
+                                        ]
+                                    }
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Savage Attacker",
+                "source": "PHB",
+                "page": 169,
+                "reprintedAs": [
+                    "Savage Attacker|XPHB"
+                ],
+                "entries": [
+                    "Once per turn when you roll damage for a melee weapon attack, you can reroll the weapon's damage dice and use either total."
+                ]
+            },
+            {
+                "name": "Savage Attacker",
+                "source": "XPHB",
+                "page": 201,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "O",
+                "entries": [
+                    "You've trained to deal particularly damaging strikes. Once per turn when you hit a target with a weapon, you can roll the weapon's damage dice twice and use either roll against the target."
+                ]
+            },
+            {
+                "name": "Scion of the Outer Planes",
+                "source": "SatO",
+                "page": 12,
+                "prerequisite": [
+                    {
+                        "campaign": [
+                            "Planescape"
+                        ]
+                    }
+                ],
+                "resist": [
+                    {
+                        "choose": {
+                            "from": [
+                                "poison",
+                                "necrotic",
+                                "radiant",
+                                "force",
+                                "psychic"
+                            ]
+                        }
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "name": "Chaotic Outer Plane",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "minor illusion#c"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Evil Outer Plane",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "chill touch#c"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Good Outer Plane",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "sacred flame#c"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Lawful Outer Plane",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "guidance#c"
+                            ]
+                        }
+                    },
+                    {
+                        "name": "The Outlands",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "mage hand#c"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "Your connection to an Outer Plane infuses you with the energy there. Choose a type of plane listed in the Planar Infusion table. Your choice gives you resistance to a damage type and the ability to cast a cantrip, as specified in the table. You can cast this cantrip without material components, and your spellcasting ability for it is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+                    {
+                        "type": "table",
+                        "colStyles": [
+                            "col-4",
+                            "col-4",
+                            "col-4"
+                        ],
+                        "colLabels": [
+                            "Plane",
+                            "Damage Resistance",
+                            "Cantrip"
+                        ],
+                        "rows": [
+                            [
+                                "Chaotic Outer Plane",
+                                "Poison",
+                                "{@spell Minor illusion}"
+                            ],
+                            [
+                                "Evil Outer Plane",
+                                "Necrotic",
+                                "{@spell Chill touch}"
+                            ],
+                            [
+                                "Good Outer Plane",
+                                "Radiant",
+                                "{@spell Sacred flame}"
+                            ],
+                            [
+                                "Lawful Outer Plane",
+                                "Force",
+                                "{@spell Guidance}"
+                            ],
+                            [
+                                "The Outlands",
+                                "Psychic",
+                                "{@spell Mage hand}"
+                            ]
                         ]
                     }
                 ]
@@ -4317,6 +10518,9 @@ export default function getFeats() {
                 "name": "Sentinel",
                 "source": "PHB",
                 "page": 169,
+                "reprintedAs": [
+                    "Sentinel|XPHB"
+                ],
                 "entries": [
                     "You have mastered techniques to take advantage of every drop in any enemy's guard, gaining the following benefits:",
                     {
@@ -4325,6 +10529,57 @@ export default function getFeats() {
                             "When you hit a creature with an opportunity attack, the creature's speed becomes 0 for the rest of the turn.",
                             "Creatures provoke opportunity attacks from you even if they take the {@action Disengage} action before leaving your reach.",
                             "When a creature within 5 feet of you makes an attack against a target other than you (and that target doesn't have this feat), you can use your reaction to make a melee weapon attack against the attacking creature."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Sentinel",
+                "source": "XPHB",
+                "page": 207,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "str": 13
+                            }
+                        ]
+                    },
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "dex": 13
+                            }
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Guardian",
+                        "entries": [
+                            "Immediately after a creature within 5 feet of you takes the {@action Disengage|XPHB} action or hits a target other than you with an attack, you can make an {@action Opportunity Attack|XPHB} against that creature."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Halt",
+                        "entries": [
+                            "When you hit a creature with an {@action Opportunity Attack|XPHB}, the creature's {@variantrule Speed|XPHB} becomes 0 for the rest of the current turn."
                         ]
                     }
                 ]
@@ -4354,15 +10609,19 @@ export default function getFeats() {
                     }
                 ],
                 "entries": [
-                    "You are skilled in the creation of servos\u2014tiny constructs that function as personal assistants. You can cast the {@spell find familiar} spell as a ritual, creating a servo to serve as your familiar instead of an animal. A servo's statistics appear in the \"Artifact Creatures\" section of this document. In every other way, a servo familiar functions as described in the {@spell find familiar} spell.",
+                    "You are skilled in the creation of {@creature servo|psk|servos}\u2014tiny constructs that function as personal assistants. You can cast the {@spell find familiar} spell as a ritual, creating a {@creature servo|psk} to serve as your familiar instead of an animal. A {@creature servo|psk}'s statistics appear in the \"Artifact Creatures\" section of this document. In every other way, a servo familiar functions as described in the {@spell find familiar} spell.",
                     "You can communicate telepathically with your servo familiar and perceive through its senses as long as you are on the same plane of existence. You can speak through your servo in your own voice.",
                     "Additionally, when you take the {@action Attack} action, you can forgo one of your own attacks to allow your servo familiar to make one attack of its own."
-                ]
+                ],
+                "hasFluffImages": true
             },
             {
                 "name": "Shadow Touched",
                 "source": "TCE",
                 "page": 80,
+                "reprintedAs": [
+                    "Shadow-Touched|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -4397,15 +10656,21 @@ export default function getFeats() {
                     {
                         "type": "list",
                         "items": [
-                            "You learn the {@spell invisibility} spell and one 1st-level spell of your choice. The {@filter 1st-level spell|spells|level=1|school=I;N} must be from the illusion or necromancy school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat."
+                            "You learn the {@spell invisibility} spell and one {@filter 1st-level spell|spells|level=1|school=I;N} of your choice. The {@filter 1st-level spell|spells|level=1|school=I;N} must be from the illusion or necromancy school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat."
                         ]
                     }
                 ]
             },
             {
-                "name": "Shadow Touched",
-                "source": "UA2020Feats",
-                "page": 3,
+                "name": "Shadow-Touched",
+                "source": "XPHB",
+                "page": 207,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -4413,8 +10678,7 @@ export default function getFeats() {
                                 "int",
                                 "wis",
                                 "cha"
-                            ],
-                            "amount": 1
+                            ]
                         }
                     }
                 ],
@@ -4425,7 +10689,7 @@ export default function getFeats() {
                             "_": {
                                 "daily": {
                                     "1e": [
-                                        "invisibility",
+                                        "invisibility|xphb",
                                         {
                                             "choose": "level=1|school=I;N"
                                         }
@@ -4436,11 +10700,54 @@ export default function getFeats() {
                     }
                 ],
                 "entries": [
-                    "You learn how to bend shadows from your experience with the Shadowfell. You gain the following benefits:",
+                    "Your exposure to the Shadowfell's magic grants you the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You learn the {@spell darkness} spell and one {@filter 1st-level spell|spells|level=1|school=I;N} of your choice. The 1st-level spell must be from the illusion or necromancy school of magic. You can cast each of these spells without expending a spell slot. Once you cast either of these spells in this way, you can't cast that spell in this way again until you finish a long rest. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat."
+                        "type": "entries",
+                        "name": "Shadow Magic",
+                        "entries": [
+                            "Choose one {@filter level 1 spell from the Illusion or Necromancy|spells|level=1|school=I;N} school of magic. You always have that spell and the {@spell Invisibility|XPHB} spell prepared. You can cast each of these spells without expending a spell slot. Once you cast either spell in this way, you can't cast that spell in this way again until you finish a {@variantrule Long Rest|XPHB}. You can also cast these spells using spell slots you have of the appropriate level. The spells' spellcasting ability is the ability increased by this feat."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Shadowmoor Hexer",
+                "source": "LFL",
+                "category": "O",
+                "additionalSpells": [
+                    {
+                        "prepared": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        "hex|xphb"
+                                    ]
+                                }
+                            }
+                        },
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Hex",
+                        "entries": [
+                            "You always have the {@spell Hex|XPHB} spell prepared. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). You can cast it once without a spell slot, and you regain the ability to cast it in that way when you finish a {@variantrule Long Rest|XPHB}. You can also cast the spell using any spell slots you have."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Curse Magic",
+                        "entries": [
+                            "When a creature that you've cursed with {@spell Hex|XPHB} hits you with an attack roll, the creature takes Psychic damage equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}. A creature takes this damage only once per turn."
                         ]
                     }
                 ]
@@ -4449,14 +10756,62 @@ export default function getFeats() {
                 "name": "Sharpshooter",
                 "source": "PHB",
                 "page": 170,
+                "reprintedAs": [
+                    "Sharpshooter|XPHB"
+                ],
                 "entries": [
                     "You have mastered ranged weapons and can make shots that others find impossible. You gain the following benefits:",
                     {
                         "type": "list",
                         "items": [
                             "Attacking at long range doesn't impose disadvantage on your ranged weapon attack rolls.",
-                            "Your ranged weapon attacks ignore half cover and three-quarters cover.",
+                            "Your ranged weapon attacks ignore {@quickref Cover||3||half cover} and {@quickref Cover||3||three-quarters cover}.",
                             "Before you make an attack with a ranged weapon that you are proficient with, you can choose to take a -5 penalty to the attack roll. If the attack hits, you add +10 to the attack's damage."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Sharpshooter",
+                "source": "XPHB",
+                "page": 207,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "dex": 13
+                            }
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "dex": 1
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Bypass Cover",
+                        "entries": [
+                            "Your ranged attacks with weapons ignore {@variantrule Cover|XPHB|Half Cover} and {@variantrule Cover|XPHB|Three-Quarters Cover}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Firing in Melee",
+                        "entries": [
+                            "Being within 5 feet of an enemy doesn't impose {@variantrule Disadvantage|XPHB} on your attack rolls with Ranged weapons."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Long Shots",
+                        "entries": [
+                            "Attacking at long range doesn't impose {@variantrule Disadvantage|XPHB} on your attack rolls with Ranged weapons."
                         ]
                     }
                 ]
@@ -4465,6 +10820,9 @@ export default function getFeats() {
                 "name": "Shield Master",
                 "source": "PHB",
                 "page": 170,
+                "reprintedAs": [
+                    "Shield Master|XPHB"
+                ],
                 "entries": [
                     "You use shields not just for protection but also for offense. You gain the following benefits while you are wielding a {@item shield|phb}:",
                     {
@@ -4478,59 +10836,39 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Shield Training",
-                "source": "UA2020Feats",
-                "page": 3,
-                "ability": [
+                "name": "Shield Master",
+                "source": "XPHB",
+                "page": 207,
+                "category": "G",
+                "prerequisite": [
                     {
-                        "choose": {
-                            "from": [
-                                "str",
-                                "dex",
-                                "con"
-                            ],
-                            "amount": 1
-                        }
-                    }
-                ],
-                "armorProficiencies": [
-                    {
-                        "shield|phb": true
-                    }
-                ],
-                "entries": [
-                    "You've trained in the effective use of shields. You gain the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency with {@item shield|phb|shields}.",
-                            "In combat, you can don or doff a shield as the free object interaction on your turn.",
-                            "If you have the Spellcasting or Pact Magic feature, you can use a shield as a spellcasting focus."
+                        "level": 4,
+                        "proficiency": [
+                            {
+                                "armor": "shield"
+                            }
                         ]
                     }
-                ]
-            },
-            {
-                "name": "Silver-Tongued",
-                "source": "UAFeatsForSkills",
-                "page": 3,
+                ],
                 "ability": [
                     {
-                        "cha": 1
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "deception": true
+                        "str": 1
                     }
                 ],
                 "entries": [
-                    "You develop your conversational skill to better deceive others. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Deception} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "When you take the {@action Attack} action on your turn, you can replace one attack with an attempt to deceive one humanoid you can see within 30 feet of you that can see and hear you. Make a Charisma ({@skill Deception}) check contested by the target's Wisdom ({@skill Insight}) check. If your check succeeds, your movement doesn't provoke opportunity attacks from the target and your attack rolls against it have advantage; both benefits last until the end of your next turn or until you use this ability on a different target. If your check fails, the target can't be deceived by you in this way for 1 hour."
+                        "type": "entries",
+                        "name": "Shield Bash",
+                        "entries": [
+                            "If you attack a creature within 5 feet of you as part of the {@action Attack|XPHB} action and hit with a Melee weapon, you can immediately bash the target with your {@item Shield|XPHB} if it's equipped, forcing the target to make a Strength saving throw ({@dc 8} plus your Strength modifier and {@variantrule Proficiency|XPHB|Proficiency Bonus}). On a failed save, you either push the target 5 feet from you or cause it to have the {@condition Prone|XPHB} condition (your choice). You can use this benefit only once on each of your turns."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Interpose Shield",
+                        "entries": [
+                            "If you're subjected to an effect that allows you to make a Dexterity saving throw to take only half damage, you can take a {@variantrule Reaction|XPHB} to take no damage if you succeed on the saving throw and are holding a {@item Shield|XPHB}."
                         ]
                     }
                 ]
@@ -4539,6 +10877,9 @@ export default function getFeats() {
                 "name": "Skill Expert",
                 "source": "TCE",
                 "page": 80,
+                "reprintedAs": [
+                    "Skill Expert|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -4580,6 +10921,11 @@ export default function getFeats() {
                         }
                     }
                 ],
+                "expertise": [
+                    {
+                        "anyProficientSkill": 1
+                    }
+                ],
                 "entries": [
                     "You have honed your proficiency with particular skills, granting you the following benefits:",
                     {
@@ -4592,47 +10938,121 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Skilled",
-                "source": "PHB",
-                "page": 170,
-                "skillProficiencies": [
+                "name": "Skill Expert",
+                "source": "XPHB",
+                "page": 207,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
                     {
                         "choose": {
                             "from": [
-                                "athletics",
-                                "acrobatics",
-                                "sleight of hand",
-                                "stealth",
-                                "arcana",
-                                "history",
-                                "investigation",
-                                "nature",
-                                "religion",
-                                "animal handling",
-                                "insight",
-                                "medicine",
-                                "perception",
-                                "survival",
-                                "deception",
-                                "intimidation",
-                                "performance",
-                                "persuasion",
-                                {
-                                    "tool": true
-                                }
-                            ],
-                            "count": 3
+                                "str",
+                                "dex",
+                                "con",
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
                         }
                     }
                 ],
+                "skillProficiencies": [
+                    {
+                        "any": 1
+                    }
+                ],
+                "expertise": [
+                    {
+                        "anyProficientSkill": 1
+                    }
+                ],
                 "entries": [
-                    "You gain proficiency in any combination of three {@table skills|phb} or {@filter tools|items|type=tools;artisan's tools;instrument;gaming set;vehicle (land);vehicle (water)} of your choice."
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Skill Proficiency",
+                        "entries": [
+                            "You gain proficiency in one skill of your choice."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Expertise",
+                        "entries": [
+                            "Choose one skill in which you have proficiency but lack {@variantrule Expertise|XPHB}. You gain {@variantrule Expertise|XPHB} with that skill."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Skilled",
+                "source": "PHB",
+                "page": 170,
+                "reprintedAs": [
+                    "Skilled|XPHB"
+                ],
+                "skillToolLanguageProficiencies": [
+                    {
+                        "choose": [
+                            {
+                                "from": [
+                                    "anySkill",
+                                    "anyTool"
+                                ],
+                                "count": 3
+                            }
+                        ]
+                    }
+                ],
+                "entries": [
+                    "You gain proficiency in any combination of three {@table skills|phb} or {@filter tools|items|type=tool;artisan's tools;instrument;gaming set;vehicle (land);vehicle (water)} of your choice."
+                ]
+            },
+            {
+                "name": "Skilled",
+                "source": "XPHB",
+                "page": 201,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "O",
+                "repeatable": true,
+                "repeatableHidden": true,
+                "skillToolLanguageProficiencies": [
+                    {
+                        "choose": [
+                            {
+                                "from": [
+                                    "anySkill",
+                                    "anyTool"
+                                ],
+                                "count": 3
+                            }
+                        ]
+                    }
+                ],
+                "entries": [
+                    "You gain proficiency in any combination of three {@table Skill List; Skills|XPHB|skills} or {@filter tools|items|type=tool;artisan's tools;instrument;gaming set} of your choice.",
+                    {
+                        "type": "entries",
+                        "name": "Repeatable",
+                        "entries": [
+                            "You can take this feat more than once."
+                        ]
+                    }
                 ]
             },
             {
                 "name": "Skulker",
                 "source": "PHB",
                 "page": 170,
+                "reprintedAs": [
+                    "Skulker|XPHB"
+                ],
                 "prerequisite": [
                     {
                         "ability": [
@@ -4655,9 +11075,62 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Skulker",
+                "source": "XPHB",
+                "page": 208,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "dex": 13
+                            }
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "dex": 1
+                    }
+                ],
+                "senses": [
+                    {
+                        "blindsight": 10
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Blindsight",
+                        "entries": [
+                            "You have {@sense Blindsight|XPHB} with a range of 10 feet."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Fog of War",
+                        "entries": [
+                            "You exploit the distractions of battle, gaining {@variantrule Advantage|XPHB} on any Dexterity ({@skill Stealth|XPHB}) check you make as part of the {@action Hide|XPHB} action during combat."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Sniper",
+                        "entries": [
+                            "If you make an attack roll while hidden and the roll misses, making the attack roll doesn't reveal your location."
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "Slasher",
                 "source": "TCE",
                 "page": 81,
+                "reprintedAs": [
+                    "Slasher|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -4682,43 +11155,137 @@ export default function getFeats() {
             },
             {
                 "name": "Slasher",
-                "source": "UA2020Feats",
-                "page": 3,
+                "source": "XPHB",
+                "page": 208,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
                 "ability": [
                     {
                         "choose": {
                             "from": [
                                 "str",
                                 "dex"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Hamstring",
+                        "entries": [
+                            "Once per turn when you hit a creature with an attack that deals Slashing damage, you can reduce the {@variantrule Speed|XPHB} of that creature by 10 feet until the start of your next turn."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Enhanced Critical",
+                        "entries": [
+                            "When you score a {@variantrule Critical Hit|XPHB} that deals Slashing damage to a creature, it has {@variantrule Disadvantage|XPHB} on attack rolls until the start of your next turn."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Soul of the Storm Giant",
+                "source": "BGG",
+                "page": 19,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "strike of the giants|BGG|strike of the giants (storm strike)"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "wis",
+                                "cha"
                             ],
                             "amount": 1
                         }
                     }
                 ],
                 "entries": [
-                    "You've learned where to cut to have the greatest results, granting you the following benefits:",
+                    "You've manifested the tempest magic emblematic of storm giants, granting you the following benefits:",
                     {
                         "type": "list",
+                        "style": "list-hang-notitle",
                         "items": [
-                            "Once per turn when you hit a creature with an attack that deals slashing damage, you can reduce the speed of the target by 10 feet until the start of your next turn.",
-                            "When you score a critical hit that deals slashing damage to a creature, you grievously wound it. Until the start of your next turn, the target has disadvantage on all attack rolls."
+                            {
+                                "type": "item",
+                                "name": "Maelstrom Aura",
+                                "entries": [
+                                    "As a bonus action, you surround yourself with an aura of magical wind and lightning that extends 10 feet from you in every direction but not through {@quickref Cover||3||total cover}. The aura lasts until the start of your next turn or until you are incapacitated. While the aura is active, you have resistance to lightning and thunder damage. In addition, attack rolls against you have disadvantage, and whenever another creature starts its turn within the aura, you can force the creature to make a Strength saving throw (DC equals 8 + your proficiency bonus + the modifier of the ability increased by this feat). On a failed save, the creature's speed is halved until the start of its next turn. You can use this bonus action a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                                ]
+                            }
                         ]
                     }
                 ]
             },
             {
-                "name": "Spear Mastery",
-                "source": "UAFeats",
-                "page": 3,
-                "entries": [
-                    "Though the {@item spear|phb} is a simple weapon to learn, it rewards you for the time you have taken to master it. You gain the following benefits:",
+                "name": "Speedy",
+                "source": "XPHB",
+                "page": 208,
+                "category": "G",
+                "prerequisite": [
                     {
-                        "type": "list",
-                        "items": [
-                            "You gain a +1 bonus to attack rolls you make with a spear.",
-                            "When you use a spear, its damage die changes from a {@dice d6} to a {@dice d8}, and from a {@dice d8} to a {@dice d10} when wielded with two hands. (This benefit has no effect if another feature has already improved the weapon's die.)",
-                            "You can set your spear to receive a charge. As a bonus action, choose a creature you can see that is at least 20 feet away from you. If that creature moves within your spear's reach on its next turn, you can make a melee attack against it with your spear as a reaction. If the attack hits, the target takes an extra {@damage 1d8} piercing damage, or an extra {@damage 1d10} piercing damage if you wield the spear with two hands. You can't use this ability if the creature used the {@action Disengage} action before moving.",
-                            "As a bonus action on your turn, you can increase your reach with a spear by 5 feet for the rest of your turn."
+                        "level": 4,
+                        "ability": [
+                            {
+                                "dex": 13
+                            }
+                        ]
+                    },
+                    {
+                        "level": 4,
+                        "ability": [
+                            {
+                                "con": 13
+                            }
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "dex",
+                                "con"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Speed Increase",
+                        "entries": [
+                            "Your {@variantrule Speed|XPHB} increases by 10 feet."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Dash over Difficult Terrain",
+                        "entries": [
+                            "When you take the {@action Dash|XPHB} action on your turn, {@variantrule Difficult Terrain|XPHB} doesn't cost you extra movement for the rest of that turn."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Agile Movement",
+                        "entries": [
+                            "{@action Opportunity Attack|XPHB|Opportunity Attacks} have {@variantrule Disadvantage|XPHB} against you."
                         ]
                     }
                 ]
@@ -4727,6 +11294,9 @@ export default function getFeats() {
                 "name": "Spell Sniper",
                 "source": "PHB",
                 "page": 170,
+                "reprintedAs": [
+                    "Spell Sniper|XPHB"
+                ],
                 "prerequisite": [
                     {
                         "spellcasting": true
@@ -4736,11 +11306,11 @@ export default function getFeats() {
                     {
                         "name": "Bard Spells",
                         "ability": "cha",
-                        "innate": {
-                            "1": [
+                        "known": {
+                            "_": [
                                 {
                                     "choose": "level=0|class=Bard|spell attack=m;r;o",
-                                    "count": 2
+                                    "count": 1
                                 }
                             ]
                         }
@@ -4748,11 +11318,11 @@ export default function getFeats() {
                     {
                         "name": "Cleric Spells",
                         "ability": "wis",
-                        "innate": {
-                            "1": [
+                        "known": {
+                            "_": [
                                 {
                                     "choose": "level=0|class=Cleric|spell attack=m;r;o",
-                                    "count": 2
+                                    "count": 1
                                 }
                             ]
                         }
@@ -4760,11 +11330,11 @@ export default function getFeats() {
                     {
                         "name": "Druid Spells",
                         "ability": "wis",
-                        "innate": {
-                            "1": [
+                        "known": {
+                            "_": [
                                 {
                                     "choose": "level=0|class=Druid|spell attack=m;r;o",
-                                    "count": 2
+                                    "count": 1
                                 }
                             ]
                         }
@@ -4772,11 +11342,11 @@ export default function getFeats() {
                     {
                         "name": "Sorcerer Spells",
                         "ability": "cha",
-                        "innate": {
-                            "1": [
+                        "known": {
+                            "_": [
                                 {
                                     "choose": "level=0|class=Sorcerer|spell attack=m;r;o",
-                                    "count": 2
+                                    "count": 1
                                 }
                             ]
                         }
@@ -4784,11 +11354,11 @@ export default function getFeats() {
                     {
                         "name": "Warlock Spells",
                         "ability": "cha",
-                        "innate": {
-                            "1": [
+                        "known": {
+                            "_": [
                                 {
                                     "choose": "level=0|class=Warlock|spell attack=m;r;o",
-                                    "count": 2
+                                    "count": 1
                                 }
                             ]
                         }
@@ -4796,11 +11366,11 @@ export default function getFeats() {
                     {
                         "name": "Wizard Spells",
                         "ability": "int",
-                        "innate": {
-                            "1": [
+                        "known": {
+                            "_": [
                                 {
                                     "choose": "level=0|class=Wizard|spell attack=m;r;o",
-                                    "count": 2
+                                    "count": 1
                                 }
                             ]
                         }
@@ -4812,28 +11382,75 @@ export default function getFeats() {
                         "type": "list",
                         "items": [
                             "When you cast a spell that requires you to make an attack roll, the spell's range is doubled.",
-                            "Your ranged spell attacks ignore half cover and three-quarters cover.",
+                            "Your ranged spell attacks ignore {@quickref Cover||3||half cover} and {@quickref Cover||3||three-quarters cover}.",
                             "You learn one cantrip that requires an attack roll. Choose the cantrip from the {@filter bard|spells|level=0|class=bard|spell attack=m;r;o}, {@filter cleric|spells|level=0|class=cleric|spell attack=m;r;o}, {@filter druid|spells|level=0|class=druid|spell attack=m;r;o}, {@filter sorcerer|spells|level=0|class=sorcerer|spell attack=m;r;o}, {@filter warlock|spells|level=0|class=warlock|spell attack=m;r;o}, or {@filter wizard|spells|level=0|class=wizard|spell attack=m;r;o} spell list. Your spellcasting ability for this cantrip depends on the spell list you chose from: Charisma for bard, sorcerer, or warlock; Wisdom for cleric or druid; or Intelligence for wizard."
                         ]
                     }
                 ]
             },
             {
-                "name": "Squat Nimbleness",
-                "source": "UAFeatsForRaces",
-                "page": 4,
+                "name": "Spell Sniper",
+                "source": "XPHB",
+                "page": 208,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
-                            {
-                                "name": "dwarf"
-                            },
-                            {
-                                "name": "gnome"
-                            },
-                            {
-                                "name": "halfling"
-                            }
+                        "level": 4,
+                        "spellcasting2020": true
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Bypass Cover",
+                        "entries": [
+                            "Your attack rolls for spells ignore {@variantrule Cover|XPHB|Half Cover} and {@variantrule Cover|XPHB|Three-Quarters Cover}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Casting in Melee",
+                        "entries": [
+                            "Being within 5 feet of an enemy doesn't impose {@variantrule Disadvantage|XPHB} on your attack rolls with spells."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Increased Range",
+                        "entries": [
+                            "When you cast a spell that has a range of at least 10 feet and requires you to make an attack roll, you can increase the spell's range by 60 feet."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Spellfire Adept",
+                "source": "FRHoF",
+                "page": 41,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "spellfire spark|frhof"
+                        ]
+                    },
+                    {
+                        "feature": [
+                            "Spellcasting",
+                            "Pact Magic"
                         ]
                     }
                 ],
@@ -4841,30 +11458,66 @@ export default function getFeats() {
                     {
                         "choose": {
                             "from": [
-                                "str",
-                                "dex"
-                            ],
-                            "amount": 1
-                        }
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "choose": {
-                            "from": [
-                                "athletics",
-                                "acrobatics"
+                                "int",
+                                "wis",
+                                "cha"
                             ]
                         }
                     }
                 ],
                 "entries": [
-                    "You are uncommonly nimble for your race. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "Increase your walking speed by 5 feet.",
-                            "You gain proficiency in the {@skill Acrobatics} or {@skill Athletics} skill. If you're already proficient in the skill, your proficiency bonus is doubled for any check you make with it."
+                        "type": "entries",
+                        "name": "Fueled Spellfire",
+                        "entries": [
+                            "Once per turn, when a spell you cast deals Radiant damage, you can expend up to two {@variantrule Hit Point Dice|XPHB}, roll them, and add the total rolled to one damage roll of the spell."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Searing Spellfire",
+                        "entries": [
+                            "When you make a damage roll that deals Radiant damage, it ignores {@variantrule Resistance|XPHB} to Radiant damage."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Spellfire Spark",
+                "source": "FRHoF",
+                "page": 38,
+                "category": "O",
+                "additionalSpells": [
+                    {
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "sacred flame|xphb#c"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Magic Absorption",
+                        "entries": [
+                            "Once per turn, when you take damage from a spell or magical effect, you reduce the total damage taken by {@dice 1d4}. You can't use this benefit if you have the {@condition Incapacitated|XPHB} condition."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Spellfire Flame",
+                        "entries": [
+                            "You learn the {@spell Sacred Flame|XPHB} cantrip. Intelligence, Wisdom, or Charisma is your spellcasting ability for this spell (choose when you select this feat). You can also cast this cantrip as a {@variantrule Bonus Action|XPHB} a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Long Rest|XPHB}."
                         ]
                     }
                 ]
@@ -4920,51 +11573,760 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Stealthy",
-                "source": "UAFeatsForSkills",
-                "page": 4,
-                "ability": [
+                "name": "Squire of Solamnia",
+                "source": "DSotDQ",
+                "page": 34,
+                "prerequisite": [
                     {
-                        "dex": 1
-                    }
-                ],
-                "skillProficiencies": [
+                        "campaign": [
+                            "Dragonlance"
+                        ],
+                        "level": {
+                            "level": 1,
+                            "class": {
+                                "name": "Fighter",
+                                "visible": true
+                            }
+                        }
+                    },
                     {
-                        "stealth": true
+                        "campaign": [
+                            "Dragonlance"
+                        ],
+                        "level": {
+                            "level": 1,
+                            "class": {
+                                "name": "Paladin",
+                                "visible": true
+                            }
+                        }
+                    },
+                    {
+                        "campaign": [
+                            "Dragonlance"
+                        ],
+                        "background": [
+                            {
+                                "name": "Knight of Solamnia",
+                                "displayEntry": "{@background Knight of Solamnia|DSotDQ}"
+                            }
+                        ]
                     }
                 ],
                 "entries": [
-                    "You know how best to hide. You gain the following benefits:",
+                    "Your training in the ways of the Knights of Solamnia grants you these benefits:",
                     {
                         "type": "list",
+                        "style": "list-hang-notitle",
                         "items": [
-                            "You gain proficiency in the {@skill Stealth} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "If you are hidden, you can move up to 10 feet in the open without revealing yourself if you end the move in a position where you're not clearly visible."
+                            {
+                                "type": "item",
+                                "name": "Mount Up",
+                                "entries": [
+                                    "Mounting or dismounting costs you only 5 feet of movement."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Precise Strike",
+                                "entries": [
+                                    "Once per turn, when you make a weapon attack roll against a creature, you can cause the attack roll to have advantage. If the attack hits, you roll a {@dice d8} and add the number rolled as a bonus to the attack's damage roll. You can use this benefit a number of times equal to your proficiency bonus, but a use is expended only if the attack hits. You regain all expended uses when you finish a long rest."
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "type": "inset",
+                        "name": "Membership in Knightly Orders",
+                        "entries": [
+                            "Knights of Solamnia are only ever members of one of their organization's orders. In the course of their training, most knights begin as members of the Knights of the Crown and then move on to join other orders. Whether a character follows this path or another, they retain what they learned as a member of an order even if they join another. Characters can change what knightly order they're a part of, but they always have access to any Knight of Solamnia feats they've acquired."
                         ]
                     }
                 ]
             },
             {
-                "name": "Survivalist",
-                "source": "UAFeatsForSkills",
-                "page": 4,
+                "name": "Street Justice",
+                "source": "FRHoF",
+                "page": 41,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
                 "ability": [
                     {
-                        "wis": 1
+                        "choose": {
+                            "from": [
+                                "str",
+                                "dex"
+                            ]
+                        }
                     }
                 ],
-                "skillProficiencies": [
+                "entries": [
+                    "You gain the following benefits.",
                     {
-                        "survival": true
+                        "type": "entries",
+                        "name": "Headlock",
+                        "entries": [
+                            "Your allies have {@variantrule Advantage|XPHB} on attack rolls against a creature {@condition Grappled|XPHB} by you."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Sturdy Knot",
+                        "entries": [
+                            "When you use {@item Chain|XPHB}, {@item Manacles|XPHB}, or {@item Rope|XPHB} to bind a creature, add your {@variantrule Proficiency|XPHB|Proficiency Bonus} to the DC to escape or burst the {@item Chain|XPHB}, {@item Manacles|XPHB}, or {@item Rope|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Tough Talk",
+                        "entries": [
+                            "A creature's {@variantrule Hostile [Attitude]|XPHB|Hostile} attitude doesn't impose {@variantrule Disadvantage|XPHB} on your Charisma ({@skill Intimidation|XPHB}) checks to influence that creature."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Strike of the Giants",
+                "source": "BGG",
+                "page": 19,
+                "prerequisite": [
+                    {
+                        "proficiency": [
+                            {
+                                "weaponGroup": "martial"
+                            }
+                        ]
+                    },
+                    {
+                        "background": [
+                            {
+                                "name": "Giant Foundling",
+                                "displayEntry": "{@background Giant Foundling|BGG}"
+                            }
+                        ]
                     }
                 ],
+                "entries": [
+                    "You have absorbed primeval magic that gives you an echo of the might of giants. When you take this feat, choose one of the benefits listed below. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect depending on the benefit you chose:",
+                    {
+                        "type": "entries",
+                        "name": "Cloud Strike",
+                        "entries": [
+                            "The target takes an extra {@damage 1d4} thunder damage. If the target is a creature, it must succeed on a Wisdom saving throw, or you become invisible to it until the start of your next turn or until immediately after you make an attack roll or cast a spell."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Fire Strike",
+                        "entries": [
+                            "The target takes an extra {@damage 1d10} fire damage."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Frost Strike",
+                        "entries": [
+                            "The target takes an extra {@damage 1d6} cold damage. If the target is a creature, it must succeed on a Constitution saving throw, or its speed is reduced to 0 until the start of your next turn."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Hill Strike",
+                        "entries": [
+                            "The target takes an extra {@damage 1d6} damage of the weapon's type. If the target is a creature, it must succeed on a Strength saving throw or have the prone condition."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Stone Strike",
+                        "entries": [
+                            "The target takes an extra {@damage 1d6} force damage. If the target is a creature, it must succeed on a Strength saving throw or be pushed 10 feet from you in a straight line."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Storm Strike",
+                        "entries": [
+                            "The target takes an extra {@damage 1d6} lightning damage. If the target is a creature, it must succeed on a Constitution saving throw, or it has disadvantage on attack rolls until the start of your next turn.",
+                            "The saving throw DC for these effects equals 8 + your proficiency bonus + your Strength or Constitution modifier.",
+                            "You can use this feat a number of times equal to your proficiency bonus, and you regain all expended uses when you finish a long rest."
+                        ]
+                    }
+                ],
+                "_versions": [
+                    {
+                        "name": "Strike of the Giants; Cloud",
+                        "source": "BGG",
+                        "_mod": {
+                            "entries": [
+                                {
+                                    "mode": "replaceArr",
+                                    "replace": {
+                                        "index": 0
+                                    },
+                                    "items": [
+                                        "You have absorbed primeval magic that gives you an echo of the might of giants. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect:"
+                                    ]
+                                },
+                                {
+                                    "mode": "removeArr",
+                                    "names": [
+                                        "Fire Strike",
+                                        "Frost Strike",
+                                        "Hill Strike",
+                                        "Stone Strike",
+                                        "Storm Strike"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Strike of the Giants; Fire",
+                        "source": "BGG",
+                        "_mod": {
+                            "entries": [
+                                {
+                                    "mode": "replaceArr",
+                                    "replace": {
+                                        "index": 0
+                                    },
+                                    "items": [
+                                        "You have absorbed primeval magic that gives you an echo of the might of giants. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect:"
+                                    ]
+                                },
+                                {
+                                    "mode": "removeArr",
+                                    "names": [
+                                        "Cloud Strike",
+                                        "Frost Strike",
+                                        "Hill Strike",
+                                        "Stone Strike",
+                                        "Storm Strike"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Strike of the Giants; Frost",
+                        "source": "BGG",
+                        "_mod": {
+                            "entries": [
+                                {
+                                    "mode": "replaceArr",
+                                    "replace": {
+                                        "index": 0
+                                    },
+                                    "items": [
+                                        "You have absorbed primeval magic that gives you an echo of the might of giants. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect:"
+                                    ]
+                                },
+                                {
+                                    "mode": "removeArr",
+                                    "names": [
+                                        "Cloud Strike",
+                                        "Fire Strike",
+                                        "Hill Strike",
+                                        "Stone Strike",
+                                        "Storm Strike"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Strike of the Giants; Hill",
+                        "source": "BGG",
+                        "_mod": {
+                            "entries": [
+                                {
+                                    "mode": "replaceArr",
+                                    "replace": {
+                                        "index": 0
+                                    },
+                                    "items": [
+                                        "You have absorbed primeval magic that gives you an echo of the might of giants. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect:"
+                                    ]
+                                },
+                                {
+                                    "mode": "removeArr",
+                                    "names": [
+                                        "Cloud Strike",
+                                        "Fire Strike",
+                                        "Frost Strike",
+                                        "Stone Strike",
+                                        "Storm Strike"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Strike of the Giants; Stone",
+                        "source": "BGG",
+                        "_mod": {
+                            "entries": [
+                                {
+                                    "mode": "replaceArr",
+                                    "replace": {
+                                        "index": 0
+                                    },
+                                    "items": [
+                                        "You have absorbed primeval magic that gives you an echo of the might of giants. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect:"
+                                    ]
+                                },
+                                {
+                                    "mode": "removeArr",
+                                    "names": [
+                                        "Cloud Strike",
+                                        "Fire Strike",
+                                        "Frost Strike",
+                                        "Hill Strike",
+                                        "Storm Strike"
+                                    ]
+                                }
+                            ]
+                        }
+                    },
+                    {
+                        "name": "Strike of the Giants; Storm",
+                        "source": "BGG",
+                        "_mod": {
+                            "entries": [
+                                {
+                                    "mode": "replaceArr",
+                                    "replace": {
+                                        "index": 0
+                                    },
+                                    "items": [
+                                        "You have absorbed primeval magic that gives you an echo of the might of giants. Once per turn, when you hit a target with a melee weapon attack or a ranged weapon attack using a thrown weapon, you can imbue the attack with an additional effect:"
+                                    ]
+                                },
+                                {
+                                    "mode": "removeArr",
+                                    "names": [
+                                        "Cloud Strike",
+                                        "Fire Strike",
+                                        "Frost Strike",
+                                        "Hill Strike",
+                                        "Stone Strike"
+                                    ]
+                                }
+                            ]
+                        }
+                    }
+                ]
+            },
+            {
+                "name": "Strixhaven Initiate",
+                "source": "SCC",
+                "page": 36,
                 "additionalSpells": [
                     {
+                        "name": "Lorehold 1",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "light#c",
+                                "sacred flame#c"
+                            ]
+                        },
                         "innate": {
                             "_": {
                                 "daily": {
                                     "1": [
-                                        "alarm"
+                                        {
+                                            "choose": "level=1|class=cleric;wizard"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Lorehold 2",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "light#c",
+                                "thaumaturgy#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=cleric;wizard"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Lorehold 3",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "sacred flame#c",
+                                "thaumaturgy#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=cleric;wizard"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Prismari 1",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "fire bolt#c",
+                                "prestidigitation#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=bard;sorcerer"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Prismari 2",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "fire bolt#c",
+                                "ray of frost#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=bard;sorcerer"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Prismari 3",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "prestidigitation#c",
+                                "ray of frost#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=bard;sorcerer"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Quandrix 1",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "druidcraft#c",
+                                "guidance#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=druid;wizard"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Quandrix 2",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "druidcraft#c",
+                                "mage hand#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=druid;wizard"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Quandrix 3",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "guidance#c",
+                                "mage hand#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=druid;wizard"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Silverquill 1",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "sacred flame#c",
+                                "thaumaturgy#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=bard;cleric"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Silverquill 2",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "sacred flame#c",
+                                "vicious mockery#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=bard;cleric"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Silverquill 3",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "thaumaturgy#c",
+                                "vicious mockery#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=bard;cleric"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Witherbloom 1",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "chill touch#c",
+                                "druidcraft#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=druid;wizard"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Witherbloom 2",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "chill touch#c",
+                                "spare the dying#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=druid;wizard"
+                                        }
+                                    ]
+                                }
+                            }
+                        }
+                    },
+                    {
+                        "name": "Witherbloom 3",
+                        "ability": {
+                            "choose": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        },
+                        "known": {
+                            "_": [
+                                "druidcraft#c",
+                                "spare the dying#c"
+                            ]
+                        },
+                        "innate": {
+                            "_": {
+                                "daily": {
+                                    "1": [
+                                        {
+                                            "choose": "level=1|class=druid;wizard"
+                                        }
                                     ]
                                 }
                             }
@@ -4972,12 +12334,84 @@ export default function getFeats() {
                     }
                 ],
                 "entries": [
-                    "You master wilderness lore, gaining the following benefits:",
+                    "You have studied some magical theory and have learned a few spells associated with Strixhaven University.",
+                    "Choose one of Strixhaven's colleges: Lorehold, Prismari, Quandrix, Silverquill, or Witherbloom. You learn two cantrips and one 1st-level spell based on the college you choose, as specified in the Strixhaven Spells table.",
+                    "You can cast the chosen 1st-level spell without a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have.",
+                    "Your spellcasting ability for this feat's spells is Intelligence, Wisdom, or Charisma (choose when you select this feat).",
+                    {
+                        "type": "table",
+                        "caption": "Strixhaven Spells",
+                        "colLabels": [
+                            "College",
+                            "Cantrips",
+                            "1st-Level Spell"
+                        ],
+                        "colStyles": [
+                            "col-2",
+                            "col-5",
+                            "col-5"
+                        ],
+                        "rows": [
+                            [
+                                "Lorehold",
+                                "Choose two from {@spell light}, {@spell sacred flame}, and {@spell thaumaturgy}.",
+                                "Choose one 1st-level {@filter cleric or wizard spell|spells|level=1|class=cleric;wizard}."
+                            ],
+                            [
+                                "Prismari",
+                                "Choose two from {@spell fire bolt}, {@spell prestidigitation}, and {@spell ray of frost}.",
+                                "Choose one 1st-level {@filter bard or sorcerer spell|spells|level=1|class=bard;sorcerer}."
+                            ],
+                            [
+                                "Quandrix",
+                                "Choose two from {@spell druidcraft}, {@spell guidance}, and {@spell mage hand}.",
+                                "Choose one 1st-level {@filter druid or wizard spell|spells|level=1|class=druid;wizard}."
+                            ],
+                            [
+                                "Silverquill",
+                                "Choose two from {@spell sacred flame}, {@spell thaumaturgy}, and {@spell vicious mockery}.",
+                                "Choose one 1st-level {@filter bard or cleric spell|spells|level=1|class=bard;cleric}."
+                            ],
+                            [
+                                "Witherbloom",
+                                "Choose two from {@spell chill touch}, {@spell druidcraft}, and {@spell spare the dying}.",
+                                "Choose one 1st-level {@filter druid or wizard spell|spells|level=1|class=druid;wizard}."
+                            ]
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Strixhaven Mascot",
+                "source": "SCC",
+                "page": 37,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "strixhaven initiate|scc"
+                        ]
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "innate": {
+                            "_": {
+                                "ritual": [
+                                    "find familiar"
+                                ]
+                            }
+                        }
+                    }
+                ],
+                "entries": [
+                    "You have learned how to summon a Strixhaven mascot to assist you, granting you these benefits:",
                     {
                         "type": "list",
                         "items": [
-                            "You gain proficiency in the {@skill Survival} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "You learn the {@spell alarm} spell. You can cast it once without expending a spell slot, and you regain the ability to do so when you finish a long rest."
+                            "You can cast the {@spell find familiar} spell as a ritual. Your familiar can take the form of the mascot associated with the college you chose for the Strixhaven Initiate feat: a {@creature spirit statue mascot|scc} (Lorehold), an {@creature art elemental mascot|scc} (Prismari), a {@creature fractal mascot|scc} (Quandrix), an {@creature inkling mascot|scc} (Silverquill), or a {@creature pest mascot|scc} (Witherbloom).",
+                            "When you take the {@action Attack} action on your turn, you can forgo one attack to allow your mascot familiar to make one attack of its own with its reaction.",
+                            "If your mascot familiar is within 60 feet of you, you can teleport as an action, swapping places with the familiar. If your destination space is too small for you to occupy, the teleportation fails and is wasted. Once you teleport in this way, you can't do so again until you finish a long rest, unless you expend a spell slot of 2nd level or higher to do it again."
                         ]
                     }
                 ]
@@ -5031,24 +12465,12 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Tandem Tactician",
-                "source": "UA2020Feats",
-                "page": 3,
-                "entries": [
-                    "Your presence in a scrap tends to elevate your comrades. You gain the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You can use the {@action Help} action as a bonus action.",
-                            "When you use the {@action Help} action to aid an ally in attacking a creature, increase the range of the {@action Help} action by 10 feet. Additionally, you can help two allies targeting the same creature within range when you use the {@action Help} action this way."
-                        ]
-                    }
-                ]
-            },
-            {
                 "name": "Tavern Brawler",
                 "source": "PHB",
                 "page": 170,
+                "reprintedAs": [
+                    "Tavern Brawler|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -5073,9 +12495,54 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Tavern Brawler",
+                "source": "XPHB",
+                "page": 202,
+                "category": "O",
+                "weaponProficiencies": [
+                    {
+                        "improvised": true
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Enhanced Unarmed Strike",
+                        "entries": [
+                            "When you hit with your {@variantrule Unarmed Strike|XPHB} and deal damage, you can deal Bludgeoning damage equal to {@damage 1d4} plus your Strength modifier instead of the normal damage of an {@variantrule Unarmed Strike|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Damage Rerolls",
+                        "entries": [
+                            "Whenever you roll a damage die for your {@variantrule Unarmed Strike|XPHB}, you can reroll the die if it rolls a 1, and you must use the new roll."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Improvised Weaponry",
+                        "entries": [
+                            "You have proficiency with improvised weapons."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Push",
+                        "entries": [
+                            "When you hit a creature with an {@variantrule Unarmed Strike|XPHB} as part of the {@action Attack|XPHB} action on your turn, you can deal damage to the target and also push it 5 feet away from you. You can use this benefit only once per turn."
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "Telekinetic",
                 "source": "TCE",
                 "page": 81,
+                "reprintedAs": [
+                    "Telekinetic|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -5091,9 +12558,9 @@ export default function getFeats() {
                 "additionalSpells": [
                     {
                         "ability": "inherit",
-                        "innate": {
-                            "1": [
-                                "mage hand"
+                        "known": {
+                            "_": [
+                                "mage hand#c"
                             ]
                         }
                     }
@@ -5104,18 +12571,19 @@ export default function getFeats() {
                         "type": "list",
                         "items": [
                             "You learn the {@spell mage hand} cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand {@condition invisible}. If you already know this spell, its range increases by 30 feet when you cast it. Its spellcasting ability is the ability increased by this feat.",
-                            "As a bonus action, you can try to telekinetically shove one creature you can see within 30 feet of you. When you do so, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or be moved 5 feet toward you or away from you. A creature can willingly fail this save."
+                            "As a bonus action, you can try to telekinetically shove one creature you can see within 30 feet of you. When you do so, the target must succeed on a Strength saving throw ({@dc 8} + your proficiency bonus + the ability modifier of the score increased by this feat) or be moved 5 feet toward you or away from you. A creature can willingly fail this save."
                         ]
                     }
                 ]
             },
             {
                 "name": "Telekinetic",
-                "source": "UA2020PsionicOptionsRevisited",
-                "page": 8,
+                "source": "XPHB",
+                "page": 208,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "psionics": true
+                        "level": 4
                     }
                 ],
                 "ability": [
@@ -5125,57 +12593,34 @@ export default function getFeats() {
                                 "int",
                                 "wis",
                                 "cha"
-                            ],
-                            "amount": 1
+                            ]
                         }
                     }
                 ],
                 "additionalSpells": [
                     {
                         "ability": "inherit",
-                        "innate": {
-                            "1": [
-                                "mage hand"
+                        "known": {
+                            "_": [
+                                "mage hand|xphb#c"
                             ]
                         }
                     }
                 ],
                 "entries": [
-                    "You learn to move things with your mind. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You learn the {@spell mage hand} cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand {@condition invisible}. If you already know this spell, its range increases by 30 feet when you cast it. Its spellcasting ability is the ability increased by this feat.",
-                            "As a bonus action, you can try to telekinetically shove one creature you can see within 30 feet of you. When you do so, roll your Psionic Talent die, and the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + the ability modifier of the score increased by this feat) or be moved toward you or away from you a number of feet equal to 5 times the number you rolled. A creature can willingly fail this save."
+                        "type": "entries",
+                        "name": "Minor Telekinesis",
+                        "entries": [
+                            "You learn the {@spell Mage Hand|XPHB} spell. You can cast it without Verbal or Somatic components, you can make the spectral hand {@condition Invisible|XPHB}, and its range and the distance it can be away from you both increase by 30 feet when you cast it. The spell's spellcasting ability is the ability increased by this feat."
                         ]
-                    }
-                ]
-            },
-            {
-                "name": "Telekinetic",
-                "source": "UAFighterRogueWizard",
-                "page": 8,
-                "ability": [
+                    },
                     {
-                        "int": 1
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "1": [
-                                "mage hand"
-                            ]
-                        }
-                    }
-                ],
-                "entries": [
-                    "You learn to move things with your mind. You gain the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You learn the {@spell mage hand} cantrip. You can cast it without verbal or somatic components, and you can make the spectral hand invisible.",
-                            "As a bonus action, you can try to shove one creature you can see within 5 feet of the spectral hand created by your {@spell mage hand} spell. When you do so, the target must succeed on a Strength saving throw (DC 8 + your proficiency bonus + your Intelligence modifier) or be pushed 5 feet away from you."
+                        "type": "entries",
+                        "name": "Telekinetic Shove",
+                        "entries": [
+                            "As a {@variantrule Bonus Action|XPHB}, you can telekinetically shove one creature you can see within 30 feet of yourself. When you do so, the target must succeed on a Strength saving throw ({@dc 8} plus the ability modifier of the score increased by this feat and your {@variantrule Proficiency|XPHB|Proficiency Bonus}) or be moved 5 feet toward or away from you."
                         ]
                     }
                 ]
@@ -5184,6 +12629,9 @@ export default function getFeats() {
                 "name": "Telepathic",
                 "source": "TCE",
                 "page": 81,
+                "reprintedAs": [
+                    "Telepathic|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -5219,15 +12667,17 @@ export default function getFeats() {
                             "You can cast the {@spell detect thoughts} spell, requiring no spell slot or components, and you must finish a long rest before you can cast it this way again. Your spellcasting ability for the spell is the ability increased by this feat. If you have spell slots of 2nd level or higher, you can cast this spell with them."
                         ]
                     }
-                ]
+                ],
+                "hasFluffImages": true
             },
             {
                 "name": "Telepathic",
-                "source": "UA2020PsionicOptionsRevisited",
-                "page": 8,
+                "source": "XPHB",
+                "page": 208,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "psionics": true
+                        "level": 4
                     }
                 ],
                 "ability": [
@@ -5237,8 +12687,7 @@ export default function getFeats() {
                                 "int",
                                 "wis",
                                 "cha"
-                            ],
-                            "amount": 1
+                            ]
                         }
                     }
                 ],
@@ -5249,7 +12698,7 @@ export default function getFeats() {
                             "_": {
                                 "daily": {
                                     "1": [
-                                        "detect thoughts"
+                                        "detect thoughts|xphb"
                                     ]
                                 }
                             }
@@ -5257,140 +12706,268 @@ export default function getFeats() {
                     }
                 ],
                 "entries": [
-                    "You awaken the ability to mentally connect with others. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You can speak telepathically to any creature you can see within 30 feet of you. Your telepathic utterances are in a language you know, and the creature understands you only if it knows that language. Your communication doesn't give the creature the ability to respond to you telepathically.",
-                            "If your Psionic Talent die is available, you can cast the {@spell detect thoughts} spell, requiring no components. When you start casting the spell, your Psionic Talent die decreases by one die size. Your spellcasting ability for the spell is the ability increased by this feat."
+                        "type": "entries",
+                        "name": "Telepathic Utterance",
+                        "entries": [
+                            "You can speak telepathically to any creature you can see within 60 feet of yourself. Your telepathic utterances are in a language you know, and the creature understands you only if it knows that language. Your communication doesn't give the creature the ability to respond to you telepathically."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Detect Thoughts",
+                        "entries": [
+                            "You always have the {@spell Detect Thoughts|XPHB} spell prepared. You can cast it without a spell slot or spell components, and you must finish a {@variantrule Long Rest|XPHB} before you can cast it in this way again. You can also cast it using spell slots you have of the appropriate level. Your spellcasting ability for the spell is the ability increased by this feat."
                         ]
                     }
                 ]
             },
             {
-                "name": "Telepathic",
-                "source": "UAFighterRogueWizard",
+                "name": "Thrown Weapon Fighting",
+                "source": "XPHB",
+                "page": 210,
+                "category": "FS",
+                "prerequisite": [
+                    {
+                        "feature": [
+                            "Fighting Style"
+                        ]
+                    }
+                ],
+                "entries": [
+                    "When you hit with a ranged attack roll using a weapon that has the {@itemProperty T|XPHB|Thrown} property, you gain a +2 bonus to the damage roll."
+                ]
+            },
+            {
+                "name": "Tireless Reveler",
+                "source": "ABH",
                 "page": 8,
-                "ability": [
-                    {
-                        "int": 1
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "choose": {
-                            "from": [
-                                "insight",
-                                "deception",
-                                "intimidation",
-                                "persuasion"
-                            ]
-                        }
-                    }
-                ],
+                "category": "O",
                 "entries": [
-                    "You awaken the ability to mentally connect with others. You gain the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in one skill of your choice from the following list: {@skill Deception}, {@skill Insight}, {@skill Intimidation}, or {@skill Persuasion}.",
-                            "You can communicate telepathically with any creature you can see within 30 feet of you. If it understands at least one language, it can respond to you telepathically."
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Theologian",
-                "source": "UAFeatsForSkills",
-                "page": 4,
-                "ability": [
-                    {
-                        "int": 1
-                    }
-                ],
-                "skillProficiencies": [
-                    {
-                        "religion": true
-                    }
-                ],
-                "additionalSpells": [
-                    {
-                        "innate": {
-                            "_": {
-                                "_": [
-                                    "thaumaturgy"
-                                ],
-                                "daily": {
-                                    "1": [
-                                        "detect evil and good"
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                ],
-                "entries": [
-                    "Your extensive study of religion rewards you with the following benefits:",
-                    {
-                        "type": "list",
-                        "items": [
-                            "You gain proficiency in the {@skill Religion} skill. If you are already proficient in the skill, you add double your proficiency bonus to checks you make with it.",
-                            "You learn the {@spell thaumaturgy} and {@spell detect evil and good} spells. You can cast {@spell detect evil and good} once without expending a spell slot, and you regain the ability to do so when you finish a long rest."
-                        ]
-                    }
+                    "When an ally you can see within 60 feet of yourself expends {@variantrule Heroic Inspiration|XPHB}, you can gain {@variantrule Heroic Inspiration|XPHB} if you lack it. You can use this benefit a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you regain all expended uses when you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
                 ]
             },
             {
                 "name": "Tough",
                 "source": "PHB",
                 "page": 170,
+                "reprintedAs": [
+                    "Tough|XPHB"
+                ],
                 "entries": [
                     "Your hit point maximum increases by an amount equal to twice your level when you gain this feat. Whenever you gain a level thereafter, your hit point maximum increases by an additional 2 hit points."
                 ]
             },
             {
-                "name": "Tower of Iron Will",
-                "source": "UA2020PsionicOptionsRevisited",
-                "page": 9,
-                "prerequisite": [
-                    {
-                        "psionics": true
-                    }
-                ],
+                "name": "Tough",
+                "source": "XPHB",
+                "page": 202,
+                "category": "O",
                 "entries": [
-                    "Your mind's defenses are formidable. After you or another creature you can see within 30 feet of you fails a saving throw, you can use your reaction to roll your Psionic Talent die and add the number rolled to the saving throw, potentially causing it to succeed."
+                    "Your {@variantrule Hit Points|XPHB|Hit Point} maximum increases by an amount equal to twice your character level when you gain this feat. Whenever you gain a character level thereafter, your {@variantrule Hit Points|XPHB|Hit Point} maximum increases by an additional 2 {@variantrule Hit Points|XPHB}."
                 ]
             },
             {
-                "name": "Tracker",
-                "source": "UA2020Feats",
-                "page": 3,
+                "name": "Treacherous Allure",
+                "source": "ABH",
+                "page": 10,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
                 "ability": [
                     {
-                        "wis": 1
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
                     }
                 ],
                 "additionalSpells": [
                     {
-                        "ability": "wis",
-                        "innate": {
-                            "_": {
-                                "daily": {
-                                    "1": [
-                                        "hunter's mark"
-                                    ]
-                                }
-                            }
+                        "prepared": {
+                            "_": [
+                                "charm person|xphb"
+                            ]
                         }
                     }
                 ],
                 "entries": [
-                    "You have spent time hunting creatures and honed your skills, gaining the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "You learn the {@spell hunter's mark} spell. You can cast it once without expending a spell slot, and you must finish a long rest before you can cast it in this way again. You can also cast the spell using any spell slots you have. Wisdom is your spellcasting ability for this spell.",
-                            "You have advantage on Wisdom ({@skill Survival}) checks to track creatures"
+                        "type": "entries",
+                        "name": "Enchanting Presence",
+                        "entries": [
+                            "You always have the {@spell Charm Person|XPHB} spell prepared. You can cast it without a spell slot, and you must finish a {@variantrule Long Rest|XPHB} before you can cast it in this way again. You can also cast it using spell slots you have of the appropriate level. Your spellcasting ability for the spell is the ability increased by this feat."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Inevitable Betrayal",
+                        "entries": [
+                            "You have {@variantrule Advantage|XPHB} on attack rolls against creatures with the {@condition Charmed|XPHB} condition."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Two-Weapon Fighting",
+                "source": "XPHB",
+                "page": 210,
+                "srd52": true,
+                "basicRules2024": true,
+                "category": "FS",
+                "prerequisite": [
+                    {
+                        "feature": [
+                            "Fighting Style"
+                        ]
+                    }
+                ],
+                "entries": [
+                    "When you make an extra attack as a result of using a weapon that has the {@itemProperty L|XPHB|Light} property, you can add your ability modifier to the damage of that attack if you aren't already adding it to the damage."
+                ],
+                "hasFluffImages": true
+            },
+            {
+                "name": "Tyro of the Gauntlet",
+                "source": "FRHoF",
+                "page": 38,
+                "category": "O",
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Stand as One",
+                        "entries": [
+                            "When an ally within 5 feet of you is subjected to an effect that would push or pull it, you can take a {@variantrule Reaction|XPHB} to prevent that ally from being pushed or pulled. To receive this benefit, the ally can't have the {@condition Incapacitated|XPHB} condition."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Vigilant",
+                        "entries": [
+                            "When you take the {@action Ready|XPHB} action, the next attack roll made against you has {@variantrule Disadvantage|XPHB} before the start of your next turn."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Unarmed Fighting",
+                "source": "XPHB",
+                "page": 210,
+                "category": "FS",
+                "prerequisite": [
+                    {
+                        "feature": [
+                            "Fighting Style"
+                        ]
+                    }
+                ],
+                "entries": [
+                    "When you hit with your {@variantrule Unarmed Strike|XPHB} and deal damage, you can deal Bludgeoning damage equal to {@damage 1d6} plus your Strength modifier instead of the normal damage of an {@variantrule Unarmed Strike|XPHB}. If you aren't holding any weapons or a {@item Shield|XPHB} when you make the attack roll, the {@dice d6} becomes a {@dice d8}.",
+                    "At the start of each of your turns, you can deal {@damage 1d4} Bludgeoning damage to one creature {@condition Grappled|XPHB} by you."
+                ]
+            },
+            {
+                "name": "Vampire Hunter",
+                "source": "ABH",
+                "page": 8,
+                "category": "O",
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Adroit Escape",
+                        "entries": [
+                            "You have {@variantrule Advantage|XPHB} on checks to escape from nonmagical restraints or the {@condition Grappled|XPHB} condition."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Vitality Ward",
+                        "entries": [
+                            "When you take Necrotic damage, you can take a {@variantrule Reaction|XPHB} to mitigate the damage. Roll a number of d6s equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and add them together. Reduce the Necrotic damage you take by this total. Once you use this benefit, you can't use it again until you finish a {@variantrule Short Rest|XPHB|Short} or {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Vampire Touched",
+                "source": "ABH",
+                "page": 10,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "additionalSpells": [
+                    {
+                        "prepared": {
+                            "_": [
+                                "spider climb|xphb",
+                                {
+                                    "choose": "level=1|school=E;I"
+                                }
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Vampire Magic",
+                        "entries": [
+                            "Choose one level 1 spell from the Enchantment or Illusion school of magic. You always have that spell and the {@spell Spider Climb|XPHB} spell prepared. You can cast each of these spells without expending a spell slot, but when you cast {@spell Spider Climb|XPHB} this way, you must target yourself, and you must finish a {@variantrule Long Rest|XPHB} before you can cast each spell in this way again. You can also cast either spell using spell slots you have of the appropriate level. Your spellcasting ability for the spells is the ability increased by this feat."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Vampire's Plaything",
+                "source": "ABH",
+                "page": 9,
+                "category": "O",
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Decanting",
+                        "entries": [
+                            "When you finish a {@variantrule Long Rest|XPHB}, you can create one {@item Potion of Healing|XDMG} or an {@item Antitoxin|XPHB}, as long as you have an empty {@item vial|XPHB} or {@item flask|XPHB}. These liquids evaporate when you finish another {@variantrule Long Rest|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Timely Retreat",
+                        "entries": [
+                            "You can take a {@variantrule Bonus Action|XPHB} to take the {@action Dash|XPHB} action or the {@action Disengage|XPHB} action. You can use this benefit a number of times equal to your {@variantrule Proficiency|XPHB|Proficiency Bonus}, and you recover all expended uses when you finish a {@variantrule Long Rest|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Vampiric Connection",
+                        "entries": [
+                            "The DM determines the fate of your former vampire master. While you and your former vampire master are on the same plane of existence, the vampire can communicate with you telepathically, and you can choose to allow the vampire to perceive through your senses."
                         ]
                     }
                 ]
@@ -5413,9 +12990,60 @@ export default function getFeats() {
                 ]
             },
             {
+                "name": "Vigor of the Hill Giant",
+                "source": "BGG",
+                "page": 19,
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "strike of the giants|BGG|strike of the giants (hill strike)"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "str",
+                                "con",
+                                "wis"
+                            ],
+                            "amount": 1
+                        }
+                    }
+                ],
+                "entries": [
+                    "You've manifested the resilience emblematic of hill giants, granting you the following benefits:",
+                    {
+                        "type": "list",
+                        "style": "list-hang-notitle",
+                        "items": [
+                            {
+                                "type": "item",
+                                "name": "Bulwark",
+                                "entries": [
+                                    "When you are subjected to an effect that would move you at least 5 feet or give you the prone condition, you can use your reaction to steady yourself. You aren't moved and don't have the prone condition."
+                                ]
+                            },
+                            {
+                                "type": "item",
+                                "name": "Iron Stomach",
+                                "entries": [
+                                    "Whenever you eat food as part of a short rest and spend one or more Hit Dice to regain hit points, you regain additional hit points equal to your Constitution modifier + your proficiency bonus."
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
                 "name": "War Caster",
                 "source": "PHB",
                 "page": 170,
+                "reprintedAs": [
+                    "War Caster|XPHB"
+                ],
                 "prerequisite": [
                     {
                         "spellcasting": true
@@ -5426,7 +13054,7 @@ export default function getFeats() {
                     {
                         "type": "list",
                         "items": [
-                            "You have advantage on Constitution saving throws that you make to maintain your concentration on a spell when you take damage.",
+                            "You have advantage on Constitution saving throws that you make to maintain your {@status concentration} on a spell when you take damage.",
                             "You can perform the somatic components of spells even when you have weapons or a {@item shield|phb} in one or both hands.",
                             "When a hostile creature's movement provokes an opportunity attack from you, you can use your reaction to cast a spell at the creature, rather than making an opportunity attack. The spell must have a casting time of 1 action and must target only that creature."
                         ]
@@ -5434,19 +13062,59 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Warhammer Master",
-                "source": "UAFeats",
-                "page": 2,
+                "name": "War Caster",
+                "source": "XPHB",
+                "page": 209,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "spellcasting2020": true
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "int",
+                                "wis",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
                 "entries": [
-                    "{@note This feat is presented as an illustrative example of a poorly-designed feat, and is not intended to be used in play. The {@feat Fell Handed|UAFeats} feat is presented as a well-designed implementation of the same ideas, and should be used instead.}",
-                    "When you hit a creature with a {@item warhammer|phb}, the  creature must succeed on a Strength saving  throw (DC 8 + your proficiency bonus + your  Strength modifier) or be knocked {@condition prone}.",
-                    "In addition, you can use your warhammer to  knock away a foe's shield. If you hit a creature  that's using a shield, you can have the attack deal  no damage and force the creature to drop its  shield."
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Concentration",
+                        "entries": [
+                            "You have {@variantrule Advantage|XPHB} on Constitution saving throws that you make to maintain {@status Concentration|XPHB}."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Reactive Spell",
+                        "entries": [
+                            "When a creature provokes an {@action Opportunity Attack|XPHB} from you by leaving your reach, you can take a {@variantrule Reaction|XPHB} to cast a spell at the creature rather than making an {@action Opportunity Attack|XPHB}. The spell must have a casting time of one action and must target only that creature."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Somatic Components",
+                        "entries": [
+                            "You can perform the Somatic components of spells even when you have weapons or a {@item Shield|XPHB} in one or both hands."
+                        ]
+                    }
                 ]
             },
             {
                 "name": "Weapon Master",
                 "source": "PHB",
                 "page": 170,
+                "reprintedAs": [
+                    "Martial Weapon Training|XPHB"
+                ],
                 "ability": [
                     {
                         "choose": {
@@ -5461,7 +13129,7 @@ export default function getFeats() {
                 "weaponProficiencies": [
                     {
                         "choose": {
-                            "from": "type=martial weapon;mundane weapon|miscellaneous=mundane",
+                            "fromFilter": "type=martial weapon;mundane weapon|miscellaneous=mundane",
                             "count": 4
                         }
                     }
@@ -5477,172 +13145,36 @@ export default function getFeats() {
                 ]
             },
             {
-                "name": "Wild Talent",
-                "source": "UA2020PsionicOptionsRevisited",
-                "page": 9,
-                "ability": [
-                    {
-                        "choose": {
-                            "from": [
-                                "str",
-                                "dex",
-                                "con",
-                                "int",
-                                "wis",
-                                "cha"
-                            ],
-                            "amount": 1
-                        },
-                        "hidden": true
-                    }
-                ],
-                "entries": [
-                    "You awaken to your psionic potential, which enhances your mind or body. Increase one ability score of your choice by 1, to a maximum of 20, to represent this enhancement.",
-                    "You also harbor a wellspring of psionic power within yourself, an energy that ebbs and flows as you channel it in various ways. This power is represented by your Psionic Talent die, the starting size of which is a {@dice d6}.",
-                    {
-                        "type": "entries",
-                        "name": "Psionic Talent Options",
-                        "entries": [
-                            "You can use your Psionic Talent die in the following ways:",
-                            {
-                                "type": "list",
-                                "style": "list-hang-notitle",
-                                "items": [
-                                    {
-                                        "type": "item",
-                                        "name": "Psi-Boosted Ability.",
-                                        "entry": "When you make an ability check with the ability increased by this feat, you can roll your Psionic Talent die and add the number rolled to the check. You can choose to do so before or after rolling the {@dice d20}, but before you know whether the check succeeded or failed."
-                                    },
-                                    {
-                                        "type": "item",
-                                        "name": "Psi-Guided Strike.",
-                                        "entry": "Once on each of your turns when you hit with an attack roll that uses the ability increased by this feat, you can roll your Psionic Talent die after you make the damage roll and then replace one of the damage dice with the number rolled on the Psionic Talent die."
-                                    }
-                                ]
-                            }
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Changing the Die's Size",
-                        "entries": [
-                            "If you roll the highest number on your Psionic Talent die, it decreases by one die size after the roll. This represents you burning through your psionic energy. For example, if the die is a {@dice d6} and you roll a 6, it becomes a {@dice d4}. If it's a {@dice d4} and you roll a 4, it becomes unusable until you finish a long rest.",
-                            "Conversely, if you roll a 1 on your Psionic Talent die, it increases by one die size after the roll, up to its starting size. This represents you conserving psionic energy for later use. For example, if you roll a 1 on a {@dice d4}, the die then becomes a {@dice d6}.",
-                            "Whenever you finish a long rest, your Psionic Talent die resets to its starting size. When you reach certain levels, the starting size of your Psionic Talent die increases: at 5th level ({@dice d8}), 11th level ({@dice d10}), and 17th level ({@dice d12}). If you have a Psionic Talent die from another source, such as a class feature, you don't get more than one die; use only the one with the largest starting size."
-                        ]
-                    },
-                    {
-                        "type": "entries",
-                        "name": "Psi Replenishment",
-                        "entries": [
-                            "As a bonus action, you can calm your mind for a moment and restore your Psionic Talent die to its starting size. You then can't use Psi Replenishment again until you finish a long rest."
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Wonder Maker",
-                "source": "UAFeatsForRaces",
-                "page": 4,
+                "name": "Weapon Master",
+                "source": "XPHB",
+                "page": 209,
+                "category": "G",
                 "prerequisite": [
                     {
-                        "race": [
-                            {
-                                "name": "gnome",
-                                "subrace": "rock"
-                            }
-                        ]
+                        "level": 4
                     }
                 ],
                 "ability": [
                     {
                         "choose": {
                             "from": [
-                                "dex",
-                                "int"
-                            ],
-                            "amount": 1
+                                "str",
+                                "dex"
+                            ]
                         }
                     }
                 ],
                 "entries": [
-                    "You master the tinker techniques of your people. You gain the following benefits:",
+                    "You gain the following benefits.",
                     {
-                        "type": "list",
-                        "items": [
-                            "When you make a check using your proficiency with {@item tinker's tools|phb}, you add double your proficiency bonus to the check.",
-                            "When you make a device with your Tinker trait, you have the following additional options for what you make:",
-                            {
-                                "type": "entries",
-                                "name": "Alarm",
-                                "entries": [
-                                    "This device senses when a creature moves to within 15 feet of it without speaking aloud a password chosen when you create it. One round after a creature moves into range, the alarm makes a shrill ringing that lasts for 1 minute and can be heard from up to 300 feet away."
-                                ]
-                            },
-                            {
-                                "type": "entries",
-                                "name": "Calculator",
-                                "entries": [
-                                    "This device makes doing sums easy."
-                                ]
-                            },
-                            {
-                                "type": "entries",
-                                "name": "Lifter",
-                                "entries": [
-                                    "This device can be used as a block and tackle, allowing its user to hoist five times the weight the user can normally lift."
-                                ]
-                            },
-                            {
-                                "type": "entries",
-                                "name": "Timekeeper",
-                                "entries": [
-                                    "This pocket watch keeps accurate time."
-                                ]
-                            },
-                            {
-                                "type": "entries",
-                                "name": "Weather Sensor",
-                                "entries": [
-                                    "When used as an action, this device predicts weather conditions in a 1-mile radius over the next 4 hours, showing one symbol (clouds, sun/moon, rain, or snow) for each hour."
-                                ]
-                            }
-                        ]
-                    }
-                ]
-            },
-            {
-                "name": "Wood Elf Magic",
-                "source": "UAFeatsForRaces",
-                "page": 4,
-                "prerequisite": [
-                    {
-                        "race": [
-                            {
-                                "name": "elf",
-                                "subrace": "wood"
-                            }
+                        "type": "entries",
+                        "name": "Mastery Property",
+                        "entries": [
+                            "Your training with weapons allows you to use the mastery property of one kind of Simple or Martial weapon of your choice, provided you have proficiency with it. Whenever you finish a {@variantrule Long Rest|XPHB}, you can change the kind of weapon to another eligible kind."
                         ]
                     }
                 ],
-                "additionalSpells": [
-                    {
-                        "ability": "wis",
-                        "innate": {
-                            "_": {
-                                "daily": {
-                                    "1e": [
-                                        "longstrider",
-                                        "pass without trace"
-                                    ]
-                                }
-                            }
-                        }
-                    }
-                ],
-                "entries": [
-                    "You learn the magic of the primeval woods. You learn one druid cantrip of your choice. You also learn {@spell longstrider} and {@spell pass without trace}, each of which you can cast once without expending a spell slot. You regain the ability to cast the spell in this way when you finish a long rest. Wisdom is your spellcasting ability for these spells."
-                ]
+                "hasFluffImages": true
             },
             {
                 "name": "Wood Elf Magic",
@@ -5670,11 +13202,82 @@ export default function getFeats() {
                                     ]
                                 }
                             }
+                        },
+                        "known": {
+                            "_": [
+                                {
+                                    "choose": "level=0|class=Druid"
+                                }
+                            ]
                         }
                     }
                 ],
                 "entries": [
                     "You learn the magic of the primeval woods, which are revered and protected by your people. You learn one druid cantrip of your choice. You also learn the {@spell longstrider} and {@spell pass without trace} spells, each of which you can cast once without expending a spell slot. You regain the ability to cast these two spells in this way when you finish a long rest. Wisdom is your spellcasting ability for all three spells."
+                ]
+            },
+            {
+                "name": "Zhentarim Ruffian",
+                "source": "FRHoF",
+                "page": 38,
+                "category": "O",
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Exploit Opening",
+                        "entries": [
+                            "When you roll damage for an {@action Opportunity Attack|XPHB}, you can roll the damage dice twice and use either roll against the target."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Family First",
+                        "entries": [
+                            "If you have {@variantrule Heroic Inspiration|XPHB} when you roll {@variantrule Initiative|XPHB}, you can expend it to give yourself and your allies {@variantrule Advantage|XPHB} on that {@variantrule Initiative|XPHB} roll."
+                        ]
+                    }
+                ]
+            },
+            {
+                "name": "Zhentarim Tactics",
+                "source": "FRHoF",
+                "page": 41,
+                "category": "G",
+                "prerequisite": [
+                    {
+                        "level": 4,
+                        "feat": [
+                            "zhentarim ruffian|frhof"
+                        ]
+                    }
+                ],
+                "ability": [
+                    {
+                        "choose": {
+                            "from": [
+                                "dex",
+                                "cha"
+                            ]
+                        }
+                    }
+                ],
+                "entries": [
+                    "You gain the following benefits.",
+                    {
+                        "type": "entries",
+                        "name": "Retaliate",
+                        "entries": [
+                            "Immediately after a creature within 5 feet of you hits you with a melee attack, you can make an {@action Opportunity Attack|XPHB} against that creature."
+                        ]
+                    },
+                    {
+                        "type": "entries",
+                        "name": "Versatile Merc",
+                        "entries": [
+                            "When you finish a {@variantrule Long Rest|XPHB}, choose a skill in which you have proficiency. You have {@variantrule Expertise|XPHB} in that skill until you finish your next {@variantrule Long Rest|XPHB}."
+                        ]
+                    }
                 ]
             }
         ]

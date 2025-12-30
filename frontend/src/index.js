@@ -31,7 +31,8 @@ const SpellListWithProps = (props) => {
 };
 
 const FeatListWithProps = (props) => {
-    const valid_sources = ["PHB", "XGE", "TCE"];
+    // Only 2024 Player's Handbook is considered valid
+    const valid_sources = ["XPHB"];
     let feats = getFeats();
     let filteredFeats = feats.filter(feat => valid_sources.includes(feat.source));
     return (

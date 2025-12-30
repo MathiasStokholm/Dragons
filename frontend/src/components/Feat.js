@@ -66,43 +66,46 @@ class Feat extends React.Component {
         );
 
         function getPrerequisite() {
-            return feat.prerequisite.map(obj => Object.entries(obj).map(([key, value]) => {
+            return <td><ul>{feat.prerequisite.map(obj => Object.entries(obj).map(([key, value]) => {
                 if (key === "proficiency") {
                     // Weapon or armor proficiencies required
-                    return <td>{
+                    return <li>{
                         value.map(obj => Object.entries(obj).map(([type, what]) => `${type}: ${what}`))
                             .join(" or ")
-                    }</td>;
+                    }</li>;
                 } else if (key === "race") {
                     // Certain race or subrace required
-                    return <td>{
+                    return <li>{
                         "Race: " + value.map(obj => {
                             return obj["name"] + ("subrace" in obj ? ` (${obj["subrace"]})` : "")
                         }).join(" or ")
-                    }</td>;
+                    }</li>;
                 } else if (key === "ability") {
                     // Ability of certain level required
-                    return <td>{
+                    return <li>{
                         value.map(obj => Object.entries(obj).map(([type, what]) => `${type}: ${what}`))
                             .join(" or ")
-                    }</td>;
+                    }</li>;
                 } else if (key === "spellcasting" || key === "spellcasting2020") {
                     // Spellcasting ability required
-                    return <td>{"Spellcaster"}</td>;
+                    return <li>{"Spellcaster"}</li>;
+                } else if (key === "otherSummary") {
+                    // Special text
+                    return <li>{`${value.entrySummary}: ${value.entry}`}</li>;
                 }
-                return <td>{`+${value} ${key}`}</td>;
-            }));
+                return <li>{`${value} ${key}`}</li>;
+            }))}</ul></td>;
         }
 
         function getAbilityScore() {
-            return feat.ability.map(obj => Object.entries(obj).map(([key, value]) => {
-                if (key === "choose") {
+            return <td><ul>{feat.ability.map(obj => Object.entries(obj).map(([key, value]) => {
+                if (key === "choose" && "amount" in value) {
                     // User can choose between different scores here
-                    return <td>{`+${value["amount"]} ${(value["from"].join(" or "))}`}</td>;
+                    return <li>{`+${value["amount"]} ${(value["from"].join(" or "))}`}</li>;
                 }
                 // Regular single ability score improvement
-                return <td>{`+${value} ${key}`}</td>;
-            }));
+                return <li>{`+${value} ${key}`}</li>;
+            }))}</ul></td>;
         }
 
         return (

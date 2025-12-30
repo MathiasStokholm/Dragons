@@ -45,6 +45,12 @@ npm run build
 ```
 The output will be placed in the `build` directory.
 
+To run tests, call:
+
+```bash
+npm run test
+```
+
 
 #### License
 
